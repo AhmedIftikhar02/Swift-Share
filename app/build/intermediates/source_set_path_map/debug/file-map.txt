@@ -1,0 +1,72 @@
+com.example.swiftshare.app-resValues-0 C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\build\generated\res\resValues\debug
+com.example.swiftshare.app-packageDebugResources-1 C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.swiftshare.app-packageDebugResources-2 C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.swiftshare.app-merged_res-3 C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\build\intermediates\merged_res\debug
+com.example.swiftshare.app-debug-4 C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\debug\res
+com.example.swiftshare.app-main-5 C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\res
+com.example.swiftshare.app-navigation-ui-2.8.3-6 C:\Users\Umer\.gradle\caches\transforms-3\011eea083d2f571a875dbc53fd7c9a6f\transformed\navigation-ui-2.8.3\res
+com.example.swiftshare.app-tracing-1.2.0-7 C:\Users\Umer\.gradle\caches\transforms-3\0843e302fed1510381acf700ca1f7f65\transformed\tracing-1.2.0\res
+com.example.swiftshare.app-annotation-experimental-1.4.1-8 C:\Users\Umer\.gradle\caches\transforms-3\1aa4243a03e23bff50ca49f3543cb573\transformed\annotation-experimental-1.4.1\res
+com.example.swiftshare.app-hilt-navigation-1.2.0-9 C:\Users\Umer\.gradle\caches\transforms-3\21a68f821befba7a5671089b66f9d2eb\transformed\hilt-navigation-1.2.0\res
+com.example.swiftshare.app-datastore-core-release-10 C:\Users\Umer\.gradle\caches\transforms-3\254d52f754f5b22d6933475a220b2306\transformed\datastore-core-release\res
+com.example.swiftshare.app-cardview-1.0.0-11 C:\Users\Umer\.gradle\caches\transforms-3\2b5328b7909910ad5d02143c924ca073\transformed\cardview-1.0.0\res
+com.example.swiftshare.app-navigation-common-2.8.3-12 C:\Users\Umer\.gradle\caches\transforms-3\2b8952ece6238f6eb9a6ee25a0ee4873\transformed\navigation-common-2.8.3\res
+com.example.swiftshare.app-core-runtime-2.2.0-13 C:\Users\Umer\.gradle\caches\transforms-3\2bc280c47e0ff4116afdfeb8232e39db\transformed\core-runtime-2.2.0\res
+com.example.swiftshare.app-emoji2-views-helper-1.3.0-14 C:\Users\Umer\.gradle\caches\transforms-3\31f9dd0756ac4b5efd6d3809bab53227\transformed\emoji2-views-helper-1.3.0\res
+com.example.swiftshare.app-startup-runtime-1.1.1-15 C:\Users\Umer\.gradle\caches\transforms-3\342ee9277d5a8f26967e8ca1f91adc63\transformed\startup-runtime-1.1.1\res
+com.example.swiftshare.app-datastore-preferences-release-16 C:\Users\Umer\.gradle\caches\transforms-3\34dddb4ca473bb9eee0218fdd7ad0f04\transformed\datastore-preferences-release\res
+com.example.swiftshare.app-navigation-runtime-ktx-2.8.3-17 C:\Users\Umer\.gradle\caches\transforms-3\3b9265b51b119c9c18da3a89b6fa6d60\transformed\navigation-runtime-ktx-2.8.3\res
+com.example.swiftshare.app-constraintlayout-2.1.4-18 C:\Users\Umer\.gradle\caches\transforms-3\45ec2946ee90b16a1ed4bc2e2edc5173\transformed\constraintlayout-2.1.4\res
+com.example.swiftshare.app-navigation-ui-ktx-2.8.3-19 C:\Users\Umer\.gradle\caches\transforms-3\4c979ec55272097d1ff0c9b4f597be5b\transformed\navigation-ui-ktx-2.8.3\res
+com.example.swiftshare.app-camera-core-1.4.1-20 C:\Users\Umer\.gradle\caches\transforms-3\51a4ec0bb8481503208905a17816c790\transformed\camera-core-1.4.1\res
+com.example.swiftshare.app-window-1.0.0-21 C:\Users\Umer\.gradle\caches\transforms-3\52d6e533ada496ed56c00013c6f45857\transformed\window-1.0.0\res
+com.example.swiftshare.app-activity-1.9.3-22 C:\Users\Umer\.gradle\caches\transforms-3\5305ac2359081cd5705e118d4933f75a\transformed\activity-1.9.3\res
+com.example.swiftshare.app-datastore-release-23 C:\Users\Umer\.gradle\caches\transforms-3\54a1665ca75c16efd68a635c48bc61d6\transformed\datastore-release\res
+com.example.swiftshare.app-play-services-base-18.5.0-24 C:\Users\Umer\.gradle\caches\transforms-3\57c6732dfd4d704906277a075d49107b\transformed\play-services-base-18.5.0\res
+com.example.swiftshare.app-swiperefreshlayout-1.1.0-25 C:\Users\Umer\.gradle\caches\transforms-3\5b98383756bec52a6cfe75b90e5db461\transformed\swiperefreshlayout-1.1.0\res
+com.example.swiftshare.app-lifecycle-livedata-2.8.7-26 C:\Users\Umer\.gradle\caches\transforms-3\60942f52031d7aab9d2b448ee1a29c84\transformed\lifecycle-livedata-2.8.7\res
+com.example.swiftshare.app-transition-1.5.0-27 C:\Users\Umer\.gradle\caches\transforms-3\62bcd3e0b6e99e4806fddd193ad1e0e5\transformed\transition-1.5.0\res
+com.example.swiftshare.app-core-ktx-1.13.1-28 C:\Users\Umer\.gradle\caches\transforms-3\67e6ebdb729ead1738522e4a3bb3f4bc\transformed\core-ktx-1.13.1\res
+com.example.swiftshare.app-lifecycle-livedata-core-ktx-2.8.7-29 C:\Users\Umer\.gradle\caches\transforms-3\68c51f4e4d6561653e26ec8e85da75bf\transformed\lifecycle-livedata-core-ktx-2.8.7\res
+com.example.swiftshare.app-lifecycle-livedata-ktx-2.8.7-30 C:\Users\Umer\.gradle\caches\transforms-3\6b26760359a4d388e08ac06e1989bc94\transformed\lifecycle-livedata-ktx-2.8.7\res
+com.example.swiftshare.app-room-runtime-2.6.1-31 C:\Users\Umer\.gradle\caches\transforms-3\8198b6f03d760b4589cdf162780dcaee\transformed\room-runtime-2.6.1\res
+com.example.swiftshare.app-fragment-ktx-1.8.5-32 C:\Users\Umer\.gradle\caches\transforms-3\89462ec40d9184acf4c0d76403de0a8c\transformed\fragment-ktx-1.8.5\res
+com.example.swiftshare.app-lifecycle-viewmodel-release-33 C:\Users\Umer\.gradle\caches\transforms-3\8e7e28ef3b88c839961918dd038d661d\transformed\lifecycle-viewmodel-release\res
+com.example.swiftshare.app-camera-view-1.4.1-34 C:\Users\Umer\.gradle\caches\transforms-3\91d45670dce0fc112a1c046468a443e3\transformed\camera-view-1.4.1\res
+com.example.swiftshare.app-appcompat-1.7.0-35 C:\Users\Umer\.gradle\caches\transforms-3\91dddfbc60ecad7cb94085cdf4a7e2ed\transformed\appcompat-1.7.0\res
+com.example.swiftshare.app-coil-base-2.7.0-36 C:\Users\Umer\.gradle\caches\transforms-3\92276b9fdd9965743edad717170a71e3\transformed\coil-base-2.7.0\res
+com.example.swiftshare.app-lifecycle-viewmodel-savedstate-2.8.7-37 C:\Users\Umer\.gradle\caches\transforms-3\92c45529266b71b41556df4e876afd8e\transformed\lifecycle-viewmodel-savedstate-2.8.7\res
+com.example.swiftshare.app-navigation-fragment-2.8.3-38 C:\Users\Umer\.gradle\caches\transforms-3\944d4e6a7236c040432e8b363c0d052a\transformed\navigation-fragment-2.8.3\res
+com.example.swiftshare.app-play-services-basement-18.4.0-39 C:\Users\Umer\.gradle\caches\transforms-3\982dba73cbb293751d747d8b3d3d824d\transformed\play-services-basement-18.4.0\res
+com.example.swiftshare.app-navigation-common-ktx-2.8.3-40 C:\Users\Umer\.gradle\caches\transforms-3\990afc6fe9aecade0414c18af105eb9b\transformed\navigation-common-ktx-2.8.3\res
+com.example.swiftshare.app-core-1.13.1-41 C:\Users\Umer\.gradle\caches\transforms-3\9b2b0359baf675be82046909909ef055\transformed\core-1.13.1\res
+com.example.swiftshare.app-room-ktx-2.6.1-42 C:\Users\Umer\.gradle\caches\transforms-3\9c80aa3e10d279aa8019033de0d1aea0\transformed\room-ktx-2.6.1\res
+com.example.swiftshare.app-camera-camera2-1.4.1-43 C:\Users\Umer\.gradle\caches\transforms-3\9e1fa11a73cdee78a4e577f53f09c26d\transformed\camera-camera2-1.4.1\res
+com.example.swiftshare.app-recyclerview-1.3.2-44 C:\Users\Umer\.gradle\caches\transforms-3\a020d602ed0b6ccec3314452ccccb026\transformed\recyclerview-1.3.2\res
+com.example.swiftshare.app-lifecycle-process-2.8.7-45 C:\Users\Umer\.gradle\caches\transforms-3\a2691d64cf690933268264997e981d0e\transformed\lifecycle-process-2.8.7\res
+com.example.swiftshare.app-savedstate-1.2.1-46 C:\Users\Umer\.gradle\caches\transforms-3\a772d8a6f5434be09e1a54d2721edfab\transformed\savedstate-1.2.1\res
+com.example.swiftshare.app-lifecycle-livedata-core-2.8.7-47 C:\Users\Umer\.gradle\caches\transforms-3\a7beadc083bb24705f48ef55c1ee6588\transformed\lifecycle-livedata-core-2.8.7\res
+com.example.swiftshare.app-navigation-runtime-2.8.3-48 C:\Users\Umer\.gradle\caches\transforms-3\a8493f707e616320a412a84cbf616999\transformed\navigation-runtime-2.8.3\res
+com.example.swiftshare.app-fragment-1.8.5-49 C:\Users\Umer\.gradle\caches\transforms-3\a8aceafb3ef195603e5a4da577e749ee\transformed\fragment-1.8.5\res
+com.example.swiftshare.app-appcompat-resources-1.7.0-50 C:\Users\Umer\.gradle\caches\transforms-3\ae9b09992fdce1c83c3c5cd4fb90ab89\transformed\appcompat-resources-1.7.0\res
+com.example.swiftshare.app-customview-poolingcontainer-1.0.0-51 C:\Users\Umer\.gradle\caches\transforms-3\b55053cff714e7a153e46d123d13f4bd\transformed\customview-poolingcontainer-1.0.0\res
+com.example.swiftshare.app-coordinatorlayout-1.1.0-52 C:\Users\Umer\.gradle\caches\transforms-3\b6b62cd0c16f53a73e37af57cb14aa9b\transformed\coordinatorlayout-1.1.0\res
+com.example.swiftshare.app-drawerlayout-1.1.1-53 C:\Users\Umer\.gradle\caches\transforms-3\bb70ede9da051183ce6de9f09b1d31fa\transformed\drawerlayout-1.1.1\res
+com.example.swiftshare.app-navigation-fragment-ktx-2.8.3-54 C:\Users\Umer\.gradle\caches\transforms-3\bce2c9c61466b3a8fa6c1d7489ece2cf\transformed\navigation-fragment-ktx-2.8.3\res
+com.example.swiftshare.app-savedstate-ktx-1.2.1-55 C:\Users\Umer\.gradle\caches\transforms-3\be0d51eeee1589494801a71d159f38f4\transformed\savedstate-ktx-1.2.1\res
+com.example.swiftshare.app-camera-lifecycle-1.4.1-56 C:\Users\Umer\.gradle\caches\transforms-3\c95962123c1745f5d7cbd9122c2b222b\transformed\camera-lifecycle-1.4.1\res
+com.example.swiftshare.app-activity-ktx-1.9.3-57 C:\Users\Umer\.gradle\caches\transforms-3\ca7a20e461976d970624f82a1d8774aa\transformed\activity-ktx-1.9.3\res
+com.example.swiftshare.app-profileinstaller-1.3.1-58 C:\Users\Umer\.gradle\caches\transforms-3\ce224d320d976f4d500b663eff8f798e\transformed\profileinstaller-1.3.1\res
+com.example.swiftshare.app-camera-video-1.4.1-59 C:\Users\Umer\.gradle\caches\transforms-3\d2607787226f7d6956c0dab21c699e72\transformed\camera-video-1.4.1\res
+com.example.swiftshare.app-hilt-navigation-fragment-1.2.0-60 C:\Users\Umer\.gradle\caches\transforms-3\d5774ec917f36a3b858b248fc38bef86\transformed\hilt-navigation-fragment-1.2.0\res
+com.example.swiftshare.app-slidingpanelayout-1.2.0-61 C:\Users\Umer\.gradle\caches\transforms-3\d94b291a7dac95f80770b3c5eaebe19a\transformed\slidingpanelayout-1.2.0\res
+com.example.swiftshare.app-lifecycle-runtime-release-62 C:\Users\Umer\.gradle\caches\transforms-3\e1272b0e94eded0f6d34ffa185a7631c\transformed\lifecycle-runtime-release\res
+com.example.swiftshare.app-emoji2-1.3.0-63 C:\Users\Umer\.gradle\caches\transforms-3\e2a40e7762614723627915df0e664620\transformed\emoji2-1.3.0\res
+com.example.swiftshare.app-tracing-ktx-1.2.0-64 C:\Users\Umer\.gradle\caches\transforms-3\e93b8cc7f79b0c25933859897085f621\transformed\tracing-ktx-1.2.0\res
+com.example.swiftshare.app-lifecycle-runtime-ktx-release-65 C:\Users\Umer\.gradle\caches\transforms-3\ebd1d667593379371597ed375b32244c\transformed\lifecycle-runtime-ktx-release\res
+com.example.swiftshare.app-sqlite-2.4.0-66 C:\Users\Umer\.gradle\caches\transforms-3\f21918a2722f63ee8d1e8518a8a1d423\transformed\sqlite-2.4.0\res
+com.example.swiftshare.app-play-services-nearby-19.3.0-67 C:\Users\Umer\.gradle\caches\transforms-3\f2398f77bbd7ffabc7555f3ab31ba2c3\transformed\play-services-nearby-19.3.0\res
+com.example.swiftshare.app-lifecycle-viewmodel-ktx-2.8.7-68 C:\Users\Umer\.gradle\caches\transforms-3\f26dbd82b75357dff615369070a4cea8\transformed\lifecycle-viewmodel-ktx-2.8.7\res
+com.example.swiftshare.app-sqlite-framework-2.4.0-69 C:\Users\Umer\.gradle\caches\transforms-3\f51a8d932cc6e3ac19d625b115a9d161\transformed\sqlite-framework-2.4.0\res
+com.example.swiftshare.app-viewpager2-1.1.0-beta02-70 C:\Users\Umer\.gradle\caches\transforms-3\fac51326e8c3a2043369e7f780a0f852\transformed\viewpager2-1.1.0-beta02\res
+com.example.swiftshare.app-material-1.12.0-71 C:\Users\Umer\.gradle\caches\transforms-3\fc693e32b72d86fb8f7320ff6599d0f0\transformed\material-1.12.0\res

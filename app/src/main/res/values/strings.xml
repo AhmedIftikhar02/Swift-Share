@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Swift Share</string>
+
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_network">No internet connection. Please check your network.</string>
+    <string name="empty_generic">Nothing to show here yet.</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_ok">OK</string>
+    <string name="action_cancel">Cancel</string>
+
+    <!-- Home feature -->
+    <string name="home_title">Products</string>
+    <string name="home_empty">No products found.</string>
+    <string name="transfer_hub_connected_to">Connected to %s</string>
+    <string name="transfer_hub_select_files">Select Files to Send</string>
+    <string name="transfer_hub_disconnect">Disconnect</string>
+    <string name="queue_empty_summary">No files selected yet.</string>
+    <string name="queue_summary_format">%1$d files · %2$s</string>
+    <string name="queue_add_more">Add More</string>
+    <string name="queue_send">Send</string>
+    <string name="queue_remove_file">Remove file</string>
+
+    <string name="permissions_title">SwiftShare needs a few permissions</string>
+    <string name="permissions_description">To find and connect to nearby devices over Bluetooth and Wi-Fi Direct, SwiftShare needs the permissions below. Nothing is ever sent to the internet.</string>
+    <string name="permissions_all_granted">All set — you\'re ready to go.</string>
+    <string name="permissions_pending_count">%d permission(s) still needed</string>
+    <string name="permissions_continue">Continue</string>
+    <string name="permissions_open_settings">Open App Settings</string>
+    <string name="permissions_revoked_banner">
+    Required permissions have been turned off. Please grant them again to continue using nearby file sharing.
+</string>
+
+    <string name="permissions_fix_action">Grant Permissions</string>
+
+    <string name="discovery_scanning">Scanning for nearby devices…</string>
+    <string name="discovery_idle">Not scanning</string>
+    <string name="discovery_empty_title">No devices found nearby</string>
+    <string name="discovery_empty_subtitle">Make sure the other device has SwiftShare open and Bluetooth/Wi-Fi turned on.</string>
+    <string name="discovery_scan_again">Scan Again</string>
+    <string name="discovery_alternate_pairing">Alternate pairing</string>
+    <string name="discovery_pair_via_qr">Pair via QR code</string>
+    <string name="discovery_pair_via_pin">Pair via PIN</string>
+    <string name="device_status_available">Available</string>
+    <string name="device_status_busy">Busy</string>
+    <string name="device_status_connecting">Connecting…</string>
+    <string name="device_status_unavailable">Unavailable</string>
+    <string name="pairing_confirm_title">Confirm connection</string>
+    <string name="pairing_waiting_for_device">Waiting for device…</string>
+    <string name="pairing_codes_match">Make sure this code matches on both devices</string>
+    <string name="pairing_seconds_remaining">Expires in %ds</string>
+    <string name="pairing_accept">Accept</string>
+    <string name="pairing_reject">Reject</string>
+    <string name="pairing_tab_my_code">My Code</string>
+    <string name="pairing_tab_scan">Scan</string>
+    <string name="pairing_tab_my_pin">My PIN</string>
+    <string name="pairing_tab_enter_pin">Enter PIN</string>
+    <string name="pairing_code_expired">This code has expired</string>
+    <string name="pairing_regenerate">Generate New Code</string>
+    <string name="pairing_camera_denied">Camera permission is needed to scan a QR code. You can still pair using a PIN instead.</string>
+    <string name="pairing_camera_error">Couldn\'t start the camera. Try PIN pairing instead.</string>
+    <string name="pairing_enter_pin_hint">6-digit PIN</string>
+    <string name="pairing_connect">Connect</string>
+</resources>

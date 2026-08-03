@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/discoveryGraph"
+        android:title="Discovery"
+        android:icon="@drawable/bg_badge_pill" />
+    <item
+        android:id="@+id/historyGraph"
+        android:title="History"
+        android:icon="@drawable/bg_badge_pill" />
+    <item
+        android:id="@+id/settingsGraph"
+        android:title="Settings"
+        android:icon="@drawable/bg_badge_pill" />
+</menu>

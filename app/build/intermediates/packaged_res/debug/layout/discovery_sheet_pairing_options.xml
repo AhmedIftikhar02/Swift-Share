@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_16">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dp_12"
+        android:text="@string/discovery_alternate_pairing"
+        android:textAppearance="@style/TextAppearance.App.Headline" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/optionQr"
+        style="@style/Widget.App.Button.Outline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_8"
+        android:text="@string/discovery_pair_via_qr"
+        app:icon="@drawable/ic_qr_code" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/optionPin"
+        style="@style/Widget.App.Button.Outline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/discovery_pair_via_pin"
+        app:icon="@drawable/ic_pin" />
+
+</LinearLayout>

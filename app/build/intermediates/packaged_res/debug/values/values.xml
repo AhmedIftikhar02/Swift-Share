@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="brand_black">#000000</color>
+    <color name="brand_error">#B3261E</color>
+    <color name="brand_primary">#6750A4</color>
+    <color name="brand_primary_dark">#4F378A</color>
+    <color name="brand_secondary">#625B71</color>
+    <color name="brand_tertiary">#7D5260</color>
+    <color name="brand_white">#FFFFFF</color>
+    <color name="color_background">@color/brand_white</color>
+    <color name="color_card_bg">@color/brand_white</color>
+    <color name="color_disabled">@color/neutral_300</color>
+    <color name="color_disabled_text">@color/neutral_500</color>
+    <color name="color_divider">@color/neutral_200</color>
+    <color name="color_error">@color/brand_error</color>
+    <color name="color_hint">@color/neutral_500</color>
+    <color name="color_on_background">@color/neutral_900</color>
+    <color name="color_on_error">@color/brand_white</color>
+    <color name="color_on_primary">@color/brand_white</color>
+    <color name="color_on_secondary">@color/brand_white</color>
+    <color name="color_on_surface">@color/neutral_900</color>
+    <color name="color_on_surface_variant">@color/neutral_700</color>
+    <color name="color_outline">@color/neutral_300</color>
+    <color name="color_primary">@color/brand_primary</color>
+    <color name="color_secondary">@color/brand_secondary</color>
+    <color name="color_success">#00FF55</color>
+    <color name="color_surface">@color/brand_white</color>
+    <color name="color_surface_variant">@color/neutral_100</color>
+    <color name="color_text_secondary">#151515</color>
+    <color name="color_warning">#FFA200</color>
+    <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="info">#0288D1</color>
+    <color name="neutral_100">#F5F5F5</color>
+    <color name="neutral_200">#EEEEEE</color>
+    <color name="neutral_300">#E0E0E0</color>
+    <color name="neutral_400">#BDBDBD</color>
+    <color name="neutral_50">#FAFAFA</color>
+    <color name="neutral_500">#9E9E9E</color>
+    <color name="neutral_600">#757575</color>
+    <color name="neutral_700">#616161</color>
+    <color name="neutral_800">#424242</color>
+    <color name="neutral_900">#212121</color>
+    <color name="success">#2E7D32</color>
+    <color name="warning">#ED6C02</color>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_height_small">36dp</dimen>
+    <dimen name="corner_radius_full">999dp</dimen>
+    <dimen name="corner_radius_large">16dp</dimen>
+    <dimen name="corner_radius_medium">12dp</dimen>
+    <dimen name="corner_radius_small">8dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_12">12dp</dimen>
+    <dimen name="dp_14">14dp</dimen>
+    <dimen name="dp_16">16dp</dimen>
+    <dimen name="dp_18">18dp</dimen>
+    <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_22">22dp</dimen>
+    <dimen name="dp_24">24dp</dimen>
+    <dimen name="dp_26">26dp</dimen>
+    <dimen name="dp_28">28dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
+    <dimen name="dp_32">32dp</dimen>
+    <dimen name="dp_34">34dp</dimen>
+    <dimen name="dp_36">36dp</dimen>
+    <dimen name="dp_38">38dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_40">40dp</dimen>
+    <dimen name="dp_42">42dp</dimen>
+    <dimen name="dp_44">44dp</dimen>
+    <dimen name="dp_46">46dp</dimen>
+    <dimen name="dp_48">48dp</dimen>
+    <dimen name="dp_50">50dp</dimen>
+    <dimen name="dp_6">6dp</dimen>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="edittext_height">56dp</dimen>
+    <dimen name="elevation_large">8dp</dimen>
+    <dimen name="elevation_medium">4dp</dimen>
+    <dimen name="elevation_small">2dp</dimen>
+    <dimen name="icon_large">32dp</dimen>
+    <dimen name="icon_medium">24dp</dimen>
+    <dimen name="icon_small">16dp</dimen>
+    <dimen name="icon_xlarge">48dp</dimen>
+    <dimen name="stroke_width_medium">2dp</dimen>
+    <dimen name="stroke_width_thin">1dp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_body_large">16sp</dimen>
+    <dimen name="text_body_small">13sp</dimen>
+    <dimen name="text_caption">12sp</dimen>
+    <dimen name="text_display">34sp</dimen>
+    <dimen name="text_headline">28sp</dimen>
+    <dimen name="text_subtitle">18sp</dimen>
+    <dimen name="text_title">20sp</dimen>
+    <dimen name="text_title_large">24sp</dimen>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_ok">OK</string>
+    <string name="action_retry">Retry</string>
+    <string name="app_name">Swift Share</string>
+    <string name="device_status_available">Available</string>
+    <string name="device_status_busy">Busy</string>
+    <string name="device_status_connecting">Connecting…</string>
+    <string name="device_status_unavailable">Unavailable</string>
+    <string name="discovery_alternate_pairing">Alternate pairing</string>
+    <string name="discovery_empty_subtitle">Make sure the other device has SwiftShare open and Bluetooth/Wi-Fi turned on.</string>
+    <string name="discovery_empty_title">No devices found nearby</string>
+    <string name="discovery_idle">Not scanning</string>
+    <string name="discovery_pair_via_pin">Pair via PIN</string>
+    <string name="discovery_pair_via_qr">Pair via QR code</string>
+    <string name="discovery_scan_again">Scan Again</string>
+    <string name="discovery_scanning">Scanning for nearby devices…</string>
+    <string name="empty_generic">Nothing to show here yet.</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_network">No internet connection. Please check your network.</string>
+    <string name="home_empty">No products found.</string>
+    <string name="home_title">Products</string>
+    <string name="pairing_accept">Accept</string>
+    <string name="pairing_camera_denied">Camera permission is needed to scan a QR code. You can still pair using a PIN instead.</string>
+    <string name="pairing_camera_error">Couldn\'t start the camera. Try PIN pairing instead.</string>
+    <string name="pairing_code_expired">This code has expired</string>
+    <string name="pairing_codes_match">Make sure this code matches on both devices</string>
+    <string name="pairing_confirm_title">Confirm connection</string>
+    <string name="pairing_connect">Connect</string>
+    <string name="pairing_enter_pin_hint">6-digit PIN</string>
+    <string name="pairing_regenerate">Generate New Code</string>
+    <string name="pairing_reject">Reject</string>
+    <string name="pairing_seconds_remaining">Expires in %ds</string>
+    <string name="pairing_tab_enter_pin">Enter PIN</string>
+    <string name="pairing_tab_my_code">My Code</string>
+    <string name="pairing_tab_my_pin">My PIN</string>
+    <string name="pairing_tab_scan">Scan</string>
+    <string name="pairing_waiting_for_device">Waiting for device…</string>
+    <string name="permissions_all_granted">All set — you\'re ready to go.</string>
+    <string name="permissions_continue">Continue</string>
+    <string name="permissions_description">To find and connect to nearby devices over Bluetooth and Wi-Fi Direct, SwiftShare needs the permissions below. Nothing is ever sent to the internet.</string>
+    <string name="permissions_fix_action">Grant Permissions</string>
+    <string name="permissions_open_settings">Open App Settings</string>
+    <string name="permissions_pending_count">%d permission(s) still needed</string>
+    <string name="permissions_revoked_banner">
+    Required permissions have been turned off. Please grant them again to continue using nearby file sharing.
+</string>
+    <string name="permissions_title">SwiftShare needs a few permissions</string>
+    <string name="queue_add_more">Add More</string>
+    <string name="queue_empty_summary">No files selected yet.</string>
+    <string name="queue_remove_file">Remove file</string>
+    <string name="queue_send">Send</string>
+    <string name="queue_summary_format">%1$d files · %2$s</string>
+    <string name="transfer_hub_connected_to">Connected to %s</string>
+    <string name="transfer_hub_disconnect">Disconnect</string>
+    <string name="transfer_hub_select_files">Select Files to Send</string>
+    <style name="TextAppearance.App.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/color_on_surface_variant</item>
+    </style>
+    <style name="TextAppearance.App.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:textColor">@color/color_hint</item>
+    </style>
+    <style name="TextAppearance.App.Headline" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textSize">@dimen/text_headline</item>
+        <item name="android:textColor">@color/color_on_background</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextAppearance.App.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textColor">@color/color_on_background</item>
+    </style>
+    <style name="Theme.MyBoilerplate" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorOnPrimary">@color/color_on_primary</item>
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="colorOnSecondary">@color/color_on_secondary</item>
+
+        <item name="android:colorBackground">@color/color_background</item>
+        <item name="colorOnBackground">@color/color_on_background</item>
+
+        <item name="colorSurface">@color/color_surface</item>
+        <item name="colorOnSurface">@color/color_on_surface</item>
+        <item name="colorSurfaceVariant">@color/color_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/color_on_surface_variant</item>
+
+        <item name="colorOutline">@color/color_outline</item>
+        <item name="colorError">@color/color_error</item>
+        <item name="colorOnError">@color/color_on_error</item>
+
+        
+        <item name="android:statusBarColor">@color/color_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/color_background</item>
+
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:fitsSystemWindows" ns1:targetApi="21">false</item>
+    </style>
+    <style name="Theme.MyBoilerplate.Splash" parent="Theme.MyBoilerplate">
+        <item name="android:windowBackground">@color/color_background</item>
+    </style>
+    <style name="Widget.App.Button.Outline" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:background">@drawable/bg_button_outline</item>
+        <item name="android:textColor">@color/color_primary</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/text_body_large</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+    <style name="Widget.App.Button.Primary" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:textColor">@color/color_on_primary</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/text_body_large</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="cornerRadius">@dimen/corner_radius_full</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+    <style name="Widget.App.Button.Primary.Gradient" parent="Widget.App.Button.Primary">
+        <item name="android:background">@drawable/bg_button_primary_gradient</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+    <style name="Widget.App.Button.Secondary" parent="Widget.Material3.Button.TonalButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/text_body_large</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="cornerRadius">@dimen/corner_radius_full</item>
+    </style>
+    <style name="Widget.App.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/color_primary</item>
+        <item name="android:textSize">@dimen/text_body</item>
+    </style>
+    <style name="Widget.App.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/color_card_bg</item>
+        <item name="cardCornerRadius">@dimen/corner_radius_medium</item>
+        <item name="cardElevation">@dimen/elevation_small</item>
+        <item name="contentPadding">@dimen/dp_16</item>
+    </style>
+    <style name="Widget.App.EditText.Filled" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/bg_edittext_filled</item>
+        <item name="android:padding">@dimen/dp_16</item>
+        <item name="android:textSize">@dimen/text_body_large</item>
+        <item name="android:textColor">@color/color_on_surface</item>
+        <item name="android:textColorHint">@color/color_hint</item>
+        <item name="android:minHeight">@dimen/edittext_height</item>
+    </style>
+    <style name="Widget.App.EditText.Outline" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/bg_edittext_outline</item>
+        <item name="android:padding">@dimen/dp_16</item>
+        <item name="android:textSize">@dimen/text_body_large</item>
+        <item name="android:textColor">@color/color_on_surface</item>
+        <item name="android:textColorHint">@color/color_hint</item>
+        <item name="android:minHeight">@dimen/edittext_height</item>
+    </style>
+</resources>

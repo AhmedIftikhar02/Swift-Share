@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        Brand palette. These are the ONLY hardcoded hex values in the whole app.
+        Everything else (colors.xml semantic tokens, themes.xml) references these.
+        Change a brand color here -> it propagates everywhere automatically.
+    -->
+    <color name="brand_primary">#6750A4</color>
+    <color name="brand_primary_dark">#4F378A</color>
+    <color name="brand_secondary">#625B71</color>
+    <color name="brand_tertiary">#7D5260</color>
+    <color name="brand_error">#B3261E</color>
+
+    <color name="brand_white">#FFFFFF</color>
+    <color name="brand_black">#000000</color>
+
+    <!-- Neutral grays used for surfaces, borders, disabled states -->
+    <color name="neutral_50">#FAFAFA</color>
+    <color name="neutral_100">#F5F5F5</color>
+    <color name="neutral_200">#EEEEEE</color>
+    <color name="neutral_300">#E0E0E0</color>
+    <color name="neutral_400">#BDBDBD</color>
+    <color name="neutral_500">#9E9E9E</color>
+    <color name="neutral_600">#757575</color>
+    <color name="neutral_700">#616161</color>
+    <color name="neutral_800">#424242</color>
+    <color name="neutral_900">#212121</color>
+
+    <color name="success">#2E7D32</color>
+    <color name="warning">#ED6C02</color>
+    <color name="info">#0288D1</color>
+
+    <!--
+        Semantic tokens for LIGHT theme (this file lives in res/values, the default).
+        Layouts/styles should reference these names (e.g. @color/color_background),
+        never brand_* or neutral_* directly. That's what makes dark mode painless:
+        values-night/colors.xml below redefines the SAME names to different hexes.
+    -->
+    <color name="color_primary">@color/brand_primary</color>
+    <color name="color_on_primary">@color/brand_white</color>
+    <color name="color_secondary">@color/brand_secondary</color>
+    <color name="color_on_secondary">@color/brand_white</color>
+
+    <color name="color_background">@color/brand_white</color>
+    <color name="color_on_background">@color/neutral_900</color>
+
+    <color name="color_surface">@color/brand_white</color>
+    <color name="color_on_surface">@color/neutral_900</color>
+    <color name="color_surface_variant">@color/neutral_100</color>
+    <color name="color_on_surface_variant">@color/neutral_700</color>
+
+    <color name="color_outline">@color/neutral_300</color>
+    <color name="color_error">@color/brand_error</color>
+    <color name="color_on_error">@color/brand_white</color>
+
+    <color name="color_card_bg">@color/brand_white</color>
+    <color name="color_disabled">@color/neutral_300</color>
+    <color name="color_disabled_text">@color/neutral_500</color>
+    <color name="color_divider">@color/neutral_200</color>
+    <color name="color_hint">@color/neutral_500</color>
+    <color name="color_success">#00FF55</color>
+    <color name="color_warning">#FFA200</color>
+    <color name="color_text_secondary">#151515</color>
+
+
+</resources>

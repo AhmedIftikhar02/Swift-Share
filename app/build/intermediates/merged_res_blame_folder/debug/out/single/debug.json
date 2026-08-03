@@ -1,0 +1,234 @@
+[
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_common_layout_empty_state.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\common_layout_empty_state.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_discovery_item_device.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\discovery_item_device.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_ic_device_tablet.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\ic_device_tablet.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-mdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_pairing_dialog_confirmation.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\pairing_dialog_confirmation.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_ic_device_phone.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\ic_device_phone.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\navigation_nav_graph.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\navigation\\nav_graph.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_bg_card_outlined.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\bg_card_outlined.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_bg_button_primary.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\bg_button_primary.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_bg_edittext_outline.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\bg_edittext_outline.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_ic_qr_code.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\ic_qr_code.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_common_fragment_placeholder.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\common_fragment_placeholder.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-xxhdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_ic_empty_state.png.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\ic_empty_state.png"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_bg_badge_pill.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\bg_badge_pill.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_home_fragment.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\home_fragment.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-hdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_discovery_sheet_pairing_options.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\discovery_sheet_pairing_options.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_transfer_fragment_hub.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\transfer_fragment_hub.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_ic_favorite_border.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\ic_favorite_border.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-xxxhdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_bg_button_outline.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\bg_button_outline.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_transfer_fragment_queue.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\transfer_fragment_queue.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.swiftshare.app-merged_res-4:/navigation_nav_graph.xml.flat",
+        "source": "com.example.swiftshare.app-main-6:/navigation/nav_graph.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\xml_network_security_config.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\xml\\network_security_config.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_ic_star.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\ic_star.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_discovery_fragment_home.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\discovery_fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_home_item_product.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\home_item_product.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_bg_image_shadow.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\bg_image_shadow.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_bg_edittext_filled.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\bg_edittext_filled.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_ic_pin.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\ic_pin.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_transfer_item_queued_file.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\transfer_item_queued_file.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_bg_card.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\bg_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_home_product_details.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\home_product_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_permissions_fragment_rationale.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\permissions_fragment_rationale.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-xhdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_widget_state_layout.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\widget_state_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_pairing_fragment_pin.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\pairing_fragment_pin.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_shape_dot.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\shape_dot.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\drawable_bg_button_primary_gradient.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\drawable\\bg_button_primary_gradient.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\layout_pairing_fragment_qr.xml.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\pairing_fragment_qr.xml"
+    },
+    {
+        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-merged_res-4:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    }
+]

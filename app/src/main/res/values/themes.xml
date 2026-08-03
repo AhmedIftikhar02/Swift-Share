@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        HOW THE TWO-THEME SETUP WORKS:
+
+        1. This file (res/values/themes.xml) is the DEFAULT theme - used in light mode
+           and as the fallback.
+        2. res/values-night/themes.xml below defines a theme with the SAME NAME
+           ("Theme.MyBoilerplate") but pointing at *.NoActionBar (dark variant parent
+           is the same Material3 DayNight parent, so really the only difference
+           that matters is which colors.xml gets resolved - see colors.xml comments).
+        3. Because both files declare the same style name, Android picks whichever
+           one matches the active mode (day vs night) automatically. You do NOT
+           write two different style names and switch between them in code for
+           system-driven dark mode - same name, different value-qualified folder.
+        4. Material3 "DayNight" parent themes mean isLightTheme / isDarkTheme is handled
+           by the platform; you just supply correct colorPrimary/colorSurface etc.
+           per folder, which we do via @color/color_* tokens that are redefined in
+           values-night/colors.xml.
+
+        If you ALSO want an in-app manual toggle (independent of system setting),
+        that's not a 3rd themes.xml - it's calling
+        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES / MODE_NIGHT_NO / MODE_NIGHT_FOLLOW_SYSTEM)
+        at app startup, typically driven by a value saved in DataStore/SharedPrefs via
+        ThemeManager (see common/managers/ThemeManager.kt). The OS then loads whichever
+        of these two files matches, exactly as if the user changed system settings.
+    -->
+
+    <style name="Theme.MyBoilerplate" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorOnPrimary">@color/color_on_primary</item>
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="colorOnSecondary">@color/color_on_secondary</item>
+
+        <item name="android:colorBackground">@color/color_background</item>
+        <item name="colorOnBackground">@color/color_on_background</item>
+
+        <item name="colorSurface">@color/color_surface</item>
+        <item name="colorOnSurface">@color/color_on_surface</item>
+        <item name="colorSurfaceVariant">@color/color_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/color_on_surface_variant</item>
+
+        <item name="colorOutline">@color/color_outline</item>
+        <item name="colorError">@color/color_error</item>
+        <item name="colorOnError">@color/color_on_error</item>
+
+        <!-- Status bar / nav bar follow theme by default -->
+        <item name="android:statusBarColor">@color/color_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/color_background</item>
+
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:fitsSystemWindows" tools:targetApi="21">false</item>
+    </style>
+
+    <!-- Used briefly while the app cold-starts, before MainActivity inflates real content. -->
+    <style name="Theme.MyBoilerplate.Splash" parent="Theme.MyBoilerplate">
+        <item name="android:windowBackground">@color/color_background</item>
+    </style>
+
+</resources>

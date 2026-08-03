@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        DARK THEME color overrides.
+        Android automatically picks THIS file instead of values/colors.xml when:
+          - the device is in system dark mode, AND
+          - your theme's parent supports DayNight (ours does, Theme.Material3.*.DayNight... see themes.xml)
+        Every name below MUST exactly match a name in values/colors.xml or it won't override.
+    -->
+
+    <color name="color_primary">#D0BCFF</color>
+    <color name="color_on_primary">#381E72</color>
+    <color name="color_secondary">#CCC2DC</color>
+    <color name="color_on_secondary">#332D41</color>
+
+    <color name="color_background">#1C1B1F</color>
+    <color name="color_on_background">#E6E1E5</color>
+
+    <color name="color_surface">#211F26</color>
+    <color name="color_on_surface">#E6E1E5</color>
+    <color name="color_surface_variant">#2B2930</color>
+    <color name="color_on_surface_variant">#CAC4D0</color>
+
+    <color name="color_outline">#49454F</color>
+    <color name="color_error">#F2B8B5</color>
+    <color name="color_on_error">#601410</color>
+
+    <color name="color_card_bg">#2B2930</color>
+    <color name="color_disabled">#49454F</color>
+    <color name="color_disabled_text">#79747E</color>
+    <color name="color_divider">#3A383E</color>
+    <color name="color_hint">#938F99</color>
+    <color name="color_success">#00FF55</color>
+    <color name="color_warning">#FFA200</color>
+    <color name="color_text_secondary">#D6D6D6</color>
+
+</resources>

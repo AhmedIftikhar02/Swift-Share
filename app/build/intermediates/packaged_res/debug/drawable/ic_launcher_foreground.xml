@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    PLACEHOLDER launcher icon foreground - a simple circle. Replace this properly via
+    Android Studio: right-click res/ -> New -> Image Asset -> Launcher Icons (Adaptive and
+    Legacy), which generates all density-specific PNGs + this vector correctly with your
+    actual branding/logo. This file exists only so the boilerplate compiles out of the box.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,30 A24,24 0 1,0 54.1,30 Z" />
+</vector>

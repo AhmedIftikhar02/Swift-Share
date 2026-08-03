@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!--
+        cleartextTrafficPermitted="false" blocks plain HTTP everywhere by default - all
+        traffic must be HTTPS. This is good security practice and is required by Google
+        Play policy in most cases anyway (targetSdk 28+ defaults to this regardless, but
+        being explicit here makes the intent clear and lets you carve out exceptions safely
+        if you ever need to hit an internal HTTP-only dev server - see the commented
+        domain-config example below).
+    -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <!--
+    Example: if you need to allow plain HTTP for a LOCAL dev server during development only
+    (never ship this for a production domain):
+
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">10.0.2.2</domain>
+    </domain-config>
+    -->
+</network-security-config>

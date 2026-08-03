@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <!-- ============== FIRST-LAUNCH FLOW (PRD 4.1) ============== -->
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.swiftshare.presentation.splash.ui.SplashFragment"
+        android:label="Splash">
+        <action
+            android:id="@+id/action_splash_to_onboarding"
+            app:destination="@id/onboardingFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.example.swiftshare.presentation.onboarding.ui.OnboardingFragment"
+        android:label="Onboarding">
+        <action
+            android:id="@+id/action_onboarding_to_permissionRationale"
+            app:destination="@id/permissionRationaleFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/permissionRationaleFragment"
+        android:name="com.example.swiftshare.presentation.permissions.ui.PermissionRationaleFragment"
+        android:label="Permissions">
+        <action
+            android:id="@+id/action_permissionRationale_to_deviceNameSetup"
+            app:destination="@id/deviceNameSetupFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/deviceNameSetupFragment"
+        android:name="com.example.swiftshare.presentation.onboarding.ui.DeviceNameSetupFragment"
+        android:label="Device Name">
+        <action
+            android:id="@+id/action_deviceNameSetup_to_discoveryGraph"
+            app:destination="@id/discoveryGraph"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- ============== TAB 1: DISCOVERY (own back stack) ============== -->
+
+    <navigation
+        android:id="@+id/discoveryGraph"
+        app:startDestination="@id/discoveryFragment">
+
+        <fragment
+            android:id="@+id/discoveryFragment"
+            android:name="com.example.swiftshare.presentation.discovery.ui.DiscoveryFragment"
+            android:label="Discovery">
+            <action
+                android:id="@+id/action_discovery_to_connectionConfirmation"
+                app:destination="@id/connectionConfirmationDialog" />
+            <action
+                android:id="@+id/action_discovery_to_qrPairing"
+                app:destination="@id/qrPairingFragment" />
+            <action
+                android:id="@+id/action_discovery_to_pinPairing"
+                app:destination="@id/pinPairingFragment" />
+        </fragment>
+
+        <dialog
+            android:id="@+id/connectionConfirmationDialog"
+            android:name="com.example.swiftshare.presentation.pairing.ui.ConnectionConfirmationDialog"
+            android:label="Confirm Connection">
+            <argument
+                android:name="endpointId"
+                app:argType="string"
+                android:defaultValue="" />
+            <action
+                android:id="@+id/action_connectionConfirmation_to_transferHub"
+                app:destination="@id/transferHubFragment" />
+        </dialog>
+
+        <fragment
+            android:id="@+id/transferHubFragment"
+            android:name="com.example.swiftshare.presentation.transferhub.ui.TransferHubFragment"
+            android:label="Transfer Hub">
+            <argument
+                android:name="endpointId"
+                app:argType="string"
+                android:defaultValue="" />
+            <argument
+                android:name="deviceName"
+                app:argType="string"
+                android:defaultValue="" />
+            <action
+                android:id="@+id/action_transferHub_to_qrPairing"
+                app:destination="@id/qrPairingFragment" />
+            <action
+                android:id="@+id/action_transferHub_to_pinPairing"
+                app:destination="@id/pinPairingFragment" />
+            <action
+                android:id="@+id/action_transferHub_to_fileQueueReview"
+                app:destination="@id/fileQueueReviewFragment" />
+            <action
+                android:id="@+id/action_transferHub_to_activeTransferDetail"
+                app:destination="@id/activeTransferDetailFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/qrPairingFragment"
+            android:name="com.example.swiftshare.presentation.pairing.ui.QrPairingFragment"
+            android:label="Pair via QR">
+            <action
+                android:id="@+id/action_qrPairing_to_connectionConfirmation"
+                app:destination="@id/connectionConfirmationDialog" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/pinPairingFragment"
+            android:name="com.example.swiftshare.presentation.pairing.ui.PinPairingFragment"
+            android:label="Pair via PIN">
+            <action
+                android:id="@+id/action_pinPairing_to_connectionConfirmation"
+                app:destination="@id/connectionConfirmationDialog" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/fileQueueReviewFragment"
+            android:name="com.example.swiftshare.presentation.filequeue.ui.FileQueueReviewFragment"
+            android:label="Review Files">
+            <argument
+                android:name="endpointId"
+                app:argType="string"
+                android:defaultValue="" />
+            <action
+                android:id="@+id/action_fileQueueReview_to_activeTransferDetail"
+                app:destination="@id/activeTransferDetailFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/activeTransferDetailFragment"
+            android:name="com.example.swiftshare.presentation.activetransfer.ui.ActiveTransferDetailFragment"
+            android:label="Transferring">
+            <argument
+                android:name="sessionId"
+                app:argType="string"
+                android:defaultValue="" />
+            <deepLink app:uri="swiftshare://transfer/{sessionId}" />
+            <action
+                android:id="@+id/action_activeTransferDetail_to_completion"
+                app:destination="@id/completionFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/completionFragment"
+            android:name="com.example.swiftshare.presentation.completion.ui.CompletionFragment"
+            android:label="Complete">
+            <action
+                android:id="@+id/action_completion_to_discovery"
+                app:destination="@id/discoveryFragment"
+                app:popUpTo="@id/discoveryFragment"
+                app:popUpToInclusive="true" />
+            <action
+                android:id="@+id/action_completion_to_fileQueueReview"
+                app:destination="@id/fileQueueReviewFragment" />
+        </fragment>
+
+    </navigation>
+
+    <!-- ============== TAB 2: HISTORY (own back stack) ============== -->
+
+    <navigation
+        android:id="@+id/historyGraph"
+        app:startDestination="@id/transferHistoryFragment">
+
+        <fragment
+            android:id="@+id/transferHistoryFragment"
+            android:name="com.example.swiftshare.presentation.history.ui.TransferHistoryFragment"
+            android:label="History">
+            <action
+                android:id="@+id/action_transferHistory_to_historyDetail"
+                app:destination="@id/historyDetailFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/historyDetailFragment"
+            android:name="com.example.swiftshare.presentation.history.ui.HistoryDetailFragment"
+            android:label="Transfer Detail">
+            <argument
+                android:name="sessionId"
+                app:argType="string"
+                android:defaultValue="" />
+            <deepLink app:uri="swiftshare://history/{sessionId}" />
+            <action
+                android:id="@+id/action_historyDetail_to_activeTransferDetailRetry"
+                app:destination="@id/activeTransferDetailRetry" />
+        </fragment>
+
+        <!-- Same screen as discoveryGraph's activeTransferDetailFragment, reached via retry
+             from History instead — kept as a distinct destination id since a Fragment class
+             can be a destination in more than one graph (PRD 6.1 hierarchy). -->
+        <fragment
+            android:id="@+id/activeTransferDetailRetry"
+            android:name="com.example.swiftshare.presentation.activetransfer.ui.ActiveTransferDetailFragment"
+            android:label="Transferring">
+            <argument
+                android:name="sessionId"
+                app:argType="string"
+                android:defaultValue="" />
+        </fragment>
+
+    </navigation>
+
+    <!-- ============== TAB 3: SETTINGS (own back stack) ============== -->
+
+    <navigation
+        android:id="@+id/settingsGraph"
+        app:startDestination="@id/settingsFragment">
+
+        <fragment
+            android:id="@+id/settingsFragment"
+            android:name="com.example.swiftshare.presentation.settings.ui.SettingsFragment"
+            android:label="Settings">
+            <action
+                android:id="@+id/action_settings_to_appInformation"
+                app:destination="@id/appInformationFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/appInformationFragment"
+            android:name="com.example.swiftshare.presentation.settings.ui.AppInformationFragment"
+            android:label="About" />
+
+    </navigation>
+
+</navigation>

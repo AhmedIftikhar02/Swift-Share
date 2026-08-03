@@ -1,0 +1,22 @@
+package com.example.swiftshare.data.qr
+
+import android.graphics.Bitmap
+import android.graphics.Color
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.qrcode.QRCodeWriter
+import javax.inject.Inject
+
+/** Renders a QR bitmap for the "My Code" tab (PRD 2.4). */
+class QrCodeGenerator @Inject constructor() {
+    fun generate(content: String, sizePx: Int = 600): Bitmap {
+        val writer = QRCodeWriter()
+        val matrix = writer.encode(content, BarcodeFormat.QR_CODE, sizePx, sizePx)
+        val bitmap = Bitmap.createBitmap(sizePx, sizePx, Bitmap.Config.RGB_565)
+        for (x in 0 until sizePx) {
+            for (y in 0 until sizePx) {
+                bitmap.setPixel(x, y, if (matrix[x, y]) Color.BLACK else Color.WHITE)
+            }
+        }
+        return bitmap
+    }
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Spacing/sizing scale, step of 2dp, from 2dp to 50dp. Use these instead of
+         hardcoding margins/padding/sizes anywhere in layouts. -->
+    <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_6">6dp</dimen>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_12">12dp</dimen>
+    <dimen name="dp_14">14dp</dimen>
+    <dimen name="dp_16">16dp</dimen>
+    <dimen name="dp_18">18dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_22">22dp</dimen>
+    <dimen name="dp_24">24dp</dimen>
+    <dimen name="dp_26">26dp</dimen>
+    <dimen name="dp_28">28dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
+    <dimen name="dp_32">32dp</dimen>
+    <dimen name="dp_34">34dp</dimen>
+    <dimen name="dp_36">36dp</dimen>
+    <dimen name="dp_38">38dp</dimen>
+    <dimen name="dp_40">40dp</dimen>
+    <dimen name="dp_42">42dp</dimen>
+    <dimen name="dp_44">44dp</dimen>
+    <dimen name="dp_46">46dp</dimen>
+    <dimen name="dp_48">48dp</dimen>
+    <dimen name="dp_50">50dp</dimen>
+
+    <!-- Common text sizes -->
+    <dimen name="text_caption">12sp</dimen>
+    <dimen name="text_body_small">13sp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_body_large">16sp</dimen>
+    <dimen name="text_subtitle">18sp</dimen>
+    <dimen name="text_title">20sp</dimen>
+    <dimen name="text_title_large">24sp</dimen>
+    <dimen name="text_headline">28sp</dimen>
+    <dimen name="text_display">34sp</dimen>
+
+    <!-- Common component sizes -->
+    <dimen name="icon_small">16dp</dimen>
+    <dimen name="icon_medium">24dp</dimen>
+    <dimen name="icon_large">32dp</dimen>
+    <dimen name="icon_xlarge">48dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_height_small">36dp</dimen>
+    <dimen name="edittext_height">56dp</dimen>
+    <dimen name="corner_radius_small">8dp</dimen>
+    <dimen name="corner_radius_medium">12dp</dimen>
+    <dimen name="corner_radius_large">16dp</dimen>
+    <dimen name="corner_radius_full">999dp</dimen>
+    <dimen name="elevation_small">2dp</dimen>
+    <dimen name="elevation_medium">4dp</dimen>
+    <dimen name="elevation_large">8dp</dimen>
+    <dimen name="stroke_width_thin">1dp</dimen>
+    <dimen name="stroke_width_medium">2dp</dimen>
+
+</resources>

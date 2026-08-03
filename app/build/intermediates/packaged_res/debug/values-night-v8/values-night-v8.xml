@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="color_background">#1C1B1F</color>
+    <color name="color_card_bg">#2B2930</color>
+    <color name="color_disabled">#49454F</color>
+    <color name="color_disabled_text">#79747E</color>
+    <color name="color_divider">#3A383E</color>
+    <color name="color_error">#F2B8B5</color>
+    <color name="color_hint">#938F99</color>
+    <color name="color_on_background">#E6E1E5</color>
+    <color name="color_on_error">#601410</color>
+    <color name="color_on_primary">#381E72</color>
+    <color name="color_on_secondary">#332D41</color>
+    <color name="color_on_surface">#E6E1E5</color>
+    <color name="color_on_surface_variant">#CAC4D0</color>
+    <color name="color_outline">#49454F</color>
+    <color name="color_primary">#D0BCFF</color>
+    <color name="color_secondary">#CCC2DC</color>
+    <color name="color_success">#00FF55</color>
+    <color name="color_surface">#211F26</color>
+    <color name="color_surface_variant">#2B2930</color>
+    <color name="color_text_secondary">#D6D6D6</color>
+    <color name="color_warning">#FFA200</color>
+    <style name="Theme.MyBoilerplate" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorOnPrimary">@color/color_on_primary</item>
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="colorOnSecondary">@color/color_on_secondary</item>
+
+        <item name="android:colorBackground">@color/color_background</item>
+        <item name="colorOnBackground">@color/color_on_background</item>
+
+        <item name="colorSurface">@color/color_surface</item>
+        <item name="colorOnSurface">@color/color_on_surface</item>
+        <item name="colorSurfaceVariant">@color/color_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/color_on_surface_variant</item>
+
+        <item name="colorOutline">@color/color_outline</item>
+        <item name="colorError">@color/color_error</item>
+        <item name="colorOnError">@color/color_on_error</item>
+
+        <item name="android:statusBarColor">@color/color_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/color_background</item>
+
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:fitsSystemWindows" ns1:targetApi="21">false</item>
+    </style>
+    <style name="Theme.MyBoilerplate.Splash" parent="Theme.MyBoilerplate">
+        <item name="android:windowBackground">@color/color_background</item>
+    </style>
+</resources>
