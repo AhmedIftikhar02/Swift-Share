@@ -19,12 +19,15 @@
         <item name="colorError">@color/color_error</item>
         <item name="colorOnError">@color/color_on_error</item>
 
-        <item name="android:statusBarColor">@color/color_background</item>
+        <item name="android:statusBarColor">@color/color_system_bars</item>
+        <item name="android:navigationBarColor">@color/color_system_bars</item>
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:navigationBarColor">@color/color_background</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
 
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:fitsSystemWindows" tools:targetApi="21">false</item>
+        <item name="android:enforceNavigationBarContrast" tools:targetApi="29">false</item>
+        <item name="android:enforceStatusBarContrast" tools:targetApi="29">false</item>
     </style>
 
     <style name="Theme.MyBoilerplate.Splash" parent="Theme.MyBoilerplate">

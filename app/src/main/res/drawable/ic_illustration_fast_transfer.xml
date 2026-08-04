@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="220dp"
+    android:height="220dp"
+    android:viewportWidth="220"
+    android:viewportHeight="220">
+    <path android:fillColor="@color/color_surface_variant"
+        android:pathData="M110,20 a80,80 0 1 0 0.1,0 Z" />
+    <path android:fillColor="@color/color_background"
+        android:pathData="M110,36 a64,64 0 1 0 0.1,0 Z" />
+    <!-- lightning bolt -->
+    <path android:fillColor="@color/color_secondary"
+        android:pathData="M120,50 L82,118 h26 l-10,52 l48,-78 h-28 Z" />
+    <!-- motion lines -->
+    <path android:fillColor="@color/color_primary" android:fillAlpha="0.7"
+        android:pathData="M24,90 h34 v10 h-34 Z" />
+    <path android:fillColor="@color/color_primary" android:fillAlpha="0.5"
+        android:pathData="M14,110 h30 v8 h-30 Z" />
+    <path android:fillColor="@color/color_primary" android:fillAlpha="0.35"
+        android:pathData="M20,128 h22 v6 h-22 Z" />
+</vector>

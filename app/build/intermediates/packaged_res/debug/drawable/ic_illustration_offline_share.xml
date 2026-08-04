@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="220dp"
+    android:height="220dp"
+    android:viewportWidth="220"
+    android:viewportHeight="220">
+    <!-- left phone -->
+    <path android:fillColor="@color/color_surface_variant"
+        android:pathData="M28,60 h44 a8,8 0 0 1 8,8 v84 a8,8 0 0 1 -8,8 h-44 a8,8 0 0 1 -8,-8 v-84 a8,8 0 0 1 8,-8 Z" />
+    <path android:fillColor="@color/color_background"
+        android:pathData="M26,74 h48 v76 h-48 Z" />
+    <!-- right phone -->
+    <path android:fillColor="@color/color_surface_variant"
+        android:pathData="M148,60 h44 a8,8 0 0 1 8,8 v84 a8,8 0 0 1 -8,8 h-44 a8,8 0 0 1 -8,-8 v-84 a8,8 0 0 1 8,-8 Z" />
+    <path android:fillColor="@color/color_background"
+        android:pathData="M146,74 h48 v76 h-48 Z" />
+    <!-- transferring file badge -->
+    <path android:fillColor="@color/color_primary"
+        android:pathData="M92,96 h36 a8,8 0 0 1 8,8 v20 a8,8 0 0 1 -8,8 h-36 a8,8 0 0 1 -8,-8 v-20 a8,8 0 0 1 8,-8 Z" />
+    <path android:fillColor="#FFFFFFFF"
+        android:pathData="M104,110 h6 v6 h6 l-9,9 l-9,-9 h6 Z" />
+    <!-- radiating waves -->
+    <path android:fillColor="@color/color_secondary" android:fillAlpha="0.55"
+        android:pathData="M60,105 a4,4 0 1 1 8,0 a4,4 0 1 1 -8,0 Z" />
+    <path android:fillColor="@color/color_secondary" android:fillAlpha="0.35"
+        android:pathData="M154,120 a4,4 0 1 1 8,0 a4,4 0 1 1 -8,0 Z" />
+</vector>

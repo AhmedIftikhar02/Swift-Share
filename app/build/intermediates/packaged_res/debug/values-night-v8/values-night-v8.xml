@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="http://schemas.android.com/tools">
-    <color name="color_background">#1C1B1F</color>
-    <color name="color_card_bg">#2B2930</color>
-    <color name="color_disabled">#49454F</color>
-    <color name="color_disabled_text">#79747E</color>
-    <color name="color_divider">#3A383E</color>
-    <color name="color_error">#F2B8B5</color>
-    <color name="color_hint">#938F99</color>
-    <color name="color_on_background">#E6E1E5</color>
-    <color name="color_on_error">#601410</color>
-    <color name="color_on_primary">#381E72</color>
-    <color name="color_on_secondary">#332D41</color>
-    <color name="color_on_surface">#E6E1E5</color>
-    <color name="color_on_surface_variant">#CAC4D0</color>
-    <color name="color_outline">#49454F</color>
-    <color name="color_primary">#D0BCFF</color>
-    <color name="color_secondary">#CCC2DC</color>
-    <color name="color_success">#00FF55</color>
-    <color name="color_surface">#211F26</color>
-    <color name="color_surface_variant">#2B2930</color>
-    <color name="color_text_secondary">#D6D6D6</color>
-    <color name="color_warning">#FFA200</color>
+    <color name="brand_black">#000000</color>
+    <color name="brand_error">#FF6B6B</color>
+    <color name="brand_primary">#3D7CFF</color>
+    <color name="brand_primary_dark">#2F6BFF</color>
+    <color name="brand_secondary">#00C88A</color>
+    <color name="brand_tertiary">#8B5CFF</color>
+    <color name="brand_white">#FFFFFF</color>
+    <color name="color_background">#000000</color>
+    <color name="color_card_bg">#17181C</color>
+    <color name="color_disabled">#232429</color>
+    <color name="color_disabled_text">#5C6070</color>
+    <color name="color_divider">#232429</color>
+    <color name="color_error">@color/brand_error</color>
+    <color name="color_hint">#767B8A</color>
+    <color name="color_on_background">#F2F3F5</color>
+    <color name="color_on_error">#0A0A0A</color>
+    <color name="color_on_primary">#FFFFFF</color>
+    <color name="color_on_secondary">#0A0A0A</color>
+    <color name="color_on_surface">#F2F3F5</color>
+    <color name="color_on_surface_variant">#B5B9C4</color>
+    <color name="color_on_tertiary">#FFFFFF</color>
+    <color name="color_outline">#2B2D33</color>
+    <color name="color_primary">@color/brand_primary</color>
+    <color name="color_secondary">@color/brand_secondary</color>
+    <color name="color_success">#22D68A</color>
+    <color name="color_surface">#000000</color>
+    <color name="color_surface_variant">#1C1D21</color>
+    <color name="color_system_bars">#00000000</color>
+    <color name="color_tertiary">@color/brand_tertiary</color>
+    <color name="color_text_secondary">#AEB2BF</color>
+    <color name="color_warning">#F3B75C</color>
+    <color name="gradient_blue_end">#7B9CFF</color>
+    <color name="gradient_blue_start">#3D7CFF</color>
+    <color name="gradient_green_end">#5CF0B4</color>
+    <color name="gradient_green_start">#00C88A</color>
+    <color name="gradient_purple_end">#BC9BFF</color>
+    <color name="gradient_purple_start">#8B5CFF</color>
     <style name="Theme.MyBoilerplate" parent="Theme.Material3.Dark.NoActionBar">
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorOnPrimary">@color/color_on_primary</item>
@@ -39,12 +55,15 @@
         <item name="colorError">@color/color_error</item>
         <item name="colorOnError">@color/color_on_error</item>
 
-        <item name="android:statusBarColor">@color/color_background</item>
+        <item name="android:statusBarColor">@color/color_system_bars</item>
+        <item name="android:navigationBarColor">@color/color_system_bars</item>
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:navigationBarColor">@color/color_background</item>
+        <item name="android:windowLightNavigationBar" ns1:targetApi="27">false</item>
 
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:fitsSystemWindows" ns1:targetApi="21">false</item>
+        <item name="android:enforceNavigationBarContrast" ns1:targetApi="29">false</item>
+        <item name="android:enforceStatusBarContrast" ns1:targetApi="29">false</item>
     </style>
     <style name="Theme.MyBoilerplate.Splash" parent="Theme.MyBoilerplate">
         <item name="android:windowBackground">@color/color_background</item>

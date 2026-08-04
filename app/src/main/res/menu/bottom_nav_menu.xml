@@ -2,14 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/discoveryGraph"
-        android:title="Discovery"
-        android:icon="@drawable/bg_badge_pill" />
+        android:icon="@drawable/ic_discover"
+        android:title="@string/nav_discovery"
+        />
     <item
         android:id="@+id/historyGraph"
-        android:title="History"
-        android:icon="@drawable/bg_badge_pill" />
+        android:icon="@drawable/ic_history"
+        android:title="@string/nav_history"
+        />
     <item
         android:id="@+id/settingsGraph"
-        android:title="Settings"
-        android:icon="@drawable/bg_badge_pill" />
+        android:icon="@drawable/ic_settings"
+        android:title="@string/nav_settings"
+        />
 </menu>

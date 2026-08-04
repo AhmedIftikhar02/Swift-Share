@@ -46,6 +46,8 @@
                 android:id="@+id/rvDevices"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layoutAnimation="@anim/layout_animation_fall_down"
+
                 android:clipToPadding="false"
                 android:paddingBottom="@dimen/dp_50"
                 tools:listitem="@layout/discovery_item_device" />

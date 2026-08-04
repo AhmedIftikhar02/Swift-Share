@@ -36,7 +36,7 @@ MERGED from [com.google.mlkit:common:18.11.0] C:\Users\Umer\.gradle\caches\trans
 MERGED from [androidx.appcompat:appcompat:1.7.0] C:\Users\Umer\.gradle\caches\transforms-3\91dddfbc60ecad7cb94085cdf4a7e2ed\transformed\appcompat-1.7.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.dagger:hilt-android:2.51.1] C:\Users\Umer\.gradle\caches\transforms-3\841c2a7efce02f3fb766c9295d9bacb2\transformed\hilt-android-2.51.1\AndroidManifest.xml:16:1-19:12
 MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\Umer\.gradle\caches\transforms-3\a020d602ed0b6ccec3314452ccccb026\transformed\recyclerview-1.3.2\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\Umer\.gradle\caches\transforms-3\fac51326e8c3a2043369e7f780a0f852\transformed\viewpager2-1.1.0-beta02\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.viewpager2:viewpager2:1.1.0] C:\Users\Umer\.gradle\caches\transforms-3\3968cde39b7ac3ae555235212beda148\transformed\viewpager2-1.1.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-nearby:19.3.0] C:\Users\Umer\.gradle\caches\transforms-3\f2398f77bbd7ffabc7555f3ab31ba2c3\transformed\play-services-nearby-19.3.0\AndroidManifest.xml:2:1-12:12
 MERGED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\Umer\.gradle\caches\transforms-3\57c6732dfd4d704906277a075d49107b\transformed\play-services-base-18.5.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.activity:activity:1.9.3] C:\Users\Umer\.gradle\caches\transforms-3\5305ac2359081cd5705e118d4933f75a\transformed\activity-1.9.3\AndroidManifest.xml:17:1-22:12
@@ -366,8 +366,8 @@ MERGED from [com.google.dagger:hilt-android:2.51.1] C:\Users\Umer\.gradle\caches
 MERGED from [com.google.dagger:hilt-android:2.51.1] C:\Users\Umer\.gradle\caches\transforms-3\841c2a7efce02f3fb766c9295d9bacb2\transformed\hilt-android-2.51.1\AndroidManifest.xml:18:3-42
 MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\Umer\.gradle\caches\transforms-3\a020d602ed0b6ccec3314452ccccb026\transformed\recyclerview-1.3.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\Umer\.gradle\caches\transforms-3\a020d602ed0b6ccec3314452ccccb026\transformed\recyclerview-1.3.2\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\Umer\.gradle\caches\transforms-3\fac51326e8c3a2043369e7f780a0f852\transformed\viewpager2-1.1.0-beta02\AndroidManifest.xml:5:5-44
-MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\Umer\.gradle\caches\transforms-3\fac51326e8c3a2043369e7f780a0f852\transformed\viewpager2-1.1.0-beta02\AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.1.0] C:\Users\Umer\.gradle\caches\transforms-3\3968cde39b7ac3ae555235212beda148\transformed\viewpager2-1.1.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.1.0] C:\Users\Umer\.gradle\caches\transforms-3\3968cde39b7ac3ae555235212beda148\transformed\viewpager2-1.1.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-nearby:19.3.0] C:\Users\Umer\.gradle\caches\transforms-3\f2398f77bbd7ffabc7555f3ab31ba2c3\transformed\play-services-nearby-19.3.0\AndroidManifest.xml:4:5-44
 MERGED from [com.google.android.gms:play-services-nearby:19.3.0] C:\Users\Umer\.gradle\caches\transforms-3\f2398f77bbd7ffabc7555f3ab31ba2c3\transformed\play-services-nearby-19.3.0\AndroidManifest.xml:4:5-44
 MERGED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\Umer\.gradle\caches\transforms-3\57c6732dfd4d704906277a075d49107b\transformed\play-services-base-18.5.0\AndroidManifest.xml:3:5-44

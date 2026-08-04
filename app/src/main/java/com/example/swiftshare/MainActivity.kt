@@ -1,10 +1,14 @@
 package com.example.swiftshare
 
 import android.os.Bundle
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
+import androidx.core.view.updatePadding
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.swiftshare.base.BaseActivity
+import com.example.swiftshare.common.extensions.applySystemBarInsetsAsPadding
 import com.example.swiftshare.databinding.ActivityMainBinding
 import com.example.swiftshare.domain.model.ConnectionEvent
 import com.example.swiftshare.domain.repository.NearbyRepository
@@ -25,6 +29,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     @Inject lateinit var nearbyRepository: NearbyRepository
 
     private val tabGraphIds = setOf(R.id.discoveryGraph, R.id.historyGraph, R.id.settingsGraph)
+    private var lastTopInset = 0
+    private var lastBottomInset = 0
 
     override fun setupViews() {
         val navHostFragment =
@@ -33,9 +39,27 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
         binding.bottomNav.setupWithNavController(navController)
 
+        binding.root.applySystemBarInsetsAsPadding(consumeTop = false, consumeBottom = false) { top, bottom ->
+            lastTopInset = top
+            lastBottomInset = bottom
+            applyInsets()
+        }
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val insideTabs = destination.parent?.id in tabGraphIds || destination.id in tabGraphIds
-            binding.bottomNav.visibility = if (insideTabs) android.view.View.VISIBLE else android.view.View.GONE
+            binding.bottomNav.isVisible = insideTabs
+            applyInsets()
+        }
+    }
+
+    private fun applyInsets() {
+        binding.navHostFragment.updatePadding(top = lastTopInset)
+        if (binding.bottomNav.isVisible) {
+            binding.bottomNav.updatePadding(bottom = lastBottomInset)
+            binding.navHostFragment.updatePadding(bottom = 0)
+        } else {
+            binding.bottomNav.updatePadding(bottom = 0)
+            binding.navHostFragment.updatePadding(bottom = lastBottomInset)
         }
     }
 

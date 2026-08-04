@@ -18,6 +18,7 @@ import com.example.swiftshare.presentation.history.ui.HistoryDetailFragment_Gene
 import com.example.swiftshare.presentation.history.ui.TransferHistoryFragment_GeneratedInjector;
 import com.example.swiftshare.presentation.onboarding.ui.DeviceNameSetupFragment_GeneratedInjector;
 import com.example.swiftshare.presentation.onboarding.ui.OnboardingFragment_GeneratedInjector;
+import com.example.swiftshare.presentation.onboarding.viewmodels.DeviceNameSetupViewModel_HiltModules;
 import com.example.swiftshare.presentation.pairing.ui.ConnectionConfirmationDialog_GeneratedInjector;
 import com.example.swiftshare.presentation.pairing.ui.PinPairingFragment_GeneratedInjector;
 import com.example.swiftshare.presentation.pairing.ui.QrPairingFragment_GeneratedInjector;
@@ -182,6 +183,7 @@ public final class MyApplication_HiltComponents {
           ActiveTransferDetailViewModel_HiltModules.KeyModule.class,
           CompletionViewModel_HiltModules.KeyModule.class,
           ConnectionConfirmationViewModel_HiltModules.KeyModule.class,
+          DeviceNameSetupViewModel_HiltModules.KeyModule.class,
           DiscoveryViewModel_HiltModules.KeyModule.class,
           FileQueueReviewViewModel_HiltModules.KeyModule.class,
           HiltWrapper_ActivityRetainedComponentManager_LifecycleModule.class,
@@ -231,6 +233,7 @@ public final class MyApplication_HiltComponents {
           ActiveTransferDetailViewModel_HiltModules.BindsModule.class,
           CompletionViewModel_HiltModules.BindsModule.class,
           ConnectionConfirmationViewModel_HiltModules.BindsModule.class,
+          DeviceNameSetupViewModel_HiltModules.BindsModule.class,
           DiscoveryViewModel_HiltModules.BindsModule.class,
           FileQueueReviewViewModel_HiltModules.BindsModule.class,
           HiltWrapper_HiltViewModelFactory_ViewModelModule.class,

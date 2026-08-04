@@ -8,4 +8,6 @@ import javax.inject.Inject
 @HiltViewModel
 class SplashViewModel @Inject constructor(
     private val settingsRepository: SettingsRepository
-) : BaseViewModel()
+) : BaseViewModel() {
+    suspend fun hasSeenOnboarding(): Boolean = settingsRepository.hasSeenOnboarding()
+}

@@ -12,6 +12,8 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:paddingBottom="@dimen/dp_16"
+        android:layoutAnimation="@anim/layout_animation_fall_down"
+
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

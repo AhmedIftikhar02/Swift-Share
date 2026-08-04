@@ -90,6 +90,29 @@
     <string name="completion_done">Done</string>
     <string name="completion_not_found">This transfer could no longer be found.</string>
 
+    <!-- Splash -->
+    <string name="splash_tagline">Share files, no internet needed</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_get_started">Get Started</string>
+    <string name="onboarding_title_1">Share files without the internet</string>
+    <string name="onboarding_desc_1">SwiftShare moves files device-to-device over Bluetooth and Wi-Fi — no data plan, no cloud, no waiting.</string>
+    <string name="onboarding_title_2">Blazing-fast transfers</string>
+    <string name="onboarding_desc_2">Send photos, videos, and documents at full local-network speed, straight from your files to theirs.</string>
+    <string name="onboarding_title_3">Private by design</string>
+    <string name="onboarding_desc_3">Nothing ever touches a server. Every transfer stays directly between your device and the one you choose.</string>
+
+    <string name="nav_discovery">Discovery</string>
+    <string name="nav_history">History</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Device Name Setup -->
+    <string name="device_name_title">What should nearby devices call you?</string>
+    <string name="device_name_subtitle">This name is shown to other devices during discovery and pairing. You can change it later in Settings.</string>
+    <string name="device_name_hint">Your display name</string>
+
     <!-- Shared -->
     <string name="common_dismiss">Dismiss</string>
 </resources>

@@ -45,17 +45,27 @@
     <dimen name="icon_medium">24dp</dimen>
     <dimen name="icon_large">32dp</dimen>
     <dimen name="icon_xlarge">48dp</dimen>
-    <dimen name="button_height">48dp</dimen>
     <dimen name="button_height_small">36dp</dimen>
-    <dimen name="edittext_height">56dp</dimen>
-    <dimen name="corner_radius_small">8dp</dimen>
-    <dimen name="corner_radius_medium">12dp</dimen>
-    <dimen name="corner_radius_large">16dp</dimen>
-    <dimen name="corner_radius_full">999dp</dimen>
-    <dimen name="elevation_small">2dp</dimen>
-    <dimen name="elevation_medium">4dp</dimen>
     <dimen name="elevation_large">8dp</dimen>
     <dimen name="stroke_width_thin">1dp</dimen>
     <dimen name="stroke_width_medium">2dp</dimen>
+
+
+
+    <!-- Corner radii -->
+    <dimen name="corner_radius_small">10dp</dimen>
+    <dimen name="corner_radius_medium">16dp</dimen>
+    <dimen name="corner_radius_large">24dp</dimen>
+    <dimen name="corner_radius_full">28dp</dimen>
+
+    <!-- Component sizes -->
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="edittext_height">56dp</dimen>
+
+    <!-- Elevation -->
+    <dimen name="elevation_small">2dp</dimen>
+    <dimen name="elevation_none">0dp</dimen>
+    <dimen name="elevation_medium">6dp</dimen>
+    <dimen name="illustration_size">220dp</dimen>
 
 </resources>
