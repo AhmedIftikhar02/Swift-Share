@@ -52,10 +52,8 @@ class ConnectionConfirmationViewModel @Inject constructor(
         this.endpointId = endpointId
         Log.d("ConfirmationVM", "Observing endpoint: $endpointId")
 
-        // Reset state
         _uiState.value = ConfirmationUiState(isLoading = true)
 
-        // Read the cached pending confirmation IMMEDIATELY
         viewModelScope.launch {
             try {
                 val pending = nearbyRepository.observePendingConfirmation(endpointId).first()
@@ -74,11 +72,9 @@ class ConnectionConfirmationViewModel @Inject constructor(
                 Log.e("ConfirmationVM", "Error reading pending confirmation", e)
             }
 
-            // If no cache, wait for live events
             Log.d("ConfirmationVM", "No cached pending confirmation found, waiting for live event")
         }
 
-        // Listen for live connection events
         viewModelScope.launch {
             nearbyRepository.observeConnectionEvents()
                 .filter { it is ConnectionEvent.ConnectionInitiated && it.endpointId == endpointId }
@@ -95,7 +91,6 @@ class ConnectionConfirmationViewModel @Inject constructor(
                 }
         }
 
-        // Listen for connection result/disconnect
         viewModelScope.launch {
             nearbyRepository.observeConnectionEvents().collect { event ->
                 when {

@@ -19,8 +19,6 @@ class PermissionRationaleFragment :
 
     private val viewModel: PermissionRationaleViewModel by viewModels()
 
-    /** True once at least one requested permission was denied AND the system says it
-     *  won't show the rationale dialog again — i.e. "permanently denied" (PRD 12, "If Denied"). */
     private var permanentlyDenied = false
 
     private val permissionLauncher = registerForActivityResult(
@@ -60,10 +58,6 @@ class PermissionRationaleFragment :
                 getString(R.string.permissions_pending_count, state.pending.size)
             }
             binding.btnOpenSettings.visibility = if (permanentlyDenied) View.VISIBLE else View.GONE
-
-            // Auto-advance once everything required is granted — covers both "granted via
-            // the dialog just now" and "already granted on screen entry" (e.g. re-visiting
-            // this screen from the MainActivity revocation banner, Section 2.3).
             if (state.allGranted) {
                 findNavController().navigate(R.id.action_permissionRationale_to_deviceNameSetup)
             }

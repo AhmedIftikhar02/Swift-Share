@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import java.security.SecureRandom
 import javax.inject.Inject
 
-private const val PIN_VALIDITY_MS = 120_000L // PRD 2.5: 2-minute expiry
+private const val PIN_VALIDITY_MS = 120_000L
 
 data class PinPairingUiState(
     val myPin: String = "",
@@ -50,9 +50,6 @@ class PinPairingViewModel @Inject constructor(
         _uiState.value = _uiState.value.copy(enteredPin = value.filter { it.isDigit() }.take(6), errorMessage = null)
     }
 
-    // BUGFIX (Phase 5): same fix as QrPairingViewModel.consumeResolvedEndpoint() — without
-    // this, the countdown's per-second state emissions kept re-triggering navigation to the
-    // Confirmation dialog indefinitely.
     fun consumeResolvedEndpoint() {
         _uiState.value = _uiState.value.copy(resolvedEndpointId = null)
     }
@@ -78,7 +75,6 @@ class PinPairingViewModel @Inject constructor(
                 }
                 is Result.Error -> _uiState.value = _uiState.value.copy(
                     isSubmitting = false,
-                    // PRD 2.5 Failure Case: incorrect/expired PIN -> inline validation error.
                     errorMessage = "That PIN doesn't match any nearby device. It may be wrong or expired."
                 )
             }

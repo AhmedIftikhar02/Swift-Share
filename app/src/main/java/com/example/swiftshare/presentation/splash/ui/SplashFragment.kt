@@ -12,6 +12,5 @@ class SplashFragment : NavPlaceholderFragment(
     screenTitle = "SwiftShare",
     actions = listOf(PlaceholderAction("Continue") { navigate(R.id.action_splash_to_onboarding) })
 ) {
-    // Injected to prove the Phase 1 DI graph end-to-end (see SplashViewModel KDoc).
     private val viewModel: SplashViewModel by viewModels()
 }

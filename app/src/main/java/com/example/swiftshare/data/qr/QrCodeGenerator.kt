@@ -6,7 +6,6 @@ import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
 import javax.inject.Inject
 
-/** Renders a QR bitmap for the "My Code" tab (PRD 2.4). */
 class QrCodeGenerator @Inject constructor() {
     fun generate(content: String, sizePx: Int = 600): Bitmap {
         val writer = QRCodeWriter()

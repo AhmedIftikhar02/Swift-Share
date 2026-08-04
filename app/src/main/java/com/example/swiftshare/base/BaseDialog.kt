@@ -15,13 +15,10 @@ abstract class BaseDialog<VB : ViewBinding>(
     private var _binding: VB? = null
     protected val binding: VB
         get() = _binding!!
-
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         _binding = bindingInflater(layoutInflater)
-
         setupViews()
-        observeData()  // <-- Moved here, before dialog is created
-
+        observeData()
         return MaterialAlertDialogBuilder(requireContext())
             .setView(binding.root)
             .create()
@@ -29,16 +26,11 @@ abstract class BaseDialog<VB : ViewBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // observeData() is already called in onCreateDialog, so this is just a fallback
-        // in case the dialog is recreated
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
     protected abstract fun setupViews()
-
     protected open fun observeData() {}
 }

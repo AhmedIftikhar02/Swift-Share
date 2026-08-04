@@ -8,7 +8,6 @@
         android:layout_gravity="center"
         android:visibility="gone" />
 
-    <!-- Error State -->
     <LinearLayout
         android:id="@+id/errorContainer"
         android:layout_width="match_parent"
@@ -37,7 +36,6 @@
 
     </LinearLayout>
 
-    <!-- Empty State -->
     <LinearLayout
         android:id="@+id/emptyContainer"
         android:layout_width="match_parent"

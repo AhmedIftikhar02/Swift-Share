@@ -6,7 +6,6 @@ import com.example.swiftshare.presentation.common.NavPlaceholderFragment
 import com.example.swiftshare.presentation.common.NavPlaceholderFragment.PlaceholderAction
 import dagger.hilt.android.AndroidEntryPoint
 
-/** Real device-name persistence wired in Phase 11 (shares its use case with Settings). */
 @AndroidEntryPoint
 class DeviceNameSetupFragment : NavPlaceholderFragment(
     screenTitle = "What should nearby devices call you?",

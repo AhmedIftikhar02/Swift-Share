@@ -10,4 +10,7 @@ interface HistoryRepository {
     fun observeHistory(filter: HistoryFilter = HistoryFilter.ALL): Flow<List<TransferSessionModel>>
     suspend fun getSessionDetail(sessionId: String): Result<TransferSessionModel>
     suspend fun deleteSession(sessionId: String): Result<Unit>
+
+
+    suspend fun saveSession(session: TransferSessionModel): Result<Unit>
 }

@@ -2,13 +2,6 @@ package com.example.swiftshare.core.nearby
 
 import android.util.Log
 
-/**
- * Encodes/decodes the string every device advertises as its Nearby "endpoint name."
- * Format: "<displayName>::<deviceType>::<pairingCode>". `pairingCode` is empty during
- * normal Discovery-tab advertising and set only while a QR/PIN pairing session is active
- * (Phase 5). Kept intentionally simple (no JSON dependency) since Nearby endpoint names
- * are short, plain strings with a small size limit.
- */
 object EndpointInfoCodec {
     private const val SEPARATOR = "::"
 

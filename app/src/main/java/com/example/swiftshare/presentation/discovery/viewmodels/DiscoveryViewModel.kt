@@ -20,10 +20,7 @@ import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 import android.util.Log
 
-/**
- * Backs the Discovery (Home) screen (PRD 5.5). `launchSafe {}` (from `BaseViewModel`) ensures
- * any unexpected exception here surfaces as a `UiEvent.ShowError` instead of crashing the app.
- */
+
 @HiltViewModel
 class DiscoveryViewModel @Inject constructor(
     private val startDiscoveryUseCase: StartDiscoveryUseCase,
@@ -40,7 +37,6 @@ class DiscoveryViewModel @Inject constructor(
     private var isScanning = false
 
     fun startScanning() = launchSafe {
-        // Prevent multiple simultaneous scan starts
         if (isScanning) {
             Log.d("DiscoveryVM", "Already scanning, skipping")
             return@launchSafe
@@ -61,9 +57,6 @@ class DiscoveryViewModel @Inject constructor(
                 Log.e("DiscoveryVM", "Failed to start discovery: ${result.exception.message}")
             }
         }
-
-        // PRD 2.1 Failure Case: no devices after 30s -> stop the loading spinner even with an
-        // empty list, so the empty-state UI (not an endless shimmer) takes over.
         withTimeoutOrNull(30_000L) {
             observeNearbyDevicesUseCase().first { it.isNotEmpty() }
         }
@@ -92,7 +85,6 @@ class DiscoveryViewModel @Inject constructor(
 
     fun rescan() {
         Log.d("DiscoveryVM", "Rescan requested")
-        // Stop current scan first
         viewModelScope.launch {
             stopDiscoveryUseCase()
             isScanning = false
@@ -102,7 +94,7 @@ class DiscoveryViewModel @Inject constructor(
     }
 
     fun onDeviceTapped(device: DeviceModel) {
-        if (_uiState.value.connectingEndpointId != null) return // debounce double/rapid taps
+        if (_uiState.value.connectingEndpointId != null) return
         _uiState.update { it.copy(connectingEndpointId = device.endpointId) }
         launchSafe {
             when (val result = requestConnectionUseCase(device.endpointId)) {

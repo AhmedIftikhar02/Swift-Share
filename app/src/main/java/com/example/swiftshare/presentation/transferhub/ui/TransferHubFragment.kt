@@ -30,20 +30,17 @@ class TransferHubFragment : BaseFragment<TransferFragmentHubBinding>(TransferFra
                     )
                 }
             }
-            // Store endpoint ID before navigation
             viewModel.stageFiles(endpointId, uris.map { it.toString() })
         }
     }
 
     override fun setupViews() {
-        // Get endpoint ID and device name from arguments
         endpointId = arguments?.getString("endpointId").orEmpty()
         deviceName = arguments?.getString("deviceName").orEmpty()
         Log.d("TransferHub", "Endpoint ID: $endpointId, Device Name: $deviceName")
 
         if (endpointId.isBlank()) {
             Log.e("TransferHub", "No endpoint ID provided!")
-            // Try to get it from the ViewModel
             endpointId = viewModel.connectedEndpointId()
             Log.d("TransferHub", "ViewModel endpoint ID: $endpointId")
         }
@@ -81,7 +78,6 @@ class TransferHubFragment : BaseFragment<TransferFragmentHubBinding>(TransferFra
         viewModel.connectedDeviceName.collectLifecycleFlow(this) { name ->
             Log.d("TransferHub", "Device name from ViewModel: '$name'")
 
-            // Use the name from arguments if available, otherwise use from ViewModel
             val displayName = when {
                 deviceName.isNotBlank() -> deviceName
                 name.isNotBlank() -> name

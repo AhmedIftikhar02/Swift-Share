@@ -90,7 +90,6 @@ class QrPairingViewModel @Inject constructor(
             try {
                 Log.d("QrPairingVM", "Looking for device with code: ${payload.code}")
 
-                // Increase timeout to 10 seconds to give discovery time
                 val deviceResult = nearbyRepository.findDeviceByPairingCode(payload.code, 10_000L)
 
                 when (deviceResult) {

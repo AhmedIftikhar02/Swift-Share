@@ -26,8 +26,6 @@ class PermissionRationaleViewModel @Inject constructor(
     fun requiredManifestPermissions(): Array<String> =
         permissionManager.manifestPermissionsFor(PermissionType.onboardingSet())
 
-    /** Called on screen entry and again after every system permission dialog result,
-     *  so the UI (and the auto-navigate-forward check) always reflects live OS state. */
     fun refresh() {
         val pending = permissionManager.pendingOnboardingPermissions()
         _uiState.value = UiState(pending = pending, allGranted = pending.isEmpty())

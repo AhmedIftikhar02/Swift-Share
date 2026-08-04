@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--
-        Brand palette. These are the ONLY hardcoded hex values in the whole app.
-        Everything else (colors.xml semantic tokens, themes.xml) references these.
-        Change a brand color here -> it propagates everywhere automatically.
-    -->
+
     <color name="brand_primary">#6750A4</color>
     <color name="brand_primary_dark">#4F378A</color>
     <color name="brand_secondary">#625B71</color>

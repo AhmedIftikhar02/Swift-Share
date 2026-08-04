@@ -91,14 +91,12 @@ class QrPairingFragment : BaseFragment<PairingFragmentQrBinding>(PairingFragment
             binding.progressResolving.visibility =
                 if (state.isResolving) android.view.View.VISIBLE else android.view.View.GONE
 
-            // Show scan result messages
             state.scanResultMessage?.let { message ->
                 Log.d("QrPairing", "Scan result: $message")
                 Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
                 viewModel.consumeScanResultMessage()
             }
 
-            // Navigate to confirmation when a device is resolved
             state.resolvedEndpointId?.let { endpointId ->
                 Log.d("QrPairing", "Resolved endpoint: $endpointId, navigating to confirmation")
                 val bundle = android.os.Bundle().apply { putString("endpointId", endpointId) }
@@ -241,13 +239,11 @@ class QrPairingFragment : BaseFragment<PairingFragmentQrBinding>(PairingFragment
 
     override fun onPause() {
         super.onPause()
-        // Stop scanning when fragment is paused to save resources
         stopCameraPreview()
     }
 
     override fun onResume() {
         super.onResume()
-        // Restart camera if we're on the scan tab
         if (binding.tabLayout.selectedTabPosition == 1) {
             checkCameraPermissionAndStart()
         }

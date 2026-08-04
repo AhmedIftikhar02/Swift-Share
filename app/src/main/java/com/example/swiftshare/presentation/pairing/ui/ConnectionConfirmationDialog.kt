@@ -18,7 +18,6 @@ class ConnectionConfirmationDialog :
 
     private val viewModel: ConnectionConfirmationViewModel by viewModels()
 
-    // Class-level variables
     private var endpointId: String = ""
     private var deviceName: String = ""
 
@@ -49,13 +48,10 @@ class ConnectionConfirmationDialog :
     }
 
     override fun observeData() {
-        // Collect flow as before
         viewModel.uiState.collectLifecycleFlow(this) { state ->
             Log.d("ConfirmationDialog", "UI State: isLoading=${state.isLoading}, digits=${state.authenticationDigits}, isResolved=${state.isResolved}")
 
-            // Store device name when it becomes available (clean version)
             if (state.remoteDeviceName.isNotBlank() && deviceName.isEmpty()) {
-                // Use the cleanDeviceName extension function here
                 deviceName = state.remoteDeviceName.cleanDeviceName()
                 Log.d("ConfirmationDialog", "Cleaned device name: $deviceName")
             }
@@ -63,7 +59,6 @@ class ConnectionConfirmationDialog :
             // Show/hide loading
             binding.progressBar.visibility = if (state.isLoading) android.view.View.VISIBLE else android.view.View.GONE
 
-            // Update UI - show cleaned device name
             val displayName = if (state.remoteDeviceName.isNotBlank()) {
                 state.remoteDeviceName.cleanDeviceName()
             } else {
@@ -74,26 +69,23 @@ class ConnectionConfirmationDialog :
             binding.tvAuthToken.text = state.authenticationDigits.ifBlank { "---" }
             binding.tvCountdown.text = getString(R.string.pairing_seconds_remaining, state.secondsRemaining)
 
-            // Enable Accept only when we have digits AND not resolved
             val hasDigits = state.authenticationDigits.isNotBlank()
             val canAccept = hasDigits && !state.isResolved
             binding.btnAccept.isEnabled = canAccept
             binding.btnReject.isEnabled = !state.isResolved
 
-            // Show error if any
             state.errorMessage?.let {
                 com.google.android.material.snackbar.Snackbar
                     .make(binding.root, it, com.google.android.material.snackbar.Snackbar.LENGTH_LONG)
                     .show()
             }
 
-            // Handle resolution
             if (state.isResolved) {
                 if (state.isAccepted) {
                     Log.d("ConfirmationDialog", "Connection accepted, navigating to Transfer Hub")
                     val bundle = Bundle().apply {
                         putString("endpointId", endpointId)
-                        putString("deviceName", deviceName)  // Pass the cleaned device name
+                        putString("deviceName", deviceName)
                     }
                     findNavController().navigate(R.id.action_connectionConfirmation_to_transferHub, bundle)
                 } else {

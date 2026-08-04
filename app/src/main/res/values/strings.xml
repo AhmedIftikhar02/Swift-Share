@@ -61,4 +61,35 @@
     <string name="pairing_camera_error">Couldn\'t start the camera. Try PIN pairing instead.</string>
     <string name="pairing_enter_pin_hint">6-digit PIN</string>
     <string name="pairing_connect">Connect</string>
+    <!-- Active Transfer -->
+    <string name="active_transfer_sending_to">Sending to %s</string>
+    <string name="active_transfer_receiving_from">Receiving from %s</string>
+    <string name="active_transfer_percent_format">%d%%</string>
+    <string name="active_transfer_bytes_format">%1$s of %2$s</string>
+    <string name="active_transfer_speed_format">%s/s</string>
+    <string name="active_transfer_speed_calculating">Calculating speed…</string>
+    <string name="active_transfer_eta_minutes">~%1$dm %2$ds remaining</string>
+    <string name="active_transfer_eta_seconds">~%1$ds remaining</string>
+    <string name="active_transfer_cancel">Cancel Transfer</string>
+    <string name="active_transfer_cancel_title">Cancel this transfer?</string>
+    <string name="active_transfer_cancel_message">Files already sent will remain on the other device. This can\'t be undone.</string>
+    <string name="active_transfer_cancel_confirm">Cancel Transfer</string>
+
+    <!-- Per-file status labels -->
+    <string name="file_status_queued">Queued</string>
+    <string name="file_status_transferring">Transferring</string>
+    <string name="file_status_paused">Paused</string>
+    <string name="file_status_completed">Completed</string>
+    <string name="file_status_failed">Failed</string>
+    <string name="file_status_cancelled">Cancelled</string>
+
+    <!-- Completion -->
+    <string name="completion_summary_format">%1$d of %2$d files sent</string>
+    <string name="completion_failed_label">Couldn\'t be sent</string>
+    <string name="completion_send_more">Send More</string>
+    <string name="completion_done">Done</string>
+    <string name="completion_not_found">This transfer could no longer be found.</string>
+
+    <!-- Shared -->
+    <string name="common_dismiss">Dismiss</string>
 </resources>

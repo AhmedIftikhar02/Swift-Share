@@ -1,11 +1,14 @@
 package com.example.swiftshare.presentation.filequeue.ui
 
+import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.swiftshare.R
 import com.example.swiftshare.base.BaseFragment
+import com.example.swiftshare.base.UiEvent
 import com.example.swiftshare.common.extensions.collectLifecycleFlow
+import com.example.swiftshare.common.extensions.toast
 import com.example.swiftshare.databinding.TransferFragmentQueueBinding
 import com.example.swiftshare.presentation.filequeue.adapters.QueuedFileAdapter
 import com.example.swiftshare.presentation.filequeue.viewmodels.FileQueueReviewViewModel
@@ -37,17 +40,17 @@ class FileQueueReviewFragment : BaseFragment<TransferFragmentQueueBinding>(Trans
     }
 
     override fun setupViews() {
-        // Get endpoint ID from arguments
+        // Get endpoint ID from arguments (from your version)
         endpointId = arguments?.getString("endpointId").orEmpty()
         Log.d("FileQueueReview", "Endpoint ID: $endpointId")
 
         if (endpointId.isBlank()) {
             Log.e("FileQueueReview", "No endpoint ID provided!")
-            // Show error and go back
             findNavController().popBackStack()
             return
         }
 
+        // Setup adapter (from your version with layout manager)
         adapter = QueuedFileAdapter { file -> viewModel.removeFile(file.uri) }
         binding.rvQueuedFiles.apply {
             adapter = this@FileQueueReviewFragment.adapter
@@ -61,14 +64,14 @@ class FileQueueReviewFragment : BaseFragment<TransferFragmentQueueBinding>(Trans
 
         binding.btnSend.setOnClickListener {
             Log.d("FileQueueReview", "Send button clicked")
-            // Navigate to Active Transfer Detail
-            findNavController().navigate(R.id.action_fileQueueReview_to_activeTransferDetail)
+            binding.btnSend.isEnabled = false
+            viewModel.sendFiles()
         }
     }
 
     override fun observeData() {
         viewModel.uiState.collectLifecycleFlow(this) { state ->
-            Log.d("FileQueueReview", "UI State: ${state.files.size} files, isEmpty=${state.isEmpty}")
+            Log.d("FileQueueReview", "UI State: ${state.files.size} files, isEmpty=${state.isEmpty}, isSending=${state.isSending}")
 
             adapter.submitList(state.files)
 
@@ -85,9 +88,27 @@ class FileQueueReviewFragment : BaseFragment<TransferFragmentQueueBinding>(Trans
             binding.emptyState.root.visibility = if (state.isEmpty) android.view.View.VISIBLE else android.view.View.GONE
             binding.rvQueuedFiles.visibility = if (state.isEmpty) android.view.View.GONE else android.view.View.VISIBLE
 
-            // Enable Send button only when queue is not empty
-            binding.btnSend.isEnabled = !state.isEmpty
-            Log.d("FileQueueReview", "Send button enabled: ${!state.isEmpty}")
+            // Enable Send button only when queue is not empty AND not sending
+            binding.btnSend.isEnabled = !state.isEmpty && !state.isSending
+            Log.d("FileQueueReview", "Send button enabled: ${!state.isEmpty && !state.isSending}")
+        }
+
+        viewModel.navigateToSessionId.collectLifecycleFlow(this) { sessionId ->
+            if (sessionId != null) {
+                Log.d("FileQueueReview", "Navigating to ActiveTransferDetail with sessionId: $sessionId")
+                viewModel.consumeNavigation()
+                val bundle = Bundle().apply { putString("sessionId", sessionId) }
+                findNavController().navigate(R.id.action_fileQueueReview_to_activeTransferDetail, bundle)
+            }
+        }
+
+        viewModel.uiEvent.collectLifecycleFlow(this) { event ->
+            if (event is UiEvent.ShowError) {
+                Log.e("FileQueueReview", "Error: ${event.exception.message}")
+                // Re-enable send button after a failed send
+                binding.btnSend.isEnabled = viewModel.uiState.value.files.isNotEmpty() && !viewModel.uiState.value.isSending
+                toast(event.exception.message)
+            }
         }
     }
 

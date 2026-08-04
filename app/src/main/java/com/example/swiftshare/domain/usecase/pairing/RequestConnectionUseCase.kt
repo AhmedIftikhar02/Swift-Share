@@ -4,7 +4,6 @@ import com.example.swiftshare.core.result.Result
 import com.example.swiftshare.domain.repository.NearbyRepository
 import javax.inject.Inject
 
-/** Initiates a connection request to a discovered (or code-resolved) endpoint (PRD 10.3). */
 class RequestConnectionUseCase @Inject constructor(
     private val nearbyRepository: NearbyRepository
 ) {

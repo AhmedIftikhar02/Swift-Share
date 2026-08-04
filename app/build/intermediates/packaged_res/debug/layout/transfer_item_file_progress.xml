@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/dp_16"
+    android:paddingVertical="@dimen/dp_8">
+
+    <ImageView
+        android:id="@+id/ivStatusIcon"
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="@dimen/dp_24"
+        android:contentDescription="@null"
+        tools:src="@drawable/ic_file_generic"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFileName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_12"
+        android:maxLines="1"
+        android:ellipsize="middle"
+        android:textAppearance="@style/TextAppearance.App.Body"
+        tools:text="vacation_photo_final_v2.jpg"
+        app:layout_constraintTop_toTopOf="@id/ivStatusIcon"
+        app:layout_constraintStart_toEndOf="@id/ivStatusIcon"
+        app:layout_constraintEnd_toStartOf="@id/tvStatus" />
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.App.Caption"
+        tools:text="Transferring"
+        tools:textColor="@color/color_primary"
+        app:layout_constraintTop_toTopOf="@id/ivStatusIcon"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressFile"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_6"
+        android:max="100"
+        android:progressTint="@color/color_primary"
+        tools:progress="60"
+        app:layout_constraintTop_toBottomOf="@id/ivStatusIcon"
+        app:layout_constraintStart_toEndOf="@id/ivStatusIcon"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFileSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_6"
+        android:textAppearance="@style/TextAppearance.App.Caption"
+        android:textColor="@color/color_text_secondary"
+        tools:text="12.4 MB of 20.0 MB"
+        app:layout_constraintTop_toBottomOf="@id/progressFile"
+        app:layout_constraintStart_toEndOf="@id/ivStatusIcon"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

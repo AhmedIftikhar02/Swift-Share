@@ -5,28 +5,30 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import androidx.annotation.CallSuper;
 import androidx.annotation.MainThread;
 import androidx.lifecycle.ViewModelProvider;
-import com.example.swiftshare.presentation.common.NavPlaceholderFragment;
+import androidx.viewbinding.ViewBinding;
+import com.example.swiftshare.base.BaseFragment;
 import dagger.hilt.android.flags.FragmentGetContextFix;
 import dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories;
 import dagger.hilt.android.internal.managers.FragmentComponentManager;
 import dagger.hilt.internal.GeneratedComponentManagerHolder;
 import dagger.hilt.internal.Preconditions;
 import dagger.hilt.internal.UnsafeCasts;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.Override;
-import java.lang.String;
 import java.lang.SuppressWarnings;
-import java.util.List;
 import javax.annotation.processing.Generated;
+import kotlin.jvm.functions.Function3;
 
 /**
  * A generated base class to be extended by the @dagger.hilt.android.AndroidEntryPoint annotated class. If using the Gradle plugin, this is swapped as the base class via bytecode transformation.
  */
 @Generated("dagger.hilt.android.processor.internal.androidentrypoint.FragmentGenerator")
-public abstract class Hilt_CompletionFragment extends NavPlaceholderFragment implements GeneratedComponentManagerHolder {
+public abstract class Hilt_CompletionFragment<VB extends ViewBinding> extends BaseFragment<VB> implements GeneratedComponentManagerHolder {
   private ContextWrapper componentContext;
 
   private boolean disableGetContextFix;
@@ -37,9 +39,9 @@ public abstract class Hilt_CompletionFragment extends NavPlaceholderFragment imp
 
   private boolean injected = false;
 
-  Hilt_CompletionFragment(String screenTitle,
-      List<NavPlaceholderFragment.PlaceholderAction> actions) {
-    super(screenTitle, actions);
+  Hilt_CompletionFragment(
+      Function3<? super LayoutInflater, ? super ViewGroup, ? super Boolean, ? extends VB> bindingInflater) {
+    super(bindingInflater);
   }
 
   @Override

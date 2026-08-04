@@ -30,7 +30,6 @@ class TransferHubViewModel @Inject constructor(
     private var endpointId: String = ""
 
     init {
-        // Listen for connection events to get the device name
         viewModelScope.launch {
             nearbyRepository.observeConnectionEvents().collect { event ->
                 when (event) {
@@ -38,7 +37,6 @@ class TransferHubViewModel @Inject constructor(
                         // If this is the connection we're establishing, store the name
                         if (event.endpointId == endpointId || endpointId.isEmpty()) {
                             endpointId = event.endpointId
-                            // Clean the device name (remove ::PHONE:: suffix if present)
                             val cleanName = event.remoteDeviceName
                                 .replace("::PHONE::", "")
                                 .replace("::TABLET::", "")
@@ -95,6 +93,5 @@ class TransferHubViewModel @Inject constructor(
     }
 
     private fun sendErrorEvent(message: String) {
-        // Emit error event if your BaseViewModel supports it
     }
 }

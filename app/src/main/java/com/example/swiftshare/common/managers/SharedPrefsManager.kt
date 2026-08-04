@@ -6,13 +6,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
-/**
- * Classic SharedPreferences wrapper, for general app settings that aren't security-sensitive
- * session data (that's SessionManager, which uses DataStore - see core/session/SessionManager.kt).
- *
- * Use this for things like: "has the user seen onboarding", "selected theme mode",
- * "selected language", feature flags toggled locally, last-synced timestamp, etc.
- */
 @Singleton
 class SharedPrefsManager @Inject constructor(
     @ApplicationContext context: Context
@@ -37,7 +30,7 @@ class SharedPrefsManager @Inject constructor(
 
     companion object Keys {
         const val HAS_SEEN_ONBOARDING = "has_seen_onboarding"
-        const val THEME_MODE = "theme_mode" // see common/managers/ThemeManager.kt
+        const val THEME_MODE = "theme_mode"
         const val SELECTED_LANGUAGE = "selected_language"
     }
 }

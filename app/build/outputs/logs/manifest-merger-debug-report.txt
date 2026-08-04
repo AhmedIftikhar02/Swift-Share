@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:2:1-75:12
-INJECTED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:2:1-75:12
-INJECTED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:2:1-75:12
-INJECTED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:2:1-75:12
+ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:2:1-81:12
+INJECTED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:2:1-81:12
+INJECTED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:2:1-81:12
+INJECTED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:2:1-81:12
 MERGED from [androidx.databinding:viewbinding:8.2.2] C:\Users\Umer\.gradle\caches\transforms-3\231cb2ff65f2261f805b8c39e6e9622a\transformed\viewbinding-8.2.2\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] C:\Users\Umer\.gradle\caches\transforms-3\34dddb4ca473bb9eee0218fdd7ad0f04\transformed\datastore-preferences-release\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.datastore:datastore-android:1.1.1] C:\Users\Umer\.gradle\caches\transforms-3\54a1665ca75c16efd68a635c48bc61d6\transformed\datastore-release\AndroidManifest.xml:17:1-22:12
@@ -195,9 +195,19 @@ uses-permission#android.permission.FOREGROUND_SERVICE_DATA_SYNC
 ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:47:5-87
 	android:name
 		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:47:22-84
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:49:5-50:38
+	android:maxSdkVersion
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:50:9-35
+	android:name
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:49:22-78
+uses-permission#android.permission.ACCESS_MEDIA_LOCATION
+ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:52:5-80
+	android:name
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:52:22-77
 application
-ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:49:5-73:19
-INJECTED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:49:5-73:19
+ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:54:5-79:19
+INJECTED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:54:5-79:19
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\Umer\.gradle\caches\transforms-3\fc693e32b72d86fb8f7320ff6599d0f0\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\Umer\.gradle\caches\transforms-3\fc693e32b72d86fb8f7320ff6599d0f0\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Umer\.gradle\caches\transforms-3\45ec2946ee90b16a1ed4bc2e2edc5173\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -246,46 +256,48 @@ MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\Umer\.gradle\ca
 MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\Umer\.gradle\caches\transforms-3\2f39abc5c26eacaacb3d4b3e6bfddfed\transformed\image-1.0.0-beta1\AndroidManifest.xml:7:5-20
 	android:extractNativeLibs
 		INJECTED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml
+	android:requestLegacyExternalStorage
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:59:9-52
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] C:\Users\Umer\.gradle\caches\transforms-3\9b2b0359baf675be82046909909ef055\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:57:9-35
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:63:9-35
 	android:label
-		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:55:9-41
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:61:9-41
 	android:fullBackupContent
-		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:53:9-54
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:58:9-54
 	android:roundIcon
-		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:56:9-54
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:62:9-54
 	tools:targetApi
-		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:59:9-29
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:65:9-29
 	android:icon
-		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:54:9-43
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:60:9-43
 	android:allowBackup
-		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:51:9-35
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:56:9-35
 	android:theme
-		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:58:9-51
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:64:9-51
 	android:dataExtractionRules
-		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:52:9-65
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:57:9-65
 	android:name
-		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:50:9-38
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:55:9-38
 activity#com.example.swiftshare.MainActivity
-ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:61:9-71:20
+ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:67:9-77:20
 	android:exported
-		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:63:13-36
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:69:13-36
 	android:theme
-		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:64:13-55
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:70:13-55
 	android:name
-		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:62:13-41
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:68:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:66:13-69:29
+ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:72:13-75:29
 action#android.intent.action.MAIN
-ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:67:17-69
+ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:73:17-69
 	android:name
-		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:67:25-66
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:73:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:68:17-77
+ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:74:17-77
 	android:name
-		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:68:27-74
+		ADDED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml:74:27-74
 uses-sdk
 INJECTED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\AHMED_WORK\Android\SwiftShare - Offline Nearby File Sharing\SwiftShare\app\src\main\AndroidManifest.xml

@@ -29,11 +29,7 @@ import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 import javax.inject.Singleton
 
-/**
- * Real Nearby Connections repository (Phase 4 discovery, Phase 5 pairing). Combines
- * [NearbyConnectionsDataSource] with domain mapping and owns [connectionState] — the single
- * source of truth for connection phase described in PRD 7.6.
- */
+
 @Singleton
 class NearbyRepositoryImpl @Inject constructor(
     private val dataSource: NearbyConnectionsDataSource,
@@ -41,24 +37,57 @@ class NearbyRepositoryImpl @Inject constructor(
     @ApplicationContext private val context: Context
 ) : NearbyRepository {
 
-    // Repository-scoped, not tied to any single screen's lifecycle — connection events must
-    // keep being processed even while the user briefly navigates between screens.
+
     private val repositoryScope = CoroutineScope(SupervisorJob() + dispatcherProvider.default)
 
     private val _connectionState = MutableStateFlow(ConnectionState.IDLE)
     override val connectionState: StateFlow<ConnectionState> = _connectionState.asStateFlow()
 
+    private val _connectedDevice = MutableStateFlow<DeviceModel?>(null)
+    override val connectedDevice: StateFlow<DeviceModel?> = _connectedDevice.asStateFlow()
+
+    private val remoteNamesByEndpoint = mutableMapOf<String, String>()
+
     private var localDisplayName: String = android.os.Build.MODEL ?: "My Device"
     private var isDiscovering = false
+    private var currentEndpointId: String? = null
 
     init {
         repositoryScope.launch {
             dataSource.connectionEvents.collect { event ->
-                _connectionState.value = when (event) {
-                    is ConnectionEvent.ConnectionInitiated -> ConnectionState.CONNECTING
-                    is ConnectionEvent.ConnectionResult ->
-                        if (event.success) ConnectionState.CONNECTED else ConnectionState.IDLE
-                    is ConnectionEvent.Disconnected -> ConnectionState.IDLE
+                Log.d("NearbyRepo", "Connection event: $event")
+
+                when (event) {
+                    is ConnectionEvent.ConnectionInitiated -> {
+                        remoteNamesByEndpoint[event.endpointId] = event.remoteDeviceName
+                        _connectionState.value = ConnectionState.CONNECTING
+                        Log.d("NearbyRepo", "Connection initiated, storing name: ${event.remoteDeviceName}")
+                    }
+                    is ConnectionEvent.ConnectionResult -> {
+                        if (event.success) {
+                            val deviceName = remoteNamesByEndpoint[event.endpointId] ?: "Unknown Device"
+                            _connectedDevice.value = DeviceModel(
+                                endpointId = event.endpointId,
+                                displayName = deviceName,
+                                deviceType = DeviceType.UNKNOWN,
+                                availability = DeviceAvailability.AVAILABLE
+                            )
+                            currentEndpointId = event.endpointId
+                            _connectionState.value = ConnectionState.CONNECTED
+                            Log.d("NearbyRepo", "Connection successful, connected to: $deviceName")
+                        } else {
+                            _connectedDevice.value = null
+                            currentEndpointId = null
+                            _connectionState.value = ConnectionState.IDLE
+                            Log.d("NearbyRepo", "Connection failed")
+                        }
+                    }
+                    is ConnectionEvent.Disconnected -> {
+                        _connectedDevice.value = null
+                        currentEndpointId = null
+                        _connectionState.value = ConnectionState.IDLE
+                        Log.d("NearbyRepo", "Disconnected")
+                    }
                 }
             }
         }
@@ -88,7 +117,6 @@ class NearbyRepositoryImpl @Inject constructor(
         }
 
     override suspend fun startDiscovery(localDisplayName: String): Result<Unit> {
-        // Don't restart if already discovering
         if (isDiscovering) {
             Log.d("NearbyRepo", "Already discovering, skipping")
             return Result.Success(Unit)
@@ -113,6 +141,7 @@ class NearbyRepositoryImpl @Inject constructor(
         }
 
         isDiscovering = true
+        Log.d("NearbyRepo", "Discovery started successfully")
         return Result.Success(Unit)
     }
 
@@ -128,8 +157,14 @@ class NearbyRepositoryImpl @Inject constructor(
 
     override suspend fun requestConnection(endpointId: String): Result<Unit> {
         _connectionState.value = ConnectionState.CONNECTING
+        currentEndpointId = endpointId
+        Log.d("NearbyRepo", "Requesting connection to: $endpointId")
         val result = safeNearbyCall { dataSource.requestConnection(localDisplayName, endpointId) }
-        if (result is Result.Error) _connectionState.value = ConnectionState.DISCOVERING
+        if (result is Result.Error) {
+            _connectionState.value = ConnectionState.DISCOVERING
+            currentEndpointId = null
+            Log.e("NearbyRepo", "Connection request failed: ${result.exception.message}")
+        }
         return result
     }
 
@@ -139,30 +174,33 @@ class NearbyRepositoryImpl @Inject constructor(
     override suspend fun rejectConnection(endpointId: String): Result<Unit> {
         val result = safeNearbyCall { dataSource.rejectConnection(endpointId) }
         _connectionState.value = ConnectionState.DISCOVERING
+        currentEndpointId = null
+        _connectedDevice.value = null
+        remoteNamesByEndpoint.remove(endpointId)
+        Log.d("NearbyRepo", "Rejected connection to: $endpointId")
         return result
     }
 
     override suspend fun disconnectFrom(endpointId: String) {
         _connectionState.value = ConnectionState.DISCONNECTING
+        Log.d("NearbyRepo", "Disconnecting from: $endpointId")
         dataSource.disconnectFromEndpoint(endpointId)
         _connectionState.value = ConnectionState.DISCOVERING
+        currentEndpointId = null
+        _connectedDevice.value = null
+        remoteNamesByEndpoint.remove(endpointId)
+        Log.d("NearbyRepo", "Disconnected")
     }
 
     override suspend fun startAdvertisingPairingCode(code: String): Result<Unit> {
         Log.d("NearbyRepo", "startAdvertisingPairingCode: $code")
-        // Don't stop discovery - just update advertising
-        // dataSource.stopDiscovery() // REMOVE THIS LINE
-
-        // Just update the advertising name
+        dataSource.stopAdvertising()
         val endpointName = EndpointInfoCodec.encode(
             localDisplayName,
             currentDeviceType().name,
             code
         )
         Log.d("NearbyRepo", "Advertising with endpoint name: $endpointName")
-
-        // Stop current advertising and start new one with pairing code
-        dataSource.stopAdvertising()
         return safeNearbyCall {
             dataSource.startAdvertising(endpointName)
         }
@@ -192,7 +230,7 @@ class NearbyRepositoryImpl @Inject constructor(
             }
             found = devices.firstOrNull { it.pairingCode == code }
             if (found == null) {
-                kotlinx.coroutines.delay(500L) // Wait longer between checks
+                kotlinx.coroutines.delay(500L)
             }
         }
 

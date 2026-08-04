@@ -13,11 +13,18 @@ import com.example.swiftshare.common.managers.ThemeManager;
 import com.example.swiftshare.common.providers.DefaultDispatcherProvider;
 import com.example.swiftshare.data.nearby.NearbyConnectionsDataSource;
 import com.example.swiftshare.data.qr.QrCodeGenerator;
+import com.example.swiftshare.data.repository.HistoryRepositoryImpl;
 import com.example.swiftshare.data.repository.NearbyRepositoryImpl;
 import com.example.swiftshare.data.repository.SettingsRepositoryImpl;
 import com.example.swiftshare.data.repository.TransferRepositoryImpl;
 import com.example.swiftshare.data.transfer.FileMetadataResolver;
+import com.example.swiftshare.data.transfer.FileTransferDataSource;
+import com.example.swiftshare.data.transfer.ReceivedFileSaver;
+import com.example.swiftshare.database.AppDatabase;
+import com.example.swiftshare.database.dao.TransferSessionDao;
 import com.example.swiftshare.di.ContentResolverModule_ProvideContentResolverFactory;
+import com.example.swiftshare.di.DatabaseModule_ProvideAppDatabaseFactory;
+import com.example.swiftshare.di.DatabaseModule_ProvideTransferSessionDaoFactory;
 import com.example.swiftshare.di.NearbyModule_ProvideConnectionsClientFactory;
 import com.example.swiftshare.domain.usecase.discovery.ObserveNearbyDevicesUseCase;
 import com.example.swiftshare.domain.usecase.discovery.StartDiscoveryUseCase;
@@ -26,9 +33,16 @@ import com.example.swiftshare.domain.usecase.pairing.AcceptConnectionUseCase;
 import com.example.swiftshare.domain.usecase.pairing.RejectConnectionUseCase;
 import com.example.swiftshare.domain.usecase.pairing.RequestConnectionUseCase;
 import com.example.swiftshare.domain.usecase.transfer.BuildTransferQueueUseCase;
+import com.example.swiftshare.domain.usecase.transfer.CancelTransferUseCase;
+import com.example.swiftshare.domain.usecase.transfer.ObserveActiveSessionUseCase;
+import com.example.swiftshare.domain.usecase.transfer.StartTransferUseCase;
 import com.example.swiftshare.permissions.PermissionManager;
 import com.example.swiftshare.presentation.activetransfer.ui.ActiveTransferDetailFragment;
+import com.example.swiftshare.presentation.activetransfer.viewmodels.ActiveTransferDetailViewModel;
+import com.example.swiftshare.presentation.activetransfer.viewmodels.ActiveTransferDetailViewModel_HiltModules;
 import com.example.swiftshare.presentation.completion.ui.CompletionFragment;
+import com.example.swiftshare.presentation.completion.viewmodels.CompletionViewModel;
+import com.example.swiftshare.presentation.completion.viewmodels.CompletionViewModel_HiltModules;
 import com.example.swiftshare.presentation.discovery.ui.DiscoveryFragment;
 import com.example.swiftshare.presentation.discovery.ui.DiscoveryFragment_MembersInjector;
 import com.example.swiftshare.presentation.discovery.viewmodels.DiscoveryViewModel;
@@ -500,7 +514,7 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
 
     @Override
     public Map<Class<?>, Boolean> getViewModelKeys() {
-      return LazyClassKeyMap.<Boolean>of(MapBuilder.<String, Boolean>newMapBuilder(8).put(LazyClassKeyProvider.com_example_swiftshare_presentation_pairing_viewmodels_ConnectionConfirmationViewModel, ConnectionConfirmationViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_discovery_viewmodels_DiscoveryViewModel, DiscoveryViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_filequeue_viewmodels_FileQueueReviewViewModel, FileQueueReviewViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_permissions_viewmodels_PermissionRationaleViewModel, PermissionRationaleViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_pairing_viewmodels_PinPairingViewModel, PinPairingViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_pairing_viewmodels_QrPairingViewModel, QrPairingViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_splash_viewmodels_SplashViewModel, SplashViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_transferhub_viewmodels_TransferHubViewModel, TransferHubViewModel_HiltModules.KeyModule.provide()).build());
+      return LazyClassKeyMap.<Boolean>of(MapBuilder.<String, Boolean>newMapBuilder(10).put(LazyClassKeyProvider.com_example_swiftshare_presentation_activetransfer_viewmodels_ActiveTransferDetailViewModel, ActiveTransferDetailViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_completion_viewmodels_CompletionViewModel, CompletionViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_pairing_viewmodels_ConnectionConfirmationViewModel, ConnectionConfirmationViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_discovery_viewmodels_DiscoveryViewModel, DiscoveryViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_filequeue_viewmodels_FileQueueReviewViewModel, FileQueueReviewViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_permissions_viewmodels_PermissionRationaleViewModel, PermissionRationaleViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_pairing_viewmodels_PinPairingViewModel, PinPairingViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_pairing_viewmodels_QrPairingViewModel, QrPairingViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_splash_viewmodels_SplashViewModel, SplashViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_swiftshare_presentation_transferhub_viewmodels_TransferHubViewModel, TransferHubViewModel_HiltModules.KeyModule.provide()).build());
     }
 
     @Override
@@ -527,9 +541,9 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_example_swiftshare_presentation_splash_viewmodels_SplashViewModel = "com.example.swiftshare.presentation.splash.viewmodels.SplashViewModel";
+      static String com_example_swiftshare_presentation_transferhub_viewmodels_TransferHubViewModel = "com.example.swiftshare.presentation.transferhub.viewmodels.TransferHubViewModel";
 
-      static String com_example_swiftshare_presentation_discovery_viewmodels_DiscoveryViewModel = "com.example.swiftshare.presentation.discovery.viewmodels.DiscoveryViewModel";
+      static String com_example_swiftshare_presentation_activetransfer_viewmodels_ActiveTransferDetailViewModel = "com.example.swiftshare.presentation.activetransfer.viewmodels.ActiveTransferDetailViewModel";
 
       static String com_example_swiftshare_presentation_permissions_viewmodels_PermissionRationaleViewModel = "com.example.swiftshare.presentation.permissions.viewmodels.PermissionRationaleViewModel";
 
@@ -537,17 +551,21 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
 
       static String com_example_swiftshare_presentation_pairing_viewmodels_QrPairingViewModel = "com.example.swiftshare.presentation.pairing.viewmodels.QrPairingViewModel";
 
-      static String com_example_swiftshare_presentation_pairing_viewmodels_ConnectionConfirmationViewModel = "com.example.swiftshare.presentation.pairing.viewmodels.ConnectionConfirmationViewModel";
+      static String com_example_swiftshare_presentation_splash_viewmodels_SplashViewModel = "com.example.swiftshare.presentation.splash.viewmodels.SplashViewModel";
+
+      static String com_example_swiftshare_presentation_completion_viewmodels_CompletionViewModel = "com.example.swiftshare.presentation.completion.viewmodels.CompletionViewModel";
 
       static String com_example_swiftshare_presentation_filequeue_viewmodels_FileQueueReviewViewModel = "com.example.swiftshare.presentation.filequeue.viewmodels.FileQueueReviewViewModel";
 
-      static String com_example_swiftshare_presentation_transferhub_viewmodels_TransferHubViewModel = "com.example.swiftshare.presentation.transferhub.viewmodels.TransferHubViewModel";
+      static String com_example_swiftshare_presentation_pairing_viewmodels_ConnectionConfirmationViewModel = "com.example.swiftshare.presentation.pairing.viewmodels.ConnectionConfirmationViewModel";
+
+      static String com_example_swiftshare_presentation_discovery_viewmodels_DiscoveryViewModel = "com.example.swiftshare.presentation.discovery.viewmodels.DiscoveryViewModel";
 
       @KeepFieldType
-      SplashViewModel com_example_swiftshare_presentation_splash_viewmodels_SplashViewModel2;
+      TransferHubViewModel com_example_swiftshare_presentation_transferhub_viewmodels_TransferHubViewModel2;
 
       @KeepFieldType
-      DiscoveryViewModel com_example_swiftshare_presentation_discovery_viewmodels_DiscoveryViewModel2;
+      ActiveTransferDetailViewModel com_example_swiftshare_presentation_activetransfer_viewmodels_ActiveTransferDetailViewModel2;
 
       @KeepFieldType
       PermissionRationaleViewModel com_example_swiftshare_presentation_permissions_viewmodels_PermissionRationaleViewModel2;
@@ -559,22 +577,34 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
       QrPairingViewModel com_example_swiftshare_presentation_pairing_viewmodels_QrPairingViewModel2;
 
       @KeepFieldType
-      ConnectionConfirmationViewModel com_example_swiftshare_presentation_pairing_viewmodels_ConnectionConfirmationViewModel2;
+      SplashViewModel com_example_swiftshare_presentation_splash_viewmodels_SplashViewModel2;
+
+      @KeepFieldType
+      CompletionViewModel com_example_swiftshare_presentation_completion_viewmodels_CompletionViewModel2;
 
       @KeepFieldType
       FileQueueReviewViewModel com_example_swiftshare_presentation_filequeue_viewmodels_FileQueueReviewViewModel2;
 
       @KeepFieldType
-      TransferHubViewModel com_example_swiftshare_presentation_transferhub_viewmodels_TransferHubViewModel2;
+      ConnectionConfirmationViewModel com_example_swiftshare_presentation_pairing_viewmodels_ConnectionConfirmationViewModel2;
+
+      @KeepFieldType
+      DiscoveryViewModel com_example_swiftshare_presentation_discovery_viewmodels_DiscoveryViewModel2;
     }
   }
 
   private static final class ViewModelCImpl extends MyApplication_HiltComponents.ViewModelC {
+    private final SavedStateHandle savedStateHandle;
+
     private final SingletonCImpl singletonCImpl;
 
     private final ActivityRetainedCImpl activityRetainedCImpl;
 
     private final ViewModelCImpl viewModelCImpl = this;
+
+    private Provider<ActiveTransferDetailViewModel> activeTransferDetailViewModelProvider;
+
+    private Provider<CompletionViewModel> completionViewModelProvider;
 
     private Provider<ConnectionConfirmationViewModel> connectionConfirmationViewModelProvider;
 
@@ -597,9 +627,17 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
         ViewModelLifecycle viewModelLifecycleParam) {
       this.singletonCImpl = singletonCImpl;
       this.activityRetainedCImpl = activityRetainedCImpl;
-
+      this.savedStateHandle = savedStateHandleParam;
       initialize(savedStateHandleParam, viewModelLifecycleParam);
 
+    }
+
+    private ObserveActiveSessionUseCase observeActiveSessionUseCase() {
+      return new ObserveActiveSessionUseCase(singletonCImpl.transferRepositoryImplProvider.get());
+    }
+
+    private CancelTransferUseCase cancelTransferUseCase() {
+      return new CancelTransferUseCase(singletonCImpl.transferRepositoryImplProvider.get());
     }
 
     private AcceptConnectionUseCase acceptConnectionUseCase() {
@@ -630,22 +668,28 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
       return new BuildTransferQueueUseCase(singletonCImpl.transferRepositoryImplProvider.get());
     }
 
+    private StartTransferUseCase startTransferUseCase() {
+      return new StartTransferUseCase(singletonCImpl.transferRepositoryImplProvider.get());
+    }
+
     @SuppressWarnings("unchecked")
     private void initialize(final SavedStateHandle savedStateHandleParam,
         final ViewModelLifecycle viewModelLifecycleParam) {
-      this.connectionConfirmationViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
-      this.discoveryViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 1);
-      this.fileQueueReviewViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 2);
-      this.permissionRationaleViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 3);
-      this.pinPairingViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 4);
-      this.qrPairingViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 5);
-      this.splashViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 6);
-      this.transferHubViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 7);
+      this.activeTransferDetailViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
+      this.completionViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 1);
+      this.connectionConfirmationViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 2);
+      this.discoveryViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 3);
+      this.fileQueueReviewViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 4);
+      this.permissionRationaleViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 5);
+      this.pinPairingViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 6);
+      this.qrPairingViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 7);
+      this.splashViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 8);
+      this.transferHubViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 9);
     }
 
     @Override
     public Map<Class<?>, javax.inject.Provider<ViewModel>> getHiltViewModelMap() {
-      return LazyClassKeyMap.<javax.inject.Provider<ViewModel>>of(MapBuilder.<String, javax.inject.Provider<ViewModel>>newMapBuilder(8).put(LazyClassKeyProvider.com_example_swiftshare_presentation_pairing_viewmodels_ConnectionConfirmationViewModel, ((Provider) connectionConfirmationViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_discovery_viewmodels_DiscoveryViewModel, ((Provider) discoveryViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_filequeue_viewmodels_FileQueueReviewViewModel, ((Provider) fileQueueReviewViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_permissions_viewmodels_PermissionRationaleViewModel, ((Provider) permissionRationaleViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_pairing_viewmodels_PinPairingViewModel, ((Provider) pinPairingViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_pairing_viewmodels_QrPairingViewModel, ((Provider) qrPairingViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_splash_viewmodels_SplashViewModel, ((Provider) splashViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_transferhub_viewmodels_TransferHubViewModel, ((Provider) transferHubViewModelProvider)).build());
+      return LazyClassKeyMap.<javax.inject.Provider<ViewModel>>of(MapBuilder.<String, javax.inject.Provider<ViewModel>>newMapBuilder(10).put(LazyClassKeyProvider.com_example_swiftshare_presentation_activetransfer_viewmodels_ActiveTransferDetailViewModel, ((Provider) activeTransferDetailViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_completion_viewmodels_CompletionViewModel, ((Provider) completionViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_pairing_viewmodels_ConnectionConfirmationViewModel, ((Provider) connectionConfirmationViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_discovery_viewmodels_DiscoveryViewModel, ((Provider) discoveryViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_filequeue_viewmodels_FileQueueReviewViewModel, ((Provider) fileQueueReviewViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_permissions_viewmodels_PermissionRationaleViewModel, ((Provider) permissionRationaleViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_pairing_viewmodels_PinPairingViewModel, ((Provider) pinPairingViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_pairing_viewmodels_QrPairingViewModel, ((Provider) qrPairingViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_splash_viewmodels_SplashViewModel, ((Provider) splashViewModelProvider)).put(LazyClassKeyProvider.com_example_swiftshare_presentation_transferhub_viewmodels_TransferHubViewModel, ((Provider) transferHubViewModelProvider)).build());
     }
 
     @Override
@@ -655,30 +699,37 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_example_swiftshare_presentation_pairing_viewmodels_PinPairingViewModel = "com.example.swiftshare.presentation.pairing.viewmodels.PinPairingViewModel";
-
-      static String com_example_swiftshare_presentation_permissions_viewmodels_PermissionRationaleViewModel = "com.example.swiftshare.presentation.permissions.viewmodels.PermissionRationaleViewModel";
-
       static String com_example_swiftshare_presentation_discovery_viewmodels_DiscoveryViewModel = "com.example.swiftshare.presentation.discovery.viewmodels.DiscoveryViewModel";
+
+      static String com_example_swiftshare_presentation_activetransfer_viewmodels_ActiveTransferDetailViewModel = "com.example.swiftshare.presentation.activetransfer.viewmodels.ActiveTransferDetailViewModel";
+
+      static String com_example_swiftshare_presentation_splash_viewmodels_SplashViewModel = "com.example.swiftshare.presentation.splash.viewmodels.SplashViewModel";
+
+      static String com_example_swiftshare_presentation_pairing_viewmodels_PinPairingViewModel = "com.example.swiftshare.presentation.pairing.viewmodels.PinPairingViewModel";
 
       static String com_example_swiftshare_presentation_pairing_viewmodels_ConnectionConfirmationViewModel = "com.example.swiftshare.presentation.pairing.viewmodels.ConnectionConfirmationViewModel";
 
       static String com_example_swiftshare_presentation_filequeue_viewmodels_FileQueueReviewViewModel = "com.example.swiftshare.presentation.filequeue.viewmodels.FileQueueReviewViewModel";
 
-      static String com_example_swiftshare_presentation_transferhub_viewmodels_TransferHubViewModel = "com.example.swiftshare.presentation.transferhub.viewmodels.TransferHubViewModel";
-
       static String com_example_swiftshare_presentation_pairing_viewmodels_QrPairingViewModel = "com.example.swiftshare.presentation.pairing.viewmodels.QrPairingViewModel";
 
-      static String com_example_swiftshare_presentation_splash_viewmodels_SplashViewModel = "com.example.swiftshare.presentation.splash.viewmodels.SplashViewModel";
+      static String com_example_swiftshare_presentation_completion_viewmodels_CompletionViewModel = "com.example.swiftshare.presentation.completion.viewmodels.CompletionViewModel";
 
-      @KeepFieldType
-      PinPairingViewModel com_example_swiftshare_presentation_pairing_viewmodels_PinPairingViewModel2;
+      static String com_example_swiftshare_presentation_transferhub_viewmodels_TransferHubViewModel = "com.example.swiftshare.presentation.transferhub.viewmodels.TransferHubViewModel";
 
-      @KeepFieldType
-      PermissionRationaleViewModel com_example_swiftshare_presentation_permissions_viewmodels_PermissionRationaleViewModel2;
+      static String com_example_swiftshare_presentation_permissions_viewmodels_PermissionRationaleViewModel = "com.example.swiftshare.presentation.permissions.viewmodels.PermissionRationaleViewModel";
 
       @KeepFieldType
       DiscoveryViewModel com_example_swiftshare_presentation_discovery_viewmodels_DiscoveryViewModel2;
+
+      @KeepFieldType
+      ActiveTransferDetailViewModel com_example_swiftshare_presentation_activetransfer_viewmodels_ActiveTransferDetailViewModel2;
+
+      @KeepFieldType
+      SplashViewModel com_example_swiftshare_presentation_splash_viewmodels_SplashViewModel2;
+
+      @KeepFieldType
+      PinPairingViewModel com_example_swiftshare_presentation_pairing_viewmodels_PinPairingViewModel2;
 
       @KeepFieldType
       ConnectionConfirmationViewModel com_example_swiftshare_presentation_pairing_viewmodels_ConnectionConfirmationViewModel2;
@@ -687,13 +738,16 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
       FileQueueReviewViewModel com_example_swiftshare_presentation_filequeue_viewmodels_FileQueueReviewViewModel2;
 
       @KeepFieldType
-      TransferHubViewModel com_example_swiftshare_presentation_transferhub_viewmodels_TransferHubViewModel2;
-
-      @KeepFieldType
       QrPairingViewModel com_example_swiftshare_presentation_pairing_viewmodels_QrPairingViewModel2;
 
       @KeepFieldType
-      SplashViewModel com_example_swiftshare_presentation_splash_viewmodels_SplashViewModel2;
+      CompletionViewModel com_example_swiftshare_presentation_completion_viewmodels_CompletionViewModel2;
+
+      @KeepFieldType
+      TransferHubViewModel com_example_swiftshare_presentation_transferhub_viewmodels_TransferHubViewModel2;
+
+      @KeepFieldType
+      PermissionRationaleViewModel com_example_swiftshare_presentation_permissions_viewmodels_PermissionRationaleViewModel2;
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
@@ -717,28 +771,34 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
       @Override
       public T get() {
         switch (id) {
-          case 0: // com.example.swiftshare.presentation.pairing.viewmodels.ConnectionConfirmationViewModel 
+          case 0: // com.example.swiftshare.presentation.activetransfer.viewmodels.ActiveTransferDetailViewModel 
+          return (T) new ActiveTransferDetailViewModel(viewModelCImpl.observeActiveSessionUseCase(), viewModelCImpl.cancelTransferUseCase());
+
+          case 1: // com.example.swiftshare.presentation.completion.viewmodels.CompletionViewModel 
+          return (T) new CompletionViewModel(viewModelCImpl.observeActiveSessionUseCase(), singletonCImpl.historyRepositoryImplProvider.get(), viewModelCImpl.savedStateHandle);
+
+          case 2: // com.example.swiftshare.presentation.pairing.viewmodels.ConnectionConfirmationViewModel 
           return (T) new ConnectionConfirmationViewModel(singletonCImpl.nearbyRepositoryImplProvider.get(), viewModelCImpl.acceptConnectionUseCase(), viewModelCImpl.rejectConnectionUseCase());
 
-          case 1: // com.example.swiftshare.presentation.discovery.viewmodels.DiscoveryViewModel 
+          case 3: // com.example.swiftshare.presentation.discovery.viewmodels.DiscoveryViewModel 
           return (T) new DiscoveryViewModel(viewModelCImpl.startDiscoveryUseCase(), viewModelCImpl.stopDiscoveryUseCase(), viewModelCImpl.observeNearbyDevicesUseCase(), viewModelCImpl.requestConnectionUseCase(), singletonCImpl.settingsRepositoryImplProvider.get());
 
-          case 2: // com.example.swiftshare.presentation.filequeue.viewmodels.FileQueueReviewViewModel 
-          return (T) new FileQueueReviewViewModel(singletonCImpl.transferRepositoryImplProvider.get(), viewModelCImpl.buildTransferQueueUseCase());
+          case 4: // com.example.swiftshare.presentation.filequeue.viewmodels.FileQueueReviewViewModel 
+          return (T) new FileQueueReviewViewModel(singletonCImpl.transferRepositoryImplProvider.get(), viewModelCImpl.buildTransferQueueUseCase(), viewModelCImpl.startTransferUseCase());
 
-          case 3: // com.example.swiftshare.presentation.permissions.viewmodels.PermissionRationaleViewModel 
+          case 5: // com.example.swiftshare.presentation.permissions.viewmodels.PermissionRationaleViewModel 
           return (T) new PermissionRationaleViewModel(singletonCImpl.permissionManagerProvider.get());
 
-          case 4: // com.example.swiftshare.presentation.pairing.viewmodels.PinPairingViewModel 
+          case 6: // com.example.swiftshare.presentation.pairing.viewmodels.PinPairingViewModel 
           return (T) new PinPairingViewModel(singletonCImpl.nearbyRepositoryImplProvider.get(), viewModelCImpl.requestConnectionUseCase());
 
-          case 5: // com.example.swiftshare.presentation.pairing.viewmodels.QrPairingViewModel 
+          case 7: // com.example.swiftshare.presentation.pairing.viewmodels.QrPairingViewModel 
           return (T) new QrPairingViewModel(singletonCImpl.nearbyRepositoryImplProvider.get(), viewModelCImpl.requestConnectionUseCase(), new QrCodeGenerator());
 
-          case 6: // com.example.swiftshare.presentation.splash.viewmodels.SplashViewModel 
+          case 8: // com.example.swiftshare.presentation.splash.viewmodels.SplashViewModel 
           return (T) new SplashViewModel(singletonCImpl.settingsRepositoryImplProvider.get());
 
-          case 7: // com.example.swiftshare.presentation.transferhub.viewmodels.TransferHubViewModel 
+          case 9: // com.example.swiftshare.presentation.transferhub.viewmodels.TransferHubViewModel 
           return (T) new TransferHubViewModel(singletonCImpl.nearbyRepositoryImplProvider.get(), viewModelCImpl.buildTransferQueueUseCase());
 
           default: throw new AssertionError(id);
@@ -839,6 +899,14 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
 
     private Provider<ContentResolver> provideContentResolverProvider;
 
+    private Provider<FileTransferDataSource> fileTransferDataSourceProvider;
+
+    private Provider<AppDatabase> provideAppDatabaseProvider;
+
+    private Provider<TransferSessionDao> provideTransferSessionDaoProvider;
+
+    private Provider<HistoryRepositoryImpl> historyRepositoryImplProvider;
+
     private Provider<TransferRepositoryImpl> transferRepositoryImplProvider;
 
     private SingletonCImpl(ApplicationContextModule applicationContextModuleParam) {
@@ -849,6 +917,10 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
 
     private FileMetadataResolver fileMetadataResolver() {
       return new FileMetadataResolver(provideContentResolverProvider.get(), defaultDispatcherProvider.get());
+    }
+
+    private ReceivedFileSaver receivedFileSaver() {
+      return new ReceivedFileSaver(ApplicationContextModule_ProvideContextFactory.provideContext(applicationContextModule), defaultDispatcherProvider.get());
     }
 
     @SuppressWarnings("unchecked")
@@ -862,6 +934,10 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
       this.nearbyRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<NearbyRepositoryImpl>(singletonCImpl, 3));
       this.settingsRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<SettingsRepositoryImpl>(singletonCImpl, 7));
       this.provideContentResolverProvider = DoubleCheck.provider(new SwitchingProvider<ContentResolver>(singletonCImpl, 9));
+      this.fileTransferDataSourceProvider = DoubleCheck.provider(new SwitchingProvider<FileTransferDataSource>(singletonCImpl, 10));
+      this.provideAppDatabaseProvider = DoubleCheck.provider(new SwitchingProvider<AppDatabase>(singletonCImpl, 13));
+      this.provideTransferSessionDaoProvider = DoubleCheck.provider(new SwitchingProvider<TransferSessionDao>(singletonCImpl, 12));
+      this.historyRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<HistoryRepositoryImpl>(singletonCImpl, 11));
       this.transferRepositoryImplProvider = DoubleCheck.provider(new SwitchingProvider<TransferRepositoryImpl>(singletonCImpl, 8));
     }
 
@@ -930,10 +1006,22 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
           return (T) new SettingsRepositoryImpl();
 
           case 8: // com.example.swiftshare.data.repository.TransferRepositoryImpl 
-          return (T) new TransferRepositoryImpl(singletonCImpl.fileMetadataResolver());
+          return (T) new TransferRepositoryImpl(singletonCImpl.fileMetadataResolver(), singletonCImpl.fileTransferDataSourceProvider.get(), singletonCImpl.nearbyRepositoryImplProvider.get(), singletonCImpl.historyRepositoryImplProvider.get(), singletonCImpl.defaultDispatcherProvider.get());
 
           case 9: // android.content.ContentResolver 
           return (T) ContentResolverModule_ProvideContentResolverFactory.provideContentResolver(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
+
+          case 10: // com.example.swiftshare.data.transfer.FileTransferDataSource 
+          return (T) new FileTransferDataSource(singletonCImpl.nearbyConnectionsDataSourceProvider.get(), singletonCImpl.provideContentResolverProvider.get(), singletonCImpl.receivedFileSaver(), singletonCImpl.defaultDispatcherProvider.get());
+
+          case 11: // com.example.swiftshare.data.repository.HistoryRepositoryImpl 
+          return (T) new HistoryRepositoryImpl(singletonCImpl.provideTransferSessionDaoProvider.get(), singletonCImpl.defaultDispatcherProvider.get());
+
+          case 12: // com.example.swiftshare.database.dao.TransferSessionDao 
+          return (T) DatabaseModule_ProvideTransferSessionDaoFactory.provideTransferSessionDao(singletonCImpl.provideAppDatabaseProvider.get());
+
+          case 13: // com.example.swiftshare.database.AppDatabase 
+          return (T) DatabaseModule_ProvideAppDatabaseFactory.provideAppDatabase(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
 
           default: throw new AssertionError(id);
         }

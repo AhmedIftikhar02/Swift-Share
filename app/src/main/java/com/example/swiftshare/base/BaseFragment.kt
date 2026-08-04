@@ -7,20 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
-/**
- * Generic ViewBinding base for all Fragments. Extend like:
- *
- *   @AndroidEntryPoint
- *   class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
- *       private val viewModel: HomeViewModel by viewModels()
- *       override fun setupViews() { ... }
- *       override fun observeData() { ... }
- *   }
- *
- * Handles the #1 most common Fragment+ViewBinding bug: forgetting to null out the binding
- * in onDestroyView, which leaks the View hierarchy. We do it here once, correctly, so every
- * Fragment in the app gets it for free.
- */
 abstract class BaseFragment<VB : ViewBinding>(
     private val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VB
 ) : Fragment() {
@@ -45,9 +31,8 @@ abstract class BaseFragment<VB : ViewBinding>(
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null // critical - prevents the View hierarchy leak mentioned above
+        _binding = null
     }
-
     protected abstract fun setupViews()
     protected open fun observeData() {}
 }

@@ -7,12 +7,6 @@ import com.example.swiftshare.common.extensions.setDebouncedClickListener
 import com.example.swiftshare.databinding.CommonFragmentPlaceholderBinding
 import com.google.android.material.button.MaterialButton
 
-/**
- * Phase 2 navigation-skeleton placeholder (PRD Section 5, empty-shell requirement). Every
- * leaf screen extends this with a title and its outgoing nav actions until the real UI for
- * that specific screen lands in its own phase — at which point that ONE screen stops
- * extending this class; the others keep using it until their turn comes.
- */
 abstract class NavPlaceholderFragment(
     private val screenTitle: String,
     private val actions: List<PlaceholderAction> = emptyList()

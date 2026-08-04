@@ -12,7 +12,7 @@
         android:layout_height="72dp"
         android:alpha="0.5"
         android:contentDescription="@null"
-        app:srcCompat="@drawable/ic_star"
+        app:srcCompat="@drawable/ic_empty_state"
         xmlns:app="http://schemas.android.com/apk/res-auto" />
 
     <TextView

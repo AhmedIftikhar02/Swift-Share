@@ -6,7 +6,6 @@ import com.example.swiftshare.presentation.common.NavPlaceholderFragment
 import com.example.swiftshare.presentation.common.NavPlaceholderFragment.PlaceholderAction
 import dagger.hilt.android.AndroidEntryPoint
 
-/** Real preferences UI (DataStore-backed) wired in Phase 11. */
 @AndroidEntryPoint
 class SettingsFragment : NavPlaceholderFragment(
     screenTitle = "Settings",

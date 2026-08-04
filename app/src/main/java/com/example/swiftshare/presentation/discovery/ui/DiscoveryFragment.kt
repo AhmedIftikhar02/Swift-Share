@@ -16,12 +16,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import android.util.Log
 
-/**
- * Real Discovery / Home screen (PRD 5.5). Requires Phase 3's critical permissions to already
- * be granted — `MainActivity`'s revocation banner (Phases 1–3 guide, Section 2.3) routes back
- * to Permission Rationale if they're missing, so this screen assumes they're present and
- * re-checks on every resume as its own extra safety net.
- */
 @AndroidEntryPoint
 class DiscoveryFragment : BaseFragment<DiscoveryFragmentHomeBinding>(DiscoveryFragmentHomeBinding::inflate) {
 
@@ -84,7 +78,6 @@ class DiscoveryFragment : BaseFragment<DiscoveryFragmentHomeBinding>(DiscoveryFr
                 getString(R.string.discovery_idle)
             }
 
-            // Show and consume the transient connection-request error
             state.connectionErrorMessage?.let {
                 com.google.android.material.snackbar.Snackbar
                     .make(binding.root, it, com.google.android.material.snackbar.Snackbar.LENGTH_LONG)
@@ -92,7 +85,6 @@ class DiscoveryFragment : BaseFragment<DiscoveryFragmentHomeBinding>(DiscoveryFr
                 viewModel.consumeConnectionError()
             }
 
-            // Navigate when connection is resolved
             state.resolvedEndpointId?.let { endpointId ->
                 Log.d("DiscoveryFragment", "Navigating to confirmation for: $endpointId")
                 val bundle = Bundle().apply { putString("endpointId", endpointId) }
@@ -115,23 +107,19 @@ class DiscoveryFragment : BaseFragment<DiscoveryFragmentHomeBinding>(DiscoveryFr
     override fun onStop() {
         super.onStop()
         Log.d("DiscoveryFragment", "onStop")
-        // Only stop if the fragment is not in the back stack
         if (!isRemoving && !isDetached) {
-            // Keep discovery running
         }
     }
 
     override fun onPause() {
         super.onPause()
         Log.d("DiscoveryFragment", "onPause - NOT stopping scan")
-    // Stop scanning when leaving the screen to prevent duplicate advertising
 //        viewModel.stopScanning()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         Log.d("DiscoveryFragment", "onDestroyView - NOT stopping scan")
-
 //        viewModel.stopScanning()
     }
 

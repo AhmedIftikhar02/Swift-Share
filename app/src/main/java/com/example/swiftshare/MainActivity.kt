@@ -18,18 +18,6 @@ import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-/**
- * Single-activity host for the whole app. Hosts one NavHostFragment for everything
- * (splash through the 3 bottom-nav tabs) — see res/navigation/nav_graph.xml for the full
- * PRD 6.1 hierarchy. The bottom nav bar is shown/hidden based on which destination is
- * currently active, since it should only be visible once inside the Discovery/History/
- * Settings tab section, not during Splash/Onboarding/Permissions/DeviceNameSetup.
- *
- * Phase 5 addition: also owns the app-wide listener for INCOMING Nearby connection requests
- * (see `observeIncomingConnections()`) — the initiating side navigates to the Confirmation
- * dialog itself from wherever it made the request, but the receiving side has no screen-local
- * trigger to do that, so it has to happen here instead.
- */
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
 
@@ -52,13 +40,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     override fun observeData() {
-        // Background-transfer session state (PRD 6.2 — "a transfer is in progress, exit
-        // anyway?") is wired here in Phase 9 once the Foreground Service exists.
         observeIncomingConnections()
     }
 
-    /** BUGFIX (Phase 5): navigates the RECEIVING device to the Confirmation dialog the moment
-     *  an incoming connection request arrives, regardless of which screen is currently active. */
     private fun observeIncomingConnections() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -67,8 +51,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                     .filter { it.isIncomingRequest }
                     .collect { event ->
                         val navController = findNavHostController()
-                        // Don't stack a second dialog instance if one is already showing —
-                        // e.g. a duplicate callback, or the user is already looking at it.
                         if (navController.currentDestination?.id == R.id.connectionConfirmationDialog) {
                             return@collect
                         }
@@ -81,9 +63,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     override fun onResume() {
         super.onResume()
-        // PRD 2.18 edge case: a permission revoked via system Settings while the app is
-        // running must be detected on next resume. Full Discovery-screen-specific handling
-        // arrives in Phase 4; for now this surfaces a generic, non-blocking notice.
         if (!permissionManager.allCriticalPermissionsGranted()) {
             Snackbar.make(binding.root, R.string.permissions_revoked_banner, Snackbar.LENGTH_LONG)
                 .setAction(R.string.permissions_fix_action) {

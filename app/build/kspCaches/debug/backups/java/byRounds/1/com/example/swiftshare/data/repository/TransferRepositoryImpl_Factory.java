@@ -1,6 +1,10 @@
 package com.example.swiftshare.data.repository;
 
+import com.example.swiftshare.common.providers.DispatcherProvider;
 import com.example.swiftshare.data.transfer.FileMetadataResolver;
+import com.example.swiftshare.data.transfer.FileTransferDataSource;
+import com.example.swiftshare.domain.repository.HistoryRepository;
+import com.example.swiftshare.domain.repository.NearbyRepository;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
 import dagger.internal.QualifierMetadata;
@@ -25,22 +29,43 @@ import javax.inject.Provider;
 public final class TransferRepositoryImpl_Factory implements Factory<TransferRepositoryImpl> {
   private final Provider<FileMetadataResolver> fileMetadataResolverProvider;
 
-  public TransferRepositoryImpl_Factory(
-      Provider<FileMetadataResolver> fileMetadataResolverProvider) {
+  private final Provider<FileTransferDataSource> fileTransferDataSourceProvider;
+
+  private final Provider<NearbyRepository> nearbyRepositoryProvider;
+
+  private final Provider<HistoryRepository> historyRepositoryProvider;
+
+  private final Provider<DispatcherProvider> dispatcherProvider;
+
+  public TransferRepositoryImpl_Factory(Provider<FileMetadataResolver> fileMetadataResolverProvider,
+      Provider<FileTransferDataSource> fileTransferDataSourceProvider,
+      Provider<NearbyRepository> nearbyRepositoryProvider,
+      Provider<HistoryRepository> historyRepositoryProvider,
+      Provider<DispatcherProvider> dispatcherProvider) {
     this.fileMetadataResolverProvider = fileMetadataResolverProvider;
+    this.fileTransferDataSourceProvider = fileTransferDataSourceProvider;
+    this.nearbyRepositoryProvider = nearbyRepositoryProvider;
+    this.historyRepositoryProvider = historyRepositoryProvider;
+    this.dispatcherProvider = dispatcherProvider;
   }
 
   @Override
   public TransferRepositoryImpl get() {
-    return newInstance(fileMetadataResolverProvider.get());
+    return newInstance(fileMetadataResolverProvider.get(), fileTransferDataSourceProvider.get(), nearbyRepositoryProvider.get(), historyRepositoryProvider.get(), dispatcherProvider.get());
   }
 
   public static TransferRepositoryImpl_Factory create(
-      Provider<FileMetadataResolver> fileMetadataResolverProvider) {
-    return new TransferRepositoryImpl_Factory(fileMetadataResolverProvider);
+      Provider<FileMetadataResolver> fileMetadataResolverProvider,
+      Provider<FileTransferDataSource> fileTransferDataSourceProvider,
+      Provider<NearbyRepository> nearbyRepositoryProvider,
+      Provider<HistoryRepository> historyRepositoryProvider,
+      Provider<DispatcherProvider> dispatcherProvider) {
+    return new TransferRepositoryImpl_Factory(fileMetadataResolverProvider, fileTransferDataSourceProvider, nearbyRepositoryProvider, historyRepositoryProvider, dispatcherProvider);
   }
 
-  public static TransferRepositoryImpl newInstance(FileMetadataResolver fileMetadataResolver) {
-    return new TransferRepositoryImpl(fileMetadataResolver);
+  public static TransferRepositoryImpl newInstance(FileMetadataResolver fileMetadataResolver,
+      FileTransferDataSource fileTransferDataSource, NearbyRepository nearbyRepository,
+      HistoryRepository historyRepository, DispatcherProvider dispatcherProvider) {
+    return new TransferRepositoryImpl(fileMetadataResolver, fileTransferDataSource, nearbyRepository, historyRepository, dispatcherProvider);
   }
 }

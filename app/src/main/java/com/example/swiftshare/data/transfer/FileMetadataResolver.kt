@@ -12,19 +12,13 @@ import kotlinx.coroutines.sync.withPermit
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-/**
- * Resolves SAF `Uri`s to display name/size/MIME type off the main thread (PRD 2.6 Edge Case:
- * a 500-file batch must not block the UI). A [Semaphore] bounds concurrent `ContentResolver`
- * queries so a huge batch doesn't spawn hundreds of simultaneous queries at once.
- */
+
 class FileMetadataResolver @Inject constructor(
     private val contentResolver: ContentResolver,
     private val dispatcherProvider: DispatcherProvider
 ) {
     private val concurrencyLimit = Semaphore(permits = 6)
 
-    /** Resolves one URI. Returns null if the URI is no longer accessible (revoked permission,
-     *  deleted file) — callers exclude nulls and surface the count as a warning (PRD 2.6). */
     suspend fun resolveOne(rawUri: String): QueuedFileModel? = withContext(dispatcherProvider.io) {  // Removed parentheses
         concurrencyLimit.withPermit {
             runCatching {
@@ -41,8 +35,6 @@ class FileMetadataResolver @Inject constructor(
                     }
                 }
 
-                // Confirms the URI is actually openable right now — catches the PRD 2.7 Edge
-                // Case of a file removed from disk between selection and send.
                 contentResolver.openFileDescriptor(uri, "r")?.use { } ?: return@withContext null
 
                 val mimeType = contentResolver.getType(uri) ?: "application/octet-stream"
@@ -58,7 +50,6 @@ class FileMetadataResolver @Inject constructor(
         }
     }
 
-    /** Resolves many URIs concurrently (bounded by [concurrencyLimit]), preserving input order. */
     suspend fun resolveMany(rawUris: List<String>): List<QueuedFileModel?> = coroutineScope {
         rawUris.map { uri -> async { resolveOne(uri) } }.map { it.await() }
     }

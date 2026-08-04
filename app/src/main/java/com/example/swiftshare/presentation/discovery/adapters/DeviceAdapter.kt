@@ -14,10 +14,7 @@ class DeviceAdapter(
     areItemsTheSame = { old, new -> old.endpointId == new.endpointId },
     areContentsTheSame = { old, new -> old == new }
 )  {
-    /** BUGFIX (Phase 5) / UX hardening: reflects `DiscoveryUiState.connectingEndpointId` so the
-     *  row a `requestConnection()` call is in flight for visibly shows "Connecting…" and can't
-     *  be tapped a second time while the SDK call is pending — prevents a user from firing
-     *  overlapping requestConnection() calls at the same endpoint by tapping repeatedly. */
+
     var connectingEndpointId: String? = null
         set(value) {
             if (field == value) return
@@ -52,9 +49,6 @@ class DeviceAdapter(
         binding.tvStatus.setTextColor(binding.root.context.getColor(statusColorRes))
         binding.statusDot.backgroundTintList =
             android.content.res.ColorStateList.valueOf(binding.root.context.getColor(statusColorRes))
-
-        // Also block taps on ANY row while a different connection request is already in
-        // flight, not just the row being connected to.
         val tappable = selectable && connectingEndpointId == null
         binding.root.isEnabled = tappable
         binding.root.alpha = if (tappable) 1.0f else 0.55f

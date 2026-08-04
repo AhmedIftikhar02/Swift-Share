@@ -50,7 +50,6 @@ class PinPairingFragment : BaseFragment<PairingFragmentPinBinding>(PairingFragme
             state.resolvedEndpointId?.let { endpointId ->
                 val bundle = Bundle().apply { putString("endpointId", endpointId) }
                 findNavController().navigate(R.id.action_pinPairing_to_connectionConfirmation, bundle)
-                // BUGFIX (Phase 5): consume immediately — see QrPairingFragment for why.
                 viewModel.consumeResolvedEndpoint()
             }
         }
