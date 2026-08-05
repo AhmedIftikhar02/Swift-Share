@@ -4,6 +4,8 @@ package com.example.swiftshare.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -26,6 +28,18 @@ public final class TransferFragmentActiveBinding implements ViewBinding {
   public final MaterialButton btnCancel;
 
   @NonNull
+  public final MaterialButton btnPauseResume;
+
+  @NonNull
+  public final LinearLayout buttonRow;
+
+  @NonNull
+  public final ImageView ivDirectionIcon;
+
+  @NonNull
+  public final ImageView ivDirectionIconBg;
+
+  @NonNull
   public final ProgressBar progressOverall;
 
   @NonNull
@@ -38,6 +52,9 @@ public final class TransferFragmentActiveBinding implements ViewBinding {
   public final TextView tvEta;
 
   @NonNull
+  public final TextView tvFileCount;
+
+  @NonNull
   public final TextView tvOverallBytes;
 
   @NonNull
@@ -46,20 +63,32 @@ public final class TransferFragmentActiveBinding implements ViewBinding {
   @NonNull
   public final TextView tvSpeed;
 
+  @NonNull
+  public final TextView tvStatusBanner;
+
   private TransferFragmentActiveBinding(@NonNull ConstraintLayout rootView,
-      @NonNull MaterialButton btnCancel, @NonNull ProgressBar progressOverall,
+      @NonNull MaterialButton btnCancel, @NonNull MaterialButton btnPauseResume,
+      @NonNull LinearLayout buttonRow, @NonNull ImageView ivDirectionIcon,
+      @NonNull ImageView ivDirectionIconBg, @NonNull ProgressBar progressOverall,
       @NonNull RecyclerView rvFiles, @NonNull TextView tvDirection, @NonNull TextView tvEta,
-      @NonNull TextView tvOverallBytes, @NonNull TextView tvOverallPercent,
-      @NonNull TextView tvSpeed) {
+      @NonNull TextView tvFileCount, @NonNull TextView tvOverallBytes,
+      @NonNull TextView tvOverallPercent, @NonNull TextView tvSpeed,
+      @NonNull TextView tvStatusBanner) {
     this.rootView = rootView;
     this.btnCancel = btnCancel;
+    this.btnPauseResume = btnPauseResume;
+    this.buttonRow = buttonRow;
+    this.ivDirectionIcon = ivDirectionIcon;
+    this.ivDirectionIconBg = ivDirectionIconBg;
     this.progressOverall = progressOverall;
     this.rvFiles = rvFiles;
     this.tvDirection = tvDirection;
     this.tvEta = tvEta;
+    this.tvFileCount = tvFileCount;
     this.tvOverallBytes = tvOverallBytes;
     this.tvOverallPercent = tvOverallPercent;
     this.tvSpeed = tvSpeed;
+    this.tvStatusBanner = tvStatusBanner;
   }
 
   @Override
@@ -95,6 +124,30 @@ public final class TransferFragmentActiveBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnPauseResume;
+      MaterialButton btnPauseResume = ViewBindings.findChildViewById(rootView, id);
+      if (btnPauseResume == null) {
+        break missingId;
+      }
+
+      id = R.id.buttonRow;
+      LinearLayout buttonRow = ViewBindings.findChildViewById(rootView, id);
+      if (buttonRow == null) {
+        break missingId;
+      }
+
+      id = R.id.ivDirectionIcon;
+      ImageView ivDirectionIcon = ViewBindings.findChildViewById(rootView, id);
+      if (ivDirectionIcon == null) {
+        break missingId;
+      }
+
+      id = R.id.ivDirectionIconBg;
+      ImageView ivDirectionIconBg = ViewBindings.findChildViewById(rootView, id);
+      if (ivDirectionIconBg == null) {
+        break missingId;
+      }
+
       id = R.id.progressOverall;
       ProgressBar progressOverall = ViewBindings.findChildViewById(rootView, id);
       if (progressOverall == null) {
@@ -119,6 +172,12 @@ public final class TransferFragmentActiveBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvFileCount;
+      TextView tvFileCount = ViewBindings.findChildViewById(rootView, id);
+      if (tvFileCount == null) {
+        break missingId;
+      }
+
       id = R.id.tvOverallBytes;
       TextView tvOverallBytes = ViewBindings.findChildViewById(rootView, id);
       if (tvOverallBytes == null) {
@@ -137,8 +196,16 @@ public final class TransferFragmentActiveBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvStatusBanner;
+      TextView tvStatusBanner = ViewBindings.findChildViewById(rootView, id);
+      if (tvStatusBanner == null) {
+        break missingId;
+      }
+
       return new TransferFragmentActiveBinding((ConstraintLayout) rootView, btnCancel,
-          progressOverall, rvFiles, tvDirection, tvEta, tvOverallBytes, tvOverallPercent, tvSpeed);
+          btnPauseResume, buttonRow, ivDirectionIcon, ivDirectionIconBg, progressOverall, rvFiles,
+          tvDirection, tvEta, tvFileCount, tvOverallBytes, tvOverallPercent, tvSpeed,
+          tvStatusBanner);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

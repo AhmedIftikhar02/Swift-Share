@@ -3,6 +3,7 @@ package com.example.swiftshare.presentation.transferhub.ui
 import android.os.Bundle
 import androidx.navigation.ActionOnlyNavDirections
 import androidx.navigation.NavDirections
+import com.example.swiftshare.DiscoveryGraphDirections
 import com.example.swiftshare.R
 import kotlin.Int
 import kotlin.String
@@ -46,5 +47,11 @@ public class TransferHubFragmentDirections private constructor() {
 
     public fun actionTransferHubToActiveTransferDetail(sessionId: String = ""): NavDirections =
         ActionTransferHubToActiveTransferDetail(sessionId)
+
+    public fun actionGlobalActiveTransferDetail(): NavDirections =
+        DiscoveryGraphDirections.actionGlobalActiveTransferDetail()
+
+    public fun actionGlobalCompletion(): NavDirections =
+        DiscoveryGraphDirections.actionGlobalCompletion()
   }
 }

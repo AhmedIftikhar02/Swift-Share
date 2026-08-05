@@ -1,94 +1,94 @@
 [
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\transfer_fragment_hub.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\transfer_fragment_hub.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/transfer_item_failed_file.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/transfer_item_failed_file.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\fragment_device_name_setup.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\fragment_device_name_setup.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/discovery_fragment_home.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/discovery_fragment_home.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\fragment_onboarding.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\fragment_onboarding.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/transfer_item_transferred_file.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/transfer_item_transferred_file.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\transfer_fragment_completion.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\transfer_fragment_completion.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/common_fragment_placeholder.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/common_fragment_placeholder.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\permissions_fragment_rationale.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\permissions_fragment_rationale.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/fragment_device_name_setup.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/fragment_device_name_setup.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\transfer_item_queued_file.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\transfer_item_queued_file.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/permissions_fragment_rationale.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/permissions_fragment_rationale.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\pairing_dialog_confirmation.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\pairing_dialog_confirmation.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/discovery_item_device.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/discovery_item_device.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\common_layout_empty_state.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\common_layout_empty_state.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/transfer_fragment_completion.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/transfer_fragment_completion.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\discovery_item_device.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\discovery_item_device.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/transfer_fragment_hub.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/transfer_fragment_hub.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\item_onboarding_slide.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\item_onboarding_slide.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/fragment_onboarding.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/fragment_onboarding.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\transfer_fragment_active.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\transfer_fragment_active.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/transfer_fragment_queue.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/transfer_fragment_queue.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\pairing_fragment_qr.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\pairing_fragment_qr.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/widget_state_layout.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/widget_state_layout.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\fragment_splash.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\fragment_splash.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/pairing_dialog_confirmation.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/pairing_dialog_confirmation.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\transfer_item_file_progress.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\transfer_item_file_progress.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/transfer_item_file_progress.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/transfer_item_file_progress.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\transfer_item_failed_file.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\transfer_item_failed_file.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/item_onboarding_slide.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/item_onboarding_slide.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\activity_main.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/pairing_fragment_qr.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/pairing_fragment_qr.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\discovery_sheet_pairing_options.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\discovery_sheet_pairing_options.xml"
-    },
-    {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\pairing_fragment_pin.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\pairing_fragment_pin.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/common_layout_empty_state.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/common_layout_empty_state.xml"
     },
     {
         "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/activity_main.xml",
         "source": "com.example.swiftshare.app-main-6:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\discovery_fragment_home.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\discovery_fragment_home.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/transfer_item_queued_file.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/transfer_item_queued_file.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\common_fragment_placeholder.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\common_fragment_placeholder.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/pairing_fragment_pin.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/pairing_fragment_pin.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\transfer_fragment_queue.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\transfer_fragment_queue.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/discovery_sheet_pairing_options.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/discovery_sheet_pairing_options.xml"
     },
     {
-        "merged": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-mergeDebugResources-3:\\layout\\widget_state_layout.xml",
-        "source": "C:\\Users\\Umer\\.gradle\\daemon\\8.4\\com.example.swiftshare.app-main-6:\\layout\\widget_state_layout.xml"
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/fragment_splash.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/fragment_splash.xml"
+    },
+    {
+        "merged": "com.example.swiftshare.app-mergeDebugResources-3:/layout/transfer_fragment_active.xml",
+        "source": "com.example.swiftshare.app-main-6:/layout/transfer_fragment_active.xml"
     }
 ]

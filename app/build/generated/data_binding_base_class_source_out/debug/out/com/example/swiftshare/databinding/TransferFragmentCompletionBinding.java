@@ -5,11 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -30,6 +32,9 @@ public final class TransferFragmentCompletionBinding implements ViewBinding {
   public final MaterialButton btnSendMore;
 
   @NonNull
+  public final LinearLayout footer;
+
+  @NonNull
   public final Group groupContent;
 
   @NonNull
@@ -39,32 +44,77 @@ public final class TransferFragmentCompletionBinding implements ViewBinding {
   public final ImageView ivResultIcon;
 
   @NonNull
+  public final ImageView ivResultIconBg;
+
+  @NonNull
   public final RecyclerView rvFailedFiles;
+
+  @NonNull
+  public final RecyclerView rvTransferredFiles;
+
+  @NonNull
+  public final NestedScrollView scrollContent;
+
+  @NonNull
+  public final LinearLayout statRow;
 
   @NonNull
   public final TextView tvFailedLabel;
 
   @NonNull
+  public final TextView tvFilesLabel;
+
+  @NonNull
   public final TextView tvNotFound;
+
+  @NonNull
+  public final TextView tvResultTitle;
+
+  @NonNull
+  public final TextView tvStatFiles;
+
+  @NonNull
+  public final TextView tvStatSize;
+
+  @NonNull
+  public final TextView tvStatTime;
 
   @NonNull
   public final TextView tvSummary;
 
+  @NonNull
+  public final TextView tvTapToOpen;
+
   private TransferFragmentCompletionBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialButton btnDone, @NonNull MaterialButton btnSendMore,
-      @NonNull Group groupContent, @NonNull Group groupFailed, @NonNull ImageView ivResultIcon,
-      @NonNull RecyclerView rvFailedFiles, @NonNull TextView tvFailedLabel,
-      @NonNull TextView tvNotFound, @NonNull TextView tvSummary) {
+      @NonNull LinearLayout footer, @NonNull Group groupContent, @NonNull Group groupFailed,
+      @NonNull ImageView ivResultIcon, @NonNull ImageView ivResultIconBg,
+      @NonNull RecyclerView rvFailedFiles, @NonNull RecyclerView rvTransferredFiles,
+      @NonNull NestedScrollView scrollContent, @NonNull LinearLayout statRow,
+      @NonNull TextView tvFailedLabel, @NonNull TextView tvFilesLabel, @NonNull TextView tvNotFound,
+      @NonNull TextView tvResultTitle, @NonNull TextView tvStatFiles, @NonNull TextView tvStatSize,
+      @NonNull TextView tvStatTime, @NonNull TextView tvSummary, @NonNull TextView tvTapToOpen) {
     this.rootView = rootView;
     this.btnDone = btnDone;
     this.btnSendMore = btnSendMore;
+    this.footer = footer;
     this.groupContent = groupContent;
     this.groupFailed = groupFailed;
     this.ivResultIcon = ivResultIcon;
+    this.ivResultIconBg = ivResultIconBg;
     this.rvFailedFiles = rvFailedFiles;
+    this.rvTransferredFiles = rvTransferredFiles;
+    this.scrollContent = scrollContent;
+    this.statRow = statRow;
     this.tvFailedLabel = tvFailedLabel;
+    this.tvFilesLabel = tvFilesLabel;
     this.tvNotFound = tvNotFound;
+    this.tvResultTitle = tvResultTitle;
+    this.tvStatFiles = tvStatFiles;
+    this.tvStatSize = tvStatSize;
+    this.tvStatTime = tvStatTime;
     this.tvSummary = tvSummary;
+    this.tvTapToOpen = tvTapToOpen;
   }
 
   @Override
@@ -106,6 +156,12 @@ public final class TransferFragmentCompletionBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.footer;
+      LinearLayout footer = ViewBindings.findChildViewById(rootView, id);
+      if (footer == null) {
+        break missingId;
+      }
+
       id = R.id.groupContent;
       Group groupContent = ViewBindings.findChildViewById(rootView, id);
       if (groupContent == null) {
@@ -124,9 +180,33 @@ public final class TransferFragmentCompletionBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.ivResultIconBg;
+      ImageView ivResultIconBg = ViewBindings.findChildViewById(rootView, id);
+      if (ivResultIconBg == null) {
+        break missingId;
+      }
+
       id = R.id.rvFailedFiles;
       RecyclerView rvFailedFiles = ViewBindings.findChildViewById(rootView, id);
       if (rvFailedFiles == null) {
+        break missingId;
+      }
+
+      id = R.id.rvTransferredFiles;
+      RecyclerView rvTransferredFiles = ViewBindings.findChildViewById(rootView, id);
+      if (rvTransferredFiles == null) {
+        break missingId;
+      }
+
+      id = R.id.scrollContent;
+      NestedScrollView scrollContent = ViewBindings.findChildViewById(rootView, id);
+      if (scrollContent == null) {
+        break missingId;
+      }
+
+      id = R.id.statRow;
+      LinearLayout statRow = ViewBindings.findChildViewById(rootView, id);
+      if (statRow == null) {
         break missingId;
       }
 
@@ -136,9 +216,39 @@ public final class TransferFragmentCompletionBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvFilesLabel;
+      TextView tvFilesLabel = ViewBindings.findChildViewById(rootView, id);
+      if (tvFilesLabel == null) {
+        break missingId;
+      }
+
       id = R.id.tvNotFound;
       TextView tvNotFound = ViewBindings.findChildViewById(rootView, id);
       if (tvNotFound == null) {
+        break missingId;
+      }
+
+      id = R.id.tvResultTitle;
+      TextView tvResultTitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvResultTitle == null) {
+        break missingId;
+      }
+
+      id = R.id.tvStatFiles;
+      TextView tvStatFiles = ViewBindings.findChildViewById(rootView, id);
+      if (tvStatFiles == null) {
+        break missingId;
+      }
+
+      id = R.id.tvStatSize;
+      TextView tvStatSize = ViewBindings.findChildViewById(rootView, id);
+      if (tvStatSize == null) {
+        break missingId;
+      }
+
+      id = R.id.tvStatTime;
+      TextView tvStatTime = ViewBindings.findChildViewById(rootView, id);
+      if (tvStatTime == null) {
         break missingId;
       }
 
@@ -148,9 +258,16 @@ public final class TransferFragmentCompletionBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvTapToOpen;
+      TextView tvTapToOpen = ViewBindings.findChildViewById(rootView, id);
+      if (tvTapToOpen == null) {
+        break missingId;
+      }
+
       return new TransferFragmentCompletionBinding((ConstraintLayout) rootView, btnDone,
-          btnSendMore, groupContent, groupFailed, ivResultIcon, rvFailedFiles, tvFailedLabel,
-          tvNotFound, tvSummary);
+          btnSendMore, footer, groupContent, groupFailed, ivResultIcon, ivResultIconBg,
+          rvFailedFiles, rvTransferredFiles, scrollContent, statRow, tvFailedLabel, tvFilesLabel,
+          tvNotFound, tvResultTitle, tvStatFiles, tvStatSize, tvStatTime, tvSummary, tvTapToOpen);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

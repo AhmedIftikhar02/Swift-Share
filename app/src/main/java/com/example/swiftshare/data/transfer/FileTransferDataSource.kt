@@ -33,7 +33,6 @@ class FileTransferDataSource @Inject constructor(
 ) {
     private val activeSendPayloads = mutableMapOf<String, Long>()
 
-
     fun sendFiles(
         endpointId: String,
         sessionId: String,
@@ -135,7 +134,13 @@ class FileTransferDataSource @Inject constructor(
                                     )
                                 }
                                 PayloadStatus.FAILURE, PayloadStatus.CANCELED -> {
-                                    nearbyDataSource.takeReceivedFileUri(event.payloadId)
+                                    // Phase 8: explicitly delete whatever partial bytes the SDK
+                                    // had already written for this payload — previously this
+                                    // Uri was discarded without cleanup (PRD 2.12 / PRD 13).
+                                    val leftoverUri = nearbyDataSource.takeReceivedFileUri(event.payloadId)
+                                    if (leftoverUri != null) {
+                                        receivedFileSaver.deleteIncompletePayload(leftoverUri)
+                                    }
                                     activeReceives.remove(event.payloadId)
                                     trySend(
                                         TransferProgress(

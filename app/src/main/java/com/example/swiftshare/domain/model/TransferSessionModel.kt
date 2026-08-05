@@ -13,5 +13,10 @@ data class TransferSessionModel(
 enum class TransferDirection { SENT, RECEIVED }
 
 enum class SessionStatus {
-    CONNECTING, CONNECTED, IN_PROGRESS, PAUSED, COMPLETED, FAILED, PARTIAL, CANCELLED
+    CONNECTING, CONNECTED, IN_PROGRESS, PAUSED,
+    // Phase 8: distinct from PAUSED so the UI can show "reconnecting…" instead of a plain
+    // paused state while a bounded rediscovery/reconnection attempt is in flight (PRD 10.6,
+    // PRD 13 "Connection Lost" row).
+    RECONNECTING,
+    COMPLETED, FAILED, PARTIAL, CANCELLED
 }

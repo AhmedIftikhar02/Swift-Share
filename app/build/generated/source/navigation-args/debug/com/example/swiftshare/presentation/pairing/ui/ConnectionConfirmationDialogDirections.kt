@@ -2,6 +2,7 @@ package com.example.swiftshare.presentation.pairing.ui
 
 import android.os.Bundle
 import androidx.navigation.NavDirections
+import com.example.swiftshare.DiscoveryGraphDirections
 import com.example.swiftshare.R
 import kotlin.Int
 import kotlin.String
@@ -25,5 +26,11 @@ public class ConnectionConfirmationDialogDirections private constructor() {
   public companion object {
     public fun actionConnectionConfirmationToTransferHub(endpointId: String = "", deviceName: String
         = ""): NavDirections = ActionConnectionConfirmationToTransferHub(endpointId, deviceName)
+
+    public fun actionGlobalActiveTransferDetail(): NavDirections =
+        DiscoveryGraphDirections.actionGlobalActiveTransferDetail()
+
+    public fun actionGlobalCompletion(): NavDirections =
+        DiscoveryGraphDirections.actionGlobalCompletion()
   }
 }

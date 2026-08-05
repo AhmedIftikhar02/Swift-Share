@@ -47,6 +47,8 @@ public final class TransferSessionDao_Impl implements TransferSessionDao {
 
   private final SharedSQLiteStatement __preparedStmtOfDeleteSession;
 
+  private final SharedSQLiteStatement __preparedStmtOfUpdateFileStatus;
+
   public TransferSessionDao_Impl(@NonNull final RoomDatabase __db) {
     this.__db = __db;
     this.__insertionAdapterOfTransferSessionEntity = new EntityInsertionAdapter<TransferSessionEntity>(__db) {
@@ -76,7 +78,7 @@ public final class TransferSessionDao_Impl implements TransferSessionDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR REPLACE INTO `file_transfers` (`fileTransferId`,`sessionId`,`fileName`,`mimeType`,`totalBytes`,`transferredBytes`,`uri`,`status`,`checksum`,`errorCode`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `file_transfers` (`fileTransferId`,`sessionId`,`fileName`,`mimeType`,`totalBytes`,`transferredBytes`,`uri`,`status`,`checksum`,`errorCode`,`sourceLastModified`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -100,6 +102,7 @@ public final class TransferSessionDao_Impl implements TransferSessionDao {
         } else {
           statement.bindString(10, entity.getErrorCode());
         }
+        statement.bindLong(11, entity.getSourceLastModified());
       }
     };
     this.__preparedStmtOfDeleteSession = new SharedSQLiteStatement(__db) {
@@ -107,6 +110,14 @@ public final class TransferSessionDao_Impl implements TransferSessionDao {
       @NonNull
       public String createQuery() {
         final String _query = "DELETE FROM transfer_sessions WHERE sessionId = ?";
+        return _query;
+      }
+    };
+    this.__preparedStmtOfUpdateFileStatus = new SharedSQLiteStatement(__db) {
+      @Override
+      @NonNull
+      public String createQuery() {
+        final String _query = "UPDATE file_transfers SET status = ?, errorCode = ? WHERE fileTransferId = ?";
         return _query;
       }
     };
@@ -177,6 +188,40 @@ public final class TransferSessionDao_Impl implements TransferSessionDao {
           }
         } finally {
           __preparedStmtOfDeleteSession.release(_stmt);
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object updateFileStatus(final String fileTransferId, final String status,
+      final String errorCode, final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      @NonNull
+      public Unit call() throws Exception {
+        final SupportSQLiteStatement _stmt = __preparedStmtOfUpdateFileStatus.acquire();
+        int _argIndex = 1;
+        _stmt.bindString(_argIndex, status);
+        _argIndex = 2;
+        if (errorCode == null) {
+          _stmt.bindNull(_argIndex);
+        } else {
+          _stmt.bindString(_argIndex, errorCode);
+        }
+        _argIndex = 3;
+        _stmt.bindString(_argIndex, fileTransferId);
+        try {
+          __db.beginTransaction();
+          try {
+            _stmt.executeUpdateDelete();
+            __db.setTransactionSuccessful();
+            return Unit.INSTANCE;
+          } finally {
+            __db.endTransaction();
+          }
+        } finally {
+          __preparedStmtOfUpdateFileStatus.release(_stmt);
         }
       }
     }, $completion);
@@ -335,6 +380,39 @@ public final class TransferSessionDao_Impl implements TransferSessionDao {
     }, $completion);
   }
 
+  @Override
+  public Object getSessionIdForFile(final String fileTransferId,
+      final Continuation<? super String> $completion) {
+    final String _sql = "SELECT sessionId FROM file_transfers WHERE fileTransferId = ? LIMIT 1";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindString(_argIndex, fileTransferId);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<String>() {
+      @Override
+      @Nullable
+      public String call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final String _result;
+          if (_cursor.moveToFirst()) {
+            if (_cursor.isNull(0)) {
+              _result = null;
+            } else {
+              _result = _cursor.getString(0);
+            }
+          } else {
+            _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, $completion);
+  }
+
   @NonNull
   public static List<Class<?>> getRequiredConverters() {
     return Collections.emptyList();
@@ -354,7 +432,7 @@ public final class TransferSessionDao_Impl implements TransferSessionDao {
       return;
     }
     final StringBuilder _stringBuilder = StringUtil.newStringBuilder();
-    _stringBuilder.append("SELECT `fileTransferId`,`sessionId`,`fileName`,`mimeType`,`totalBytes`,`transferredBytes`,`uri`,`status`,`checksum`,`errorCode` FROM `file_transfers` WHERE `sessionId` IN (");
+    _stringBuilder.append("SELECT `fileTransferId`,`sessionId`,`fileName`,`mimeType`,`totalBytes`,`transferredBytes`,`uri`,`status`,`checksum`,`errorCode`,`sourceLastModified` FROM `file_transfers` WHERE `sessionId` IN (");
     final int _inputSize = __mapKeySet.size();
     StringUtil.appendPlaceholders(_stringBuilder, _inputSize);
     _stringBuilder.append(")");
@@ -382,6 +460,7 @@ public final class TransferSessionDao_Impl implements TransferSessionDao {
       final int _cursorIndexOfStatus = 7;
       final int _cursorIndexOfChecksum = 8;
       final int _cursorIndexOfErrorCode = 9;
+      final int _cursorIndexOfSourceLastModified = 10;
       while (_cursor.moveToNext()) {
         final String _tmpKey;
         _tmpKey = _cursor.getString(_itemKeyIndex);
@@ -416,7 +495,9 @@ public final class TransferSessionDao_Impl implements TransferSessionDao {
           } else {
             _tmpErrorCode = _cursor.getString(_cursorIndexOfErrorCode);
           }
-          _item_1 = new FileTransferEntity(_tmpFileTransferId,_tmpSessionId,_tmpFileName,_tmpMimeType,_tmpTotalBytes,_tmpTransferredBytes,_tmpUri,_tmpStatus,_tmpChecksum,_tmpErrorCode);
+          final long _tmpSourceLastModified;
+          _tmpSourceLastModified = _cursor.getLong(_cursorIndexOfSourceLastModified);
+          _item_1 = new FileTransferEntity(_tmpFileTransferId,_tmpSessionId,_tmpFileName,_tmpMimeType,_tmpTotalBytes,_tmpTransferredBytes,_tmpUri,_tmpStatus,_tmpChecksum,_tmpErrorCode,_tmpSourceLastModified);
           _tmpRelation.add(_item_1);
         }
       }

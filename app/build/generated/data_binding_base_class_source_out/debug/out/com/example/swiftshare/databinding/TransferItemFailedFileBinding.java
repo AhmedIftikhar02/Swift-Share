@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.swiftshare.R;
+import com.google.android.material.button.MaterialButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -20,11 +21,15 @@ public final class TransferItemFailedFileBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final MaterialButton btnRetry;
+
+  @NonNull
   public final TextView tvFileName;
 
   private TransferItemFailedFileBinding(@NonNull LinearLayout rootView,
-      @NonNull TextView tvFileName) {
+      @NonNull MaterialButton btnRetry, @NonNull TextView tvFileName) {
     this.rootView = rootView;
+    this.btnRetry = btnRetry;
     this.tvFileName = tvFileName;
   }
 
@@ -55,13 +60,19 @@ public final class TransferItemFailedFileBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnRetry;
+      MaterialButton btnRetry = ViewBindings.findChildViewById(rootView, id);
+      if (btnRetry == null) {
+        break missingId;
+      }
+
       id = R.id.tvFileName;
       TextView tvFileName = ViewBindings.findChildViewById(rootView, id);
       if (tvFileName == null) {
         break missingId;
       }
 
-      return new TransferItemFailedFileBinding((LinearLayout) rootView, tvFileName);
+      return new TransferItemFailedFileBinding((LinearLayout) rootView, btnRetry, tvFileName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

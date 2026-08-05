@@ -104,10 +104,36 @@
     <string name="onboarding_title_3">Private by design</string>
     <string name="onboarding_desc_3">Nothing ever touches a server. Every transfer stays directly between your device and the one you choose.</string>
 
+    <!-- Active Transfer (Phase 9 polish) -->
+    <string name="active_transfer_file_count_format">%1$d of %2$d files done</string>
+
+    <!-- Completion screen (Phase 9 rebuild) -->
+    <string name="completion_title_all_sent">All Files Sent!</string>
+    <string name="completion_title_partial_sent">Sent with Some Issues</string>
+    <string name="completion_title_failed_sent">Transfer Failed</string>
+    <string name="completion_title_all_received">Files Received!</string>
+    <string name="completion_title_partial_received">Received with Some Issues</string>
+    <string name="completion_title_failed_received">Transfer Failed</string>
+    <string name="completion_title_cancelled">Transfer Cancelled</string>
+    <string name="completion_subtitle_sent_format">Sent to %s</string>
+    <string name="completion_subtitle_received_format">Received from %s</string>
+    <string name="completion_stat_files">Files</string>
+    <string name="completion_stat_files_format">%1$d/%2$d</string>
+    <string name="completion_stat_size">Total Size</string>
+    <string name="completion_stat_time">Time Taken</string>
+    <string name="completion_files_label">Files</string>
+    <string name="completion_tap_to_open">Tap a file to open it</string>
+    <string name="completion_open_failed">No app found to open this file</string>
+    <string name="completion_file_meta_format">%1$s · %2$s</string>
+    <string name="completion_time_minutes_format">%1$dm %2$ds</string>
+    <string name="completion_time_seconds_format">%1$ds</string>
     <string name="nav_discovery">Discovery</string>
     <string name="nav_history">History</string>
     <string name="nav_settings">Settings</string>
-
+    <string name="active_transfer_pause">Pause</string>
+    <string name="active_transfer_resume">Resume</string>
+    <string name="active_transfer_reconnecting">Reconnecting… hold on</string>
+    <string name="active_transfer_paused_banner">Transfer paused</string>
     <!-- Device Name Setup -->
     <string name="device_name_title">What should nearby devices call you?</string>
     <string name="device_name_subtitle">This name is shown to other devices during discovery and pairing. You can change it later in Settings.</string>

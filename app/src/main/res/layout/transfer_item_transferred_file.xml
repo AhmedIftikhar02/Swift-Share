@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:paddingHorizontal="@dimen/dp_16"
+    android:paddingVertical="@dimen/dp_12">
+
+    <ImageView
+        android:id="@+id/ivFileIconBg"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:background="@drawable/bg_circle_neutral"
+        android:contentDescription="@null"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivFileIcon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:contentDescription="@null"
+        tools:src="@drawable/ic_filetype_image"
+        app:tint="@color/color_on_surface_variant"
+        app:layout_constraintTop_toTopOf="@id/ivFileIconBg"
+        app:layout_constraintBottom_toBottomOf="@id/ivFileIconBg"
+        app:layout_constraintStart_toStartOf="@id/ivFileIconBg"
+        app:layout_constraintEnd_toEndOf="@id/ivFileIconBg" />
+
+    <ImageView
+        android:id="@+id/ivStatusBadge"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:background="@color/color_background"
+        android:contentDescription="@null"
+        tools:src="@drawable/ic_check_circle"
+        tools:tint="@color/color_success"
+        app:layout_constraintBottom_toBottomOf="@id/ivFileIconBg"
+        app:layout_constraintEnd_toEndOf="@id/ivFileIconBg" />
+
+    <TextView
+        android:id="@+id/tvFileName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_12"
+        android:maxLines="1"
+        android:ellipsize="middle"
+        android:textAppearance="@style/TextAppearance.App.Body"
+        tools:text="vacation_photo_final_v2.jpg"
+        app:layout_constraintTop_toTopOf="@id/ivFileIconBg"
+        app:layout_constraintStart_toEndOf="@id/ivFileIconBg"
+        app:layout_constraintEnd_toStartOf="@id/ivOpenChevron" />
+
+    <TextView
+        android:id="@+id/tvFileMeta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_4"
+        android:textAppearance="@style/TextAppearance.App.Caption"
+        android:textColor="@color/color_text_secondary"
+        tools:text="4.2 MB · JPG"
+        app:layout_constraintTop_toBottomOf="@id/tvFileName"
+        app:layout_constraintStart_toEndOf="@id/ivFileIconBg"
+        app:layout_constraintEnd_toStartOf="@id/ivOpenChevron"
+        app:layout_constraintBottom_toBottomOf="@id/ivFileIconBg" />
+
+    <ImageView
+        android:id="@+id/ivOpenChevron"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_chevron_right"
+        app:tint="@color/color_text_secondary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

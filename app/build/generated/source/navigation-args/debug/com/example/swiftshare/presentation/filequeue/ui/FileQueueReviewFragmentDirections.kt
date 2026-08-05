@@ -2,6 +2,7 @@ package com.example.swiftshare.presentation.filequeue.ui
 
 import android.os.Bundle
 import androidx.navigation.NavDirections
+import com.example.swiftshare.DiscoveryGraphDirections
 import com.example.swiftshare.R
 import kotlin.Int
 import kotlin.String
@@ -23,5 +24,11 @@ public class FileQueueReviewFragmentDirections private constructor() {
   public companion object {
     public fun actionFileQueueReviewToActiveTransferDetail(sessionId: String = ""): NavDirections =
         ActionFileQueueReviewToActiveTransferDetail(sessionId)
+
+    public fun actionGlobalActiveTransferDetail(): NavDirections =
+        DiscoveryGraphDirections.actionGlobalActiveTransferDetail()
+
+    public fun actionGlobalCompletion(): NavDirections =
+        DiscoveryGraphDirections.actionGlobalCompletion()
   }
 }

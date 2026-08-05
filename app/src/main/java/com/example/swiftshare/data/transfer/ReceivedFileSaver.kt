@@ -17,6 +17,7 @@ class ReceivedFileSaver @Inject constructor(
     companion object {
         private const val RELATIVE_PATH = "Download/SwiftShare"
     }
+
     suspend fun saveToDownloads(sourceUri: Uri, displayName: String, mimeType: String): String? =
         withContext(dispatcherProvider.io) {
             val resolver = context.contentResolver
@@ -60,4 +61,16 @@ class ReceivedFileSaver @Inject constructor(
 
             destinationUri.toString()
         }
+
+    /**
+     * Phase 8: deletes the Nearby Connections SDK's internal partial-file cache entry for a
+     * payload that failed or was cancelled mid-receive, so it doesn't linger as orphaned
+     * storage (PRD 2.12 "Partial files on the receiver are deleted"; PRD 13 "Cancelled
+     * Transfer" row). Safe to call even if the underlying file was already cleaned up by
+     * the SDK — failures are swallowed since there's nothing further the caller can do.
+     */
+    suspend fun deleteIncompletePayload(uri: Uri) = withContext(dispatcherProvider.io) {
+        runCatching { context.contentResolver.delete(uri, null, null) }
+            .onFailure { Timber.tag("ReceivedFileSaver").w(it, "Failed to delete incomplete payload at %s", uri) }
+    }
 }

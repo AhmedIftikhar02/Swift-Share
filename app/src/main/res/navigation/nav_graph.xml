@@ -66,6 +66,17 @@
             />
     </fragment>
 
+
+    <action
+        android:id="@+id/action_global_activeTransferDetail"
+        app:destination="@id/activeTransferDetailFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/action_global_completion"
+        app:destination="@id/completionFragment"
+        app:launchSingleTop="true" />
+
     <!-- ============== TAB 1: DISCOVERY (own back stack) ============== -->
 
     <navigation
@@ -187,6 +198,12 @@
             <action
                 android:id="@+id/action_completion_to_fileQueueReview"
                 app:destination="@id/fileQueueReviewFragment" />
+            <!-- Phase 8: retry-in-place from the Completion screen. ActiveTransferDetailFragment
+                 doesn't read the sessionId argument (it just observes TransferRepository's
+                 single active session), so no bundle is needed here. -->
+            <action
+                android:id="@+id/action_completion_to_activeTransferDetail"
+                app:destination="@id/activeTransferDetailFragment" />
         </fragment>
 
     </navigation>

@@ -34,14 +34,14 @@ public final class AppDatabase_Impl extends AppDatabase {
   @Override
   @NonNull
   protected SupportSQLiteOpenHelper createOpenHelper(@NonNull final DatabaseConfiguration config) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(1) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(2) {
       @Override
       public void createAllTables(@NonNull final SupportSQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS `transfer_sessions` (`sessionId` TEXT NOT NULL, `deviceEndpointId` TEXT NOT NULL, `deviceName` TEXT NOT NULL, `direction` TEXT NOT NULL, `startedAt` INTEGER NOT NULL, `endedAt` INTEGER, `status` TEXT NOT NULL, PRIMARY KEY(`sessionId`))");
-        db.execSQL("CREATE TABLE IF NOT EXISTS `file_transfers` (`fileTransferId` TEXT NOT NULL, `sessionId` TEXT NOT NULL, `fileName` TEXT NOT NULL, `mimeType` TEXT NOT NULL, `totalBytes` INTEGER NOT NULL, `transferredBytes` INTEGER NOT NULL, `uri` TEXT NOT NULL, `status` TEXT NOT NULL, `checksum` TEXT, `errorCode` TEXT, PRIMARY KEY(`fileTransferId`), FOREIGN KEY(`sessionId`) REFERENCES `transfer_sessions`(`sessionId`) ON UPDATE NO ACTION ON DELETE CASCADE )");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `file_transfers` (`fileTransferId` TEXT NOT NULL, `sessionId` TEXT NOT NULL, `fileName` TEXT NOT NULL, `mimeType` TEXT NOT NULL, `totalBytes` INTEGER NOT NULL, `transferredBytes` INTEGER NOT NULL, `uri` TEXT NOT NULL, `status` TEXT NOT NULL, `checksum` TEXT, `errorCode` TEXT, `sourceLastModified` INTEGER NOT NULL, PRIMARY KEY(`fileTransferId`), FOREIGN KEY(`sessionId`) REFERENCES `transfer_sessions`(`sessionId`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         db.execSQL("CREATE INDEX IF NOT EXISTS `index_file_transfers_sessionId` ON `file_transfers` (`sessionId`)");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1c484e6e0b67fb2b5cdf94ca222e20d9')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c3c1fcda050bb6c3d30a636f90e26fb1')");
       }
 
       @Override
@@ -109,7 +109,7 @@ public final class AppDatabase_Impl extends AppDatabase {
                   + " Expected:\n" + _infoTransferSessions + "\n"
                   + " Found:\n" + _existingTransferSessions);
         }
-        final HashMap<String, TableInfo.Column> _columnsFileTransfers = new HashMap<String, TableInfo.Column>(10);
+        final HashMap<String, TableInfo.Column> _columnsFileTransfers = new HashMap<String, TableInfo.Column>(11);
         _columnsFileTransfers.put("fileTransferId", new TableInfo.Column("fileTransferId", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsFileTransfers.put("sessionId", new TableInfo.Column("sessionId", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsFileTransfers.put("fileName", new TableInfo.Column("fileName", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -120,6 +120,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         _columnsFileTransfers.put("status", new TableInfo.Column("status", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsFileTransfers.put("checksum", new TableInfo.Column("checksum", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsFileTransfers.put("errorCode", new TableInfo.Column("errorCode", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsFileTransfers.put("sourceLastModified", new TableInfo.Column("sourceLastModified", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysFileTransfers = new HashSet<TableInfo.ForeignKey>(1);
         _foreignKeysFileTransfers.add(new TableInfo.ForeignKey("transfer_sessions", "CASCADE", "NO ACTION", Arrays.asList("sessionId"), Arrays.asList("sessionId")));
         final HashSet<TableInfo.Index> _indicesFileTransfers = new HashSet<TableInfo.Index>(1);
@@ -133,7 +134,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "1c484e6e0b67fb2b5cdf94ca222e20d9", "010d4953a34533cf1937797e94c775cf");
+    }, "c3c1fcda050bb6c3d30a636f90e26fb1", "fa06016cc79de8ca54c1619a2c52374c");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;

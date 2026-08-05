@@ -25,5 +25,7 @@ data class FileTransferEntity(
     val uri: String,
     val status: String,
     val checksum: String?,
-    val errorCode: String?
+    val errorCode: String?,
+    // Phase 8 — added via MIGRATION_1_2, see AppDatabase.kt.
+    val sourceLastModified: Long = 0L
 )

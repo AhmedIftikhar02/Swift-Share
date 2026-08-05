@@ -2,6 +2,7 @@ package com.example.swiftshare.presentation.pairing.ui
 
 import android.os.Bundle
 import androidx.navigation.NavDirections
+import com.example.swiftshare.DiscoveryGraphDirections
 import com.example.swiftshare.R
 import kotlin.Int
 import kotlin.String
@@ -23,5 +24,11 @@ public class PinPairingFragmentDirections private constructor() {
   public companion object {
     public fun actionPinPairingToConnectionConfirmation(endpointId: String = ""): NavDirections =
         ActionPinPairingToConnectionConfirmation(endpointId)
+
+    public fun actionGlobalActiveTransferDetail(): NavDirections =
+        DiscoveryGraphDirections.actionGlobalActiveTransferDetail()
+
+    public fun actionGlobalCompletion(): NavDirections =
+        DiscoveryGraphDirections.actionGlobalCompletion()
   }
 }

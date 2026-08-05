@@ -6,6 +6,7 @@ import com.example.swiftshare.core.result.Result
 import com.example.swiftshare.database.dao.TransferSessionDao
 import com.example.swiftshare.database.mapper.toDomain
 import com.example.swiftshare.database.mapper.toEntity
+import com.example.swiftshare.domain.model.FileTransferStatus
 import com.example.swiftshare.domain.model.SessionStatus
 import com.example.swiftshare.domain.model.TransferDirection
 import com.example.swiftshare.domain.model.TransferSessionModel
@@ -28,7 +29,6 @@ class HistoryRepositoryImpl @Inject constructor(
     override fun observeHistory(filter: HistoryFilter): Flow<List<TransferSessionModel>> =
         dao.observeAllSessionsWithFiles()
             .map { rows ->
-
                 rows.mapNotNull { row -> runCatching { row.toDomain() }.onFailure {
                     Timber.tag("HistoryRepositoryImpl").e(it, "Skipping malformed history row")
                 }.getOrNull() }
@@ -62,6 +62,25 @@ class HistoryRepositoryImpl @Inject constructor(
                 onFailure = { Result.Error(AppException.UnknownError("Could not save this transfer to history.")) }
             )
         }
+
+    // ===================== Phase 8 =====================
+
+    override suspend fun findSessionIdForFile(fileTransferId: String): String? =
+        withContext(dispatcherProvider.io) {
+            runCatching { dao.getSessionIdForFile(fileTransferId) }.getOrNull()
+        }
+
+    override suspend fun updateFileStatus(
+        fileTransferId: String,
+        status: FileTransferStatus,
+        errorCode: String?
+    ): Result<Unit> = withContext(dispatcherProvider.io) {
+        runCatching { dao.updateFileStatus(fileTransferId, status.name, errorCode) }
+            .fold(
+                onSuccess = { Result.Success(Unit) },
+                onFailure = { Result.Error(AppException.UnknownError("Could not update this file's status.")) }
+            )
+    }
 
     private fun List<TransferSessionModel>.applyFilter(filter: HistoryFilter): List<TransferSessionModel> =
         when (filter) {

@@ -37,7 +37,8 @@ fun FileTransferEntity.toDomain(): FileTransferModel = FileTransferModel(
     uri = uri,
     status = FileTransferStatus.valueOf(status),
     checksum = checksum,
-    errorCode = errorCode
+    errorCode = errorCode,
+    sourceLastModified = sourceLastModified
 )
 
 fun TransferSessionModel.toEntity(): TransferSessionEntity = TransferSessionEntity(
@@ -60,5 +61,6 @@ fun FileTransferModel.toEntity(sessionId: String): FileTransferEntity = FileTran
     uri = uri,
     status = status.name,
     checksum = checksum,
-    errorCode = errorCode
+    errorCode = errorCode,
+    sourceLastModified = sourceLastModified
 )

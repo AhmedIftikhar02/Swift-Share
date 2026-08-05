@@ -3,6 +3,7 @@ package com.example.swiftshare.presentation.discovery.ui
 import android.os.Bundle
 import androidx.navigation.ActionOnlyNavDirections
 import androidx.navigation.NavDirections
+import com.example.swiftshare.DiscoveryGraphDirections
 import com.example.swiftshare.R
 import kotlin.Int
 import kotlin.String
@@ -30,5 +31,11 @@ public class DiscoveryFragmentDirections private constructor() {
 
     public fun actionDiscoveryToPinPairing(): NavDirections =
         ActionOnlyNavDirections(R.id.action_discovery_to_pinPairing)
+
+    public fun actionGlobalActiveTransferDetail(): NavDirections =
+        DiscoveryGraphDirections.actionGlobalActiveTransferDetail()
+
+    public fun actionGlobalCompletion(): NavDirections =
+        DiscoveryGraphDirections.actionGlobalCompletion()
   }
 }

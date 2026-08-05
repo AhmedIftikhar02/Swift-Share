@@ -2,6 +2,7 @@ package com.example.swiftshare.presentation.history.ui
 
 import android.os.Bundle
 import androidx.navigation.NavDirections
+import com.example.swiftshare.HistoryGraphDirections
 import com.example.swiftshare.R
 import kotlin.Int
 import kotlin.String
@@ -23,5 +24,11 @@ public class TransferHistoryFragmentDirections private constructor() {
   public companion object {
     public fun actionTransferHistoryToHistoryDetail(sessionId: String = ""): NavDirections =
         ActionTransferHistoryToHistoryDetail(sessionId)
+
+    public fun actionGlobalActiveTransferDetail(): NavDirections =
+        HistoryGraphDirections.actionGlobalActiveTransferDetail()
+
+    public fun actionGlobalCompletion(): NavDirections =
+        HistoryGraphDirections.actionGlobalCompletion()
   }
 }

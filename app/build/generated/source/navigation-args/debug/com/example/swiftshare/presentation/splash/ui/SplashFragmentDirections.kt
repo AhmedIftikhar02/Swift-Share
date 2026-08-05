@@ -2,6 +2,7 @@ package com.example.swiftshare.presentation.splash.ui
 
 import androidx.navigation.ActionOnlyNavDirections
 import androidx.navigation.NavDirections
+import com.example.swiftshare.NavGraphDirections
 import com.example.swiftshare.R
 
 public class SplashFragmentDirections private constructor() {
@@ -11,5 +12,10 @@ public class SplashFragmentDirections private constructor() {
 
     public fun actionSplashToDiscoveryGraph(): NavDirections =
         ActionOnlyNavDirections(R.id.action_splash_to_discoveryGraph)
+
+    public fun actionGlobalActiveTransferDetail(): NavDirections =
+        NavGraphDirections.actionGlobalActiveTransferDetail()
+
+    public fun actionGlobalCompletion(): NavDirections = NavGraphDirections.actionGlobalCompletion()
   }
 }

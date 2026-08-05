@@ -25,6 +25,7 @@ interface TransferSessionDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFiles(files: List<FileTransferEntity>)
+
     @Transaction
     suspend fun insertSessionWithFiles(session: TransferSessionEntity, files: List<FileTransferEntity>) {
         insertSession(session)
@@ -41,4 +42,12 @@ interface TransferSessionDao {
 
     @Query("DELETE FROM transfer_sessions WHERE sessionId = :sessionId")
     suspend fun deleteSession(sessionId: String)
+
+    // ===================== Phase 8 =====================
+
+    @Query("SELECT sessionId FROM file_transfers WHERE fileTransferId = :fileTransferId LIMIT 1")
+    suspend fun getSessionIdForFile(fileTransferId: String): String?
+
+    @Query("UPDATE file_transfers SET status = :status, errorCode = :errorCode WHERE fileTransferId = :fileTransferId")
+    suspend fun updateFileStatus(fileTransferId: String, status: String, errorCode: String?)
 }
