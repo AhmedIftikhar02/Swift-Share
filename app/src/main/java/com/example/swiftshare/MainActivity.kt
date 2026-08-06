@@ -5,6 +5,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.swiftshare.base.BaseActivity
 import com.example.swiftshare.databinding.ActivityMainBinding
 import com.example.swiftshare.domain.model.ConnectionEvent

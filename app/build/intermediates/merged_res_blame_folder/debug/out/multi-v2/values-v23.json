@@ -4,7 +4,7 @@
             "outputFile": "com.example.swiftshare.app-mergeDebugResources-2:/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Umer\\.gradle\\caches\\transforms-3\\91dddfbc60ecad7cb94085cdf4a7e2ed\\transformed\\appcompat-1.7.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Umer\\.gradle\\caches\\transforms-4\\1664cb3107056ce2b815548df8dbb8c0\\transformed\\appcompat-1.7.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -15,7 +15,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Umer\\.gradle\\caches\\transforms-3\\fc693e32b72d86fb8f7320ff6599d0f0\\transformed\\material-1.12.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Umer\\.gradle\\caches\\transforms-4\\35095237f63884e7169d2477c4d6e262\\transformed\\material-1.12.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,5,9,13,16,19,22,25,28,32",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -34,7 +34,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Umer\\.gradle\\caches\\transforms-3\\2b5328b7909910ad5d02143c924ca073\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Umer\\.gradle\\caches\\transforms-4\\bd11ac870c48b04c878395e12e436b59\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
